@@ -1,0 +1,499 @@
+/* AB模版网 做最好的织梦整站模板下载网站 */
+/* 网址：Www.AdminBuy.Cn */
+/* 图标大全：Sc.AdminBuy.Cn 专业建站素材网站 */
+/* QQ：9490489 */
+.header {
+	max-width: 1170px;
+	overflow: auto;
+}
+.header .language a {
+	color: #333;
+	padding: 3px 10px;
+	text-decoration: none;
+}
+.header .language a.active {
+	background: #1A76B9;
+	color: #fff;
+}
+.menu {
+	max-width: 1170px;
+	height: auto;
+}
+.red {
+	color: red;
+}
+.tel img {
+	margin-top: 32px;
+}
+.uk-container-center {
+	max-width: 1200px;
+	padding: 0 15px;
+}
+.uk-navbar {
+	background: #1A76B9;
+}
+.uk-navbar-nav > li > a {
+	display: block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	text-decoration: none;
+	/* 1 */
+
+	height: 48px;
+	padding: 0 35px;
+	line-height: 48px;
+	/* 2 */
+
+	color: #fff;
+	font-size: 14px;
+	font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	margin-top: -1px;
+	margin-left: -1px;
+	border: 1px solid transparent;
+	border-bottom-width: 0;
+}
+.uk-navbar-nav > li > a > span {
+	color: #78A4CE;
+}
+.uk-navbar-nav > li.uk-active > a {
+	background-color: #F28B28;
+	color: #fff;
+}
+.uk-navbar-nav > li:hover > a,  .uk-navbar-nav > li > a:focus,  .uk-navbar-nav > li.uk-open > a {
+	background-color: #F28B28;
+	color: #fff;
+	/* 3 */
+
+	outline: none;
+}
+.uk-navbar-nav > li.uk-active > a > span {
+	color: #fff;
+}
+.uk-navbar-nav > li:hover > a > span,  .uk-navbar-nav > li > a:focus > span,  .uk-navbar-nav > li.uk-open > a > span {
+	color: #fff;
+}
+/**手机导航**/
+
+.mobile-nav {
+	height: 37px;
+	line-height: 37px;
+	color: #fff;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.mobile-nav i:hover {
+	color: #F28B28;
+	cursor: pointer;
+}
+.banner {
+	position: relative;
+	padding: 0;
+	width: 100%;
+	overflow: auto;
+	text-align: center;
+}
+.banner ul {
+	list-style: none;
+	padding: 0;
+}
+.banner ul li {
+	display: block;
+	padding: 0;
+	float: left;
+}
+.banner .btn, .banner .dot {
+	-webkit-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .3));
+	-moz-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .3));
+	-ms-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .3));
+	-o-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .3));
+	filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .3));
+}
+.banner .dots {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 20px;
+}
+.banner .dots li {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: 0 4px;
+	text-indent: -999em;
+	border: 2px solid #fff;
+	border-radius: 6px;
+	cursor: pointer;
+	opacity: .4;
+	-webkit-transition: background .5s, opacity .5s;
+	-moz-transition: background .5s, opacity .5s;
+	transition: background .5s, opacity .5s;
+}
+.banner .dots li.active {
+	background: #fff;
+	opacity: 1;
+}
+.banner .arrows {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	color: #fff;
+}
+.banner .arrow {
+	display: inline;
+	padding-left: 10px;
+	cursor: pointer;
+}
+/*首页产品*/
+
+.index-pro {
+	margin-top: 50px;
+}
+.index-pro .h3-title {
+	font-size: 22px;
+	color: #ccc;
+	margin-bottom: 20px;
+}
+.index-pro .h3-title span {
+	font-size: 18px;
+	color: #333;
+	font-weight: bold;
+}
+.pro-box {
+	border-bottom: #333 1px solid;
+	padding-bottom: 10px;
+	border-top: #fff 3px solid;
+	border-left: #fff 3px solid;
+	border-right: #fff 3px solid;
+}
+.pro-box .pro-title {
+	font-size: 16px;
+	color: #333;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 6px;
+}
+.pro-box p {
+	color: #999;
+	text-align: center;
+	font-size: 14px;
+	margin: 6px 15px;
+}
+.pro-box:hover .pro-title {
+	color: #FF9127;
+}
+.pro-box:hover p {
+	color: #fff;
+}
+.pro-box:hover {
+	background: #1076C0;
+	border-top: #1076C0 3px solid;
+	border-left: #1076C0 3px solid;
+	border-right: #1076C0 3px solid;
+	border-bottom: #1076C0 1px solid;
+}
+/*关于我们*/
+
+.about-container {
+	border-top: #E6E6E6 4px solid;
+	background: #F2F2F2;
+	margin-top: 50px;
+	overflow: hidden;
+}
+.about-pic {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.about-box {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.about-box .h3-title {
+	font-size: 22px;
+	color: #ccc;
+	margin-bottom: 10px;
+	border-bottom: #ccc 1px solid;
+	padding-bottom: 6px;
+}
+.about-content a {
+	color: #666;
+	text-decoration: none;
+}
+/**news**/
+
+.news-container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.news-container .h3-title {
+	font-size: 22px;
+	color: #ccc;
+	margin-bottom: 20px;
+}
+.news-container .h3-title span {
+	font-size: 18px;
+	color: #333;
+	font-weight: bold;
+}
+.news-container h4 a {
+	font-size: 15px;
+	color: #666;
+	font-weight: bold;
+}
+.n-date {
+	font-size: 12px;
+	color: #999;
+	background: url(../style/edit.jpg) no-repeat;
+	padding-left: 22px;
+}
+.news-container p {
+	font-size: 12px;
+	color: #666;
+}
+.n-info p a {
+	color: #666;
+	text-decoration: none;
+}
+/*foot*/
+
+.footer-container {
+	background: #F2F2F2;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.footer dl {
+	min-height: 138px;
+}
+.footer dl dt {
+	background: url(../style/fdot.jpg) no-repeat 4px;
+	padding-left: 18px;
+	font-weight: 100;
+}
+.footer dl dt a {
+	color: #333;
+}
+.footer dl dd {
+	margin-left: 18px;
+}
+.footer dl dd a {
+	font-size: 12px;
+	color: #999;
+}
+address {
+	color: #999;
+	font-size: 12px;
+}
+.weixin {
+	border-left: #ccc 1px solid;
+}
+.weixin .weicode span {
+	display: block;
+	color: #09c;
+	padding-bottom: 5px;
+}
+.weixin .contact-box {
+	margin-top: 40px;
+}
+.bottom_container {
+	background: #686A6C;
+	min-height: 46px;
+	line-height: 46px;
+	color: #C7C7C8;
+}
+.nav-sub {
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.pro-page .uk-grid > div {
+	margin-bottom: 40px;
+}
+.pro-page {
+	margin-bottom: 40px;
+}
+.sub-nav {
+	margin: 20px auto;
+}
+.sub-nav a {
+	display: inline-block;
+	background: #ECECEC;
+	font-size: 14px;
+	color: #666;
+	padding: 14px 66px;
+	text-decoration: none;
+}
+.sub-nav a.sub-active {
+	background: #484C52;
+	color: #fff;
+}
+.sub-nav a:hover {
+	background: #484C52;
+	color: #fff;
+}
+.breadcrumb {
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+.pro-slideshow {
+	border: #ECECEC 1px solid;
+}
+.article-info {
+	margin: 20px;
+}
+.article-info h2 {
+	color: #0077DD;
+}
+.product-info {
+	margin-bottom: 50px;
+}
+.bkf1 {
+	background: #f1f1f1;
+}
+/** 选项卡**/
+
+.tabs-title {
+	position: relative;
+	margin-bottom: 0;
+	margin-left: 0;
+	padding-left: 0;
+	height: 34px;
+}
+.tabs-title li {
+	list-style: none;
+	float: left;
+	background: #484C52;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	margin-right: 10px;
+}
+.tabs-title li a {
+	color: #f1f1f1;
+	text-decoration: none;
+}
+.tabs-title li.uk-active {
+	background: #fff;
+	color: #333;
+	border-top: #ccc 1px solid;
+	border-left: #ccc 1px solid;
+	border-right: #ccc 1px solid;
+}
+.tabs-title li.uk-active a {
+	color: #333;
+}
+.tabs-content {
+	padding: 15px;
+	border: #ccc 1px solid;
+	margin-top: -1px;
+	margin-bottom: 50px;
+}
+.new-pic-box {
+	position: relative;
+}
+.new-pic-caption {
+	position: absolute;
+	bottom: 0;
+	height: 50px;
+	line-height: 50px;
+	color: #fff;
+	background: rgba(0,0,0,.4);
+	width: 100%;
+}
+.new-pic-caption span {
+	margin-left: 15px;
+}
+.pic-news {
+	margin-bottom: 50px;
+}
+.newslist h4 a {
+	font-size: 15px;
+	color: #666;
+	font-weight: bold;
+}
+.newslist p {
+	font-size: 12px;
+	color: #666;
+}
+.newslist .newslist-box {
+	margin-bottom: 15px;
+}
+.article-body .article-title {
+	border-bottom: #ccc 1px solid;
+	padding-bottom: 10px;
+}
+.article-body {
+	margin-bottom: 50px;
+}
+.article-body .article-content, .about-page-info {
+	line-height: 26px;
+	color: #666;
+}
+.nextpage {
+	margin-top: 30px;
+	background: #999;
+	height: 38px;
+	line-height: 38px;
+	color: #fff;
+}
+.nextpage a {
+	color: #fff;
+	text-decoration: none;
+}
+.goback {
+	display: block;
+	background: #F28B28;
+	text-align: center;
+	border-right: #fff 4px solid;
+}
+.about-page-info {
+	background: url(../style/dhs.jpg) no-repeat top left;
+	margin-top: -40px;
+}
+.scroll-box {
+	background: #ECECEC;
+	padding: 25px;
+}
+.content-1 {
+	height: 366px;
+	overflow: hidden;
+}
+.contact-content {
+	
+	margin-left: 30px;
+}
+.contact-content p {
+	margin-bottom: 28px;
+	padding-left: 34px;
+}
+.hb-form-bg {
+	background: #efefef;
+	border: #E6E6E6 1px solid;
+}
+.hb-form {
+	margin: 35px;
+}
+.hb-form input {
+	width: 100%;
+}
+.hb-form label {
+	color: #757575;
+}
+.hb-form textarea {
+	width: 100%;
+}
+.newslist {
+	overflow: hidden;
+}
+.pages {
+	margin-bottom: 20px;
+}
+.pages ul li {
+	list-style: none;
+	float: left;
+	border: #ccc 1px solid;
+	margin: 0 6px;
+	padding: 3px 10px;
+}
+.pages ul li a {
+	font-size: 12px;
+}

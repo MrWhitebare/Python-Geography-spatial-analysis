@@ -1,0 +1,60 @@
+FCC无线Shapefile的美国主要道路基础层
+
+这些shapefile为您提供了创建，查看，查询和打印自定义地图的工具，这些地图显示了FCC许可数据，管制塔楼和市场区域边界。这些地图在对当前服务进行分析以及对新服务的需求/可行性研究方面非常有帮助。这些shapefile的完整集合可在以下位置下载：
+
+     http://www.mapcruzin.com/free-wireless-gis-maps/free-wireless-gis-maps.htm
+
+使用免费的ArcExplorer GIS程序可以轻松创建地图。您可以在以下位置下载该程序：
+
+     http://www.mapcruzin.com/free-gis-software/arcgis-explorer-arcexplorer.htm
+
+有关使用ArcExplorer制作自己的GIS和使用这些shapefile打印地图的说明，请参见：
+
+     http://www.mapcruzin.com/free-wireless-shapefiles/instructions.htm
+
+我们还为希望了解更多有关GIS基础知识的人员提供免费的Learn2Map GIS教程和地图集。可在以下位置获得：
+
+     http://www.learn2map.com
+
+如果您是初学者，并且想了解有关GIS的更多信息，请访问：
+
+    http://www.mapcruzin.com/what-is-gis.htm
+    
+我们还提供了可在Google Earth中使用的FCC数据。 KMZ数据文件位于：
+     
+     http://www.mapcruzin.com/google-earth-maps-resources/fcc-wireless.htm
+     
+更多免费的美国shapefile可在以下位置获得：
+
+     http://www.mapcruzin.com/download-free-arcgis-shapefiles.htm
+     
+可以在以下位置获得世界shapefile：
+
+     http://www.mapcruzin.com/free-world-country-arcgis-maps-shapefiles.htm
+     
+高分辨率格式的免费地图可在以下位置获得：
+
+     http://www.mapcruzin.com/download-free-maps.htm
+     
+免费的地形图（地形图）位于：
+
+     http://www.mapcruzin.com/free-download-topo-maps.htm
+     
+关于质量，准确性和适用性
+
+ 此数据可能来自各种美国政府和自我报告的私人来源。虽然我们试图确保这种材料的准确性，但我们不能保证它绝对正确。我们保证使用地图图层会很有趣，有趣或具有教育意义。除此之外，我们无法保证其适用于任何目的。对于错误或不准确，我们不承担任何责任。请理解，使用这些地图图层的风险自负。
+ 
+有关隐私权的更多信息，请访问http://www.mapcruzin.com，以访问数据：
+
+     http://www.mapcruzin.com/fairuse.htm
+     
+MapCruzin.com自1996年以来一直在线，提供免费地图，GIS shapefile，软件，资源和教程。如果您需要自定义shapefile或项目，请与我联系。成本非常合理，我们的周转时间也很快。在以下位置了解有关我们服务的更多信息：
+
+     http://www.mapcruzin.com/services.htm
+
+非常感谢您下载此shapefile。希望对您有帮助，并希望收到您的来信
+
+迈克·默瑟（Mike Meuser）
+mike@mapcruzin.com
+http://www.mapcruzin.com
+http://www.learn2map.com

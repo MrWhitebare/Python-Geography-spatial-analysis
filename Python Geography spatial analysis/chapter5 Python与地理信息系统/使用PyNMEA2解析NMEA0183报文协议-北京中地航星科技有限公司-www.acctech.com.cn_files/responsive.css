@@ -1,0 +1,63 @@
+/* AB模版网 做最好的织梦整站模板下载网站 */
+/* 网址：Www.AdminBuy.Cn */
+/* 图标大全：Sc.AdminBuy.Cn 专业建站素材网站 */
+/* QQ：9490489 */
+@media (max-width:1920px) {
+.tabs-title li {
+	width: 190px;
+}
+.header {
+	min-height: 100px;
+}
+.header .logo {
+	display: block;
+	margin-top: 20px;
+}
+.header .language {
+	margin-top: 35px;
+}
+.sub-nav a {
+	padding: 14px 66px;
+}
+.bottom_container {
+	min-height: 46px;
+	line-height: 46px;
+}
+}
+ @media (max-width:1200px) {
+}
+ @media (max-width:1120px) {
+}
+ @media (max-width:991px) {
+.tabs-title li {
+	width: 120px;
+}
+}
+ @media (max-width: 768px) {
+.banner ul li {
+	min-height: 150px;
+}
+.header {
+	min-height: 70px;
+}
+.header .logo {
+	display: block;
+	margin-top: 10px;
+}
+.header .language {
+	margin-top: 25px;
+}
+.sub-nav a {
+	padding: 10px 22px;
+}
+.bottom_container {
+	min-height: 18px;
+	line-height: 18px;
+	font-size: 12px;
+}
+}
+ @media (max-width:468px) {
+.tabs-title li {
+	width: 90px;
+}
+}

@@ -1,0 +1,223 @@
+/*
+ * Movable Type Ltd general stylesheet
+ * - expects normalize.css, base.css, eb-garamond/stylesheet.css to be loaded within HTML pages
+ *   (more efficient than using @import)
+ */
+
+body {
+    margin: 1em;
+    max-width: 72em;
+    padding-left: 120px; /* left margin: note margin-left won't work in IE */
+    padding-right: 12px;
+    hyphens: auto; -ms-hyphens: auto; -moz-hyphens: auto; -webkit-hyphens: auto;
+    -ms-hyphenate-limit-chars: 6 4 2; -moz-hyphenate-limit-chars: 6 4 2; -webkit-hyphenate-limit-chars: 6 4 2;
+    -ms-hyphenate-limit-lines: 2; -moz-hyphenate-limit-lines: 2; -webkit-hyphenate-limit-lines: 2;
+}
+
+/* header */
+header,         .header         { max-width: 64em; /* margin-left: -120px; */ }
+header hr,      .header hr      { margin-top: -1.2em; }
+header img,     .header img     { float: left; margin-left: -120px; }
+header a:hover, .header a:hover { text-decoration: none; /* don't want underlines appearing here */ }
+
+/* footer */
+footer, .footer { border-top: 1px solid #cccccc; color: #999999; margin-left: -120px; margin-top: 4em; }
+
+h1 {  /* page title */
+    font: italic 4em ebGaramond, Garamond, "Times New Roman", Times, serif;
+    hyphens: manual; -ms-hyphens: manual; -moz-hyphens: manual; -webkit-hyphens: manual;
+    margin-top:    0;
+    margin-bottom: 0;
+}
+
+h2 {  /* section / sub-head */
+    color: #333333;
+    font: 2.5em Impact, Tahoma, Arial, Helvetica, sans-serif;
+    hyphens: manual; -ms-hyphens: manual; -moz-hyphens: manual; -webkit-hyphens: manual;
+    text-align: right;
+}
+
+h3 {  /* top-level 'content' header */
+    color: black;
+    font-size: 1.2em;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+h4 {  /* second-level 'content' header (not currently used?) */
+    font-size: 0.95em;
+    font-style: normal;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+p {
+    margin-top:    0.8em;
+    margin-bottom: 0.8em;
+}
+
+p, td  {
+    max-width:     64em; /* no one wants to read longer lines than that! */
+    /* whether it's better to have max-width on <p> or on <body> depends on page design... */
+}
+li {
+    max-width: 60em; /* shorter to allow for margin */
+}
+
+p, li, dd {
+    text-align: justify;
+}
+dt { text-align: left; }
+
+ul { list-style: outside disc url(../images/listbullet.gif); }
+
+
+form {
+    max-width: 64em;  /* default to adjust as appropriate */
+}
+legend {
+    color: #666666;
+    font-style: italic;
+}
+input, textarea    { border: 1px solid #999999; font: 1em Arial, Helvetica, sans-serif; }
+
+dt              { clear: left; float: left; font-weight: bold; width: 20%; }
+dd              { margin-left: 20%; }
+
+dd, dt          { padding-top: 1.5em; }
+
+dl dl dt        { text-indent: -1em; width: 33%; }
+dl dl dt:before { content: url(../images/listbullet.gif); }
+dl dl dd        { font-style: italic; margin-left: 33%; text-align: left; }
+
+hr {
+    background: #cccccc;
+    border: 0;
+    color: #cccccc;
+    height: 2px;
+    margin-top: 2em;
+}
+hr.fullwidth {  /* rule running into margin */
+    margin-left: -120px;
+}
+
+a, a:link, a:visited {
+    color: #993300;  /* brick red */
+}
+a:hover {
+    color: #333333;
+}
+a img {
+    border: 0;
+}
+
+/* over-ride 'a' when inside h2 */
+h2 a, h2 a:link, h2 a:visited {
+    color: #333333;
+    font-weight: normal;
+}
+h2 a:hover {
+    text-decoration: underline;
+}
+
+.margin {
+    margin-left: -150px;
+}
+
+tr.tableRule td {
+    border-top: 2px solid #CCCCCC;
+}
+
+/* projects pages */
+
+/* project pages have logo in margin */
+.project-logo { float: left; margin-left: -120px; }
+
+/* scripts pages */
+
+aside {
+    border-top: 4px solid #cccccc;
+    border-bottom: 4px solid #cccccc;
+    float: right;
+    font-size: 0.85em;
+    line-height: 1.4;
+    margin-left: 1em;
+    padding: 0.5em;
+}
+
+input, textarea { background-color: #fcfcfc; }
+
+/* reset prettyprint defaults */
+pre.prettyprint { border: none; font-size: 0.8em; padding: 0; }
+
+pre {
+    font: 0.8em "Andale Mono", "Lucida Console", Consolas, "Letter Gothic", Courier, monospace;
+    line-height: 1.4;
+}
+pre.fullwidth, p.fullwidth {  /* use margin to get full width of page */
+    margin-left: -80px;
+}
+pre.fullwidth { /* left rule */
+    border-left: 4px solid #cccccc; padding: 0 1em;
+}
+pre.margin-l-1cm {
+    margin-left: 1cm;
+}
+
+.formula {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.2em;
+}
+.radicand {
+    border-top: solid 1px #cccccc;
+}
+
+.note {
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+code, .code { /* in-line code frags */
+    font-family: "Andale Mono", "Lucida Console", Consolas, "Letter Gothic", Courier, monospace;
+    font-size: 0.9em;
+}
+
+/* validation */
+label.error       { color: #990000; font-style: italic; margin-left: 1em; }
+input.error       { border: 1px dotted #990000; }
+
+span.rtl { /* obfuscate email */
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    white-space: nowrap;
+}
+
+.ie8- {
+    border: 1px solid #990000; color:#990000; font-weight: bold; margin: 1em 0 1em 0; padding: 1em; text-align: center;
+}
+
+/* suppress left margin for printing */
+@media print {
+    body                    { padding-left: 0; }
+    header, .header         { margin-left: 0; }
+    header img, .header img { display: none; }
+    pre.fullwidth           { margin-left: 0; }
+    footer, .footer         { margin-left: 0; }
+}
+
+/* suppress chrome/safari spin buttons: http://stackoverflow.com/questions/3790935/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} */
+
+@media screen and (max-width: 800px) { /* remove left margin, float MTL logo to right */
+    body { padding-left: 10px; }
+    header { margin-left: 0; }
+    header img { float: right; margin-top: 0; max-width: 60px; }
+    header hr { margin-top: 0.1em; }
+    h1 { font-size: 3.0em; line-height: 0.8; padding-right: 60px; }
+    h2 { font-size: 2.0em; }
+    pre.fullwidth { margin-left: 0; }
+}

@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://www.cnblogs.com/my-love-is-python/p/10221374.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin">
+    <meta property="og:description" content="1.概述 1.np.array() # 将列表转换为数组 2..shape # 打印矩阵的维度, 也可以使用np.shape 2.array 结构 3.dtype 打印数组的数据类型 4. .item">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>np归纳总结(全)第一天 - python我的最爱 - 博客园</title>
+    
+    <link rel="stylesheet" href="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/blog-common.min.css">
+    <link id="MainCss" rel="stylesheet" href="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/bundle-arrow.min.css">
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/bundle-arrow-mobile.min.css">
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/my-love-is-python/rss">
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/my-love-is-python/rsd.xml">
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/my-love-is-python/wlwmanifest.xml">
+    <script src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/amp4ads-host-v0.js.下载"></script><script src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/pubads_impl_rendering_2020013001.js.下载"></script><script async="" src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/encoder.js.下载"></script><script src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+    <script src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/blog-common.min.js.下载"></script>
+    <script>
+        var currentBlogId = 431639;
+        var currentBlogApp = 'my-love-is-python';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+    </script>
+    
+    
+    
+<link rel="preload" href="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/f.txt" as="script"><script type="text/javascript" src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/f.txt"></script><script src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/pubads_impl_2020013001.js.下载" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-37/html/container.html"></head>
+<body>
+    <a name="top"></a>
+    
+    <!--done-->
+<div id="header">
+	
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/my-love-is-python/">python我的最爱</a>
+<br>
+		
+当前要发布的内容是吴恩达老师的视频讲解的内容，内容真的很棒，一天一更
+
+	</div>
+</div>
+
+
+</div>
+<div id="mylinks">
+<!--done-->
+<a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+&nbsp;&nbsp;&nbsp;
+
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/my-love-is-python/">
+首页</a>
+&nbsp;&nbsp;&nbsp;
+
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+&nbsp;&nbsp;&nbsp;
+
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/python%E6%88%91%E7%9A%84%E6%9C%80%E7%88%B1">
+联系</a>&nbsp;&nbsp;&nbsp;
+
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/my-love-is-python/rss/">
+订阅</a>
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/my-love-is-python/rss/">
+    <img src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/xml.gif" alt="订阅">
+</a>&nbsp;&nbsp;&nbsp;
+
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+
+
+</div>
+<div id="mytopmenu">
+	
+		<div class="blogStats">随笔 - 
+364&nbsp;
+文章 - 
+0&nbsp;评论 - 
+10&nbsp;trackbacks - 
+0
+</div>
+
+
+	
+</div>
+<div id="leftcontent">
+	
+		<div id="leftcontentcontainer">
+			<div id="blog-calendar" style="">
+
+<table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar" border="0">
+    <tbody>
+        <tr>
+            <td colspan="7">
+                <table class="CalTitle" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2020/01/11&#39;); return false;">&lt;</a>
+                            </td>
+                            <td align="center">2020年2月</td>
+                            <td align="right" class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2020/03/11&#39;); return false;">&gt;</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+                    <th class="CalDayHeader" align="center" abbr="日" scope="col">日</th>
+                    <th class="CalDayHeader" align="center" abbr="一" scope="col">一</th>
+                    <th class="CalDayHeader" align="center" abbr="二" scope="col">二</th>
+                    <th class="CalDayHeader" align="center" abbr="三" scope="col">三</th>
+                    <th class="CalDayHeader" align="center" abbr="四" scope="col">四</th>
+                    <th class="CalDayHeader" align="center" abbr="五" scope="col">五</th>
+                    <th class="CalDayHeader" align="center" abbr="六" scope="col">六</th>
+        </tr>
+            <tr>
+                            <td class="CalOtherMonthDay" align="center">26</td>
+                            <td class="CalOtherMonthDay" align="center">27</td>
+                            <td class="CalOtherMonthDay" align="center">28</td>
+                            <td class="CalOtherMonthDay" align="center">29</td>
+                            <td class="CalOtherMonthDay" align="center">30</td>
+                            <td class="CalOtherMonthDay" align="center">31</td>
+                    <td class="CalWeekendDay" align="center">
+                        1
+                    </td>
+            </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            2
+                        </td>
+                            <td class="" align="center">
+                                3
+                            </td>
+                            <td class="" align="center">
+                                4
+                            </td>
+                            <td class="" align="center">
+                                5
+                            </td>
+                            <td class="" align="center">
+                                6
+                            </td>
+                            <td class="" align="center">
+                                7
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            8
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            9
+                        </td>
+                            <td class="" align="center">
+                                10
+                            </td>
+                            <td class="CalTodayDay" align="center">
+                                11
+                            </td>
+                            <td class="" align="center">
+                                12
+                            </td>
+                            <td class="" align="center">
+                                13
+                            </td>
+                            <td class="" align="center">
+                                14
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            15
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            16
+                        </td>
+                            <td class="" align="center">
+                                17
+                            </td>
+                            <td class="" align="center">
+                                18
+                            </td>
+                            <td class="" align="center">
+                                19
+                            </td>
+                            <td class="" align="center">
+                                20
+                            </td>
+                            <td class="" align="center">
+                                21
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            22
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            23
+                        </td>
+                            <td class="" align="center">
+                                24
+                            </td>
+                            <td class="" align="center">
+                                25
+                            </td>
+                            <td class="" align="center">
+                                26
+                            </td>
+                            <td class="" align="center">
+                                27
+                            </td>
+                            <td class="" align="center">
+                                28
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            29
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalOtherMonthDay" align="center">
+                            1
+                        </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                2
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                3
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                4
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                5
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                6
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            7
+                        </td>
+                </tr>
+    </tbody>
+</table></div><script>loadBlogDefaultCalendar();</script><br>
+			
+<div id="sidebar_news" class="newsItem"><!--done-->
+<div class="newsItem">
+	
+<div id="blog-news">
+    
+    <div id="profile_block">
+        昵称：
+        <a href="https://home.cnblogs.com/u/my-love-is-python/">
+            python我的最爱
+        </a>
+        <br>
+        园龄：
+        <a href="https://home.cnblogs.com/u/my-love-is-python/" title="入园时间：2018-05-08">
+            1年9个月
+        </a>
+        <br>
+        粉丝：
+        <a href="https://home.cnblogs.com/u/my-love-is-python/followers/">
+            51
+        </a>
+        <br>
+        关注：
+        <a href="https://home.cnblogs.com/u/my-love-is-python/followees/">
+            1
+        </a>
+        <div id="p_b_follow">
+<a href="javascript:void(0)" onclick="follow(&#39;ced4e04c-8b31-4360-6be5-08d5b4cfbe1d&#39;)">+加关注</a></div>
+        <script>getFollowStatus('ced4e04c-8b31-4360-6be5-08d5b4cfbe1d');</script>
+    </div>
+</div>
+</div>
+
+</div>
+
+			<div id="blog-sidecolumn">
+<!-- 搜索 -->
+<div id="sidebar_search" class="sidebar-block">
+    <div id="sidebar_search" class="mySearch">
+        <h3 class="catListTitle">搜索</h3>
+        <div id="sidebar_search_box">
+            <div id="widget_my_zzk" class="div_my_zzk">
+                <input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk">
+            </div>
+            <div id="widget_my_google" class="div_my_zzk">
+                <input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 常用链接 -->
+<div id="sidebar_shortcut" class="sidebar-block">
+    
+<h3 class="catListTitle">
+常用链接
+</h3>
+<ul>
+        <li>
+
+<a href="https://www.cnblogs.com/my-love-is-python/p/" title="我的博客的随笔列表">我的随笔</a>
+</li>
+        <li>
+
+<a href="https://www.cnblogs.com/my-love-is-python/MyComments.html" title="我的发表过的评论列表">我的评论</a>
+</li>
+        <li>
+
+<a href="https://www.cnblogs.com/my-love-is-python/OtherPosts.html" title="我评论过的随笔列表">我的参与</a>
+</li>
+        <li>
+
+<a href="https://www.cnblogs.com/my-love-is-python/RecentComments.html" title="我的博客的评论列表">最新评论</a>
+</li>
+        <li>
+
+<a href="https://www.cnblogs.com/my-love-is-python/tag/" title="我的博客的标签列表">我的标签</a>
+</li>
+</ul>
+
+<!-- TODO: 检查是否有使用这一部分的控件，如果没有则应该删除。 -->
+<div id="itemListLin_con" style="display:none">
+    <ul>
+
+    </ul>
+</div>
+
+</div>
+
+<!-- 最新随笔 -->
+
+
+
+<!-- 我的标签 -->
+<div id="sidebar_toptags" class="sidebar-block">
+    
+</div>
+
+<!-- 积分与排名 -->
+<div id="sidebar_scorerank" class="sidebar-block">
+    <h3>积分与排名</h3>
+<ul>
+    <li>
+        积分 - 
+104115
+    </li>
+    <li>
+        排名 - 
+5884
+    </li>
+</ul>
+</div>
+
+<!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
+<div id="sidebar_categories">
+    
+<!--done-->
+		<h1 class="catListTitle">
+
+随笔分类
+
+
+</h1>
+				<ul class="catList">
+			
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/category/1248490.html" rel="" target="">
+    HTML(71)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/category/1308248.html" rel="" target="">
+    opencv(35)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/category/1279072.html" rel="" target="">
+    python基础(64)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/category/1290519.html" rel="" target="">
+    tensorflow(14)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/category/1573530.html" rel="" target="">
+    torch学习入门(8)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/category/1481805.html" rel="" target="">
+    模型的各部分(14)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/category/1491380.html" rel="" target="">
+    目标检测算法(4)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/category/1527635.html" rel="" target="">
+    爬虫(1)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/category/1274379.html" rel="" target="">
+    培训(10)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/category/1282551.html" rel="" target="">
+    数据分析(28)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/category/1264759.html" rel="" target="">
+    数据库(3)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/category/1233687.html" rel="" target="">
+    网络传输
+</a>
+
+</li>
+			
+				</ul>
+		<h1 class="catListTitle">
+
+随笔档案
+
+
+</h1>
+				<ul class="catList">
+			
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2019/12.html" rel="" target="">
+    2019年12月(6)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2019/10.html" rel="" target="">
+    2019年10月(10)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2019/09.html" rel="" target="">
+    2019年9月(6)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2019/08.html" rel="" target="">
+    2019年8月(7)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2019/07.html" rel="" target="">
+    2019年7月(5)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2019/06.html" rel="" target="">
+    2019年6月(8)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2019/05.html" rel="" target="">
+    2019年5月(1)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2019/04.html" rel="" target="">
+    2019年4月(6)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2019/03.html" rel="" target="">
+    2019年3月(37)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2019/02.html" rel="" target="">
+    2019年2月(34)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2019/01.html" rel="" target="">
+    2019年1月(62)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2018/12.html" rel="" target="">
+    2018年12月(5)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2018/11.html" rel="" target="">
+    2018年11月(2)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2018/10.html" rel="" target="">
+    2018年10月(10)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2018/09.html" rel="" target="">
+    2018年9月(14)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2018/08.html" rel="" target="">
+    2018年8月(28)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2018/07.html" rel="" target="">
+    2018年7月(72)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2018/06.html" rel="" target="">
+    2018年6月(22)
+</a>
+
+</li>
+				<li class="catListItem"> 
+<a href="https://www.cnblogs.com/my-love-is-python/archive/2018/05.html" rel="" target="">
+    2018年5月(29)
+</a>
+
+</li>
+			
+				</ul>
+
+
+</div>
+
+<!-- 最新评论 -->
+<div id="sidebar_recentcomments" class="sidebar-block">
+    <div id="recent_comments_wrap" class="RecentComment">
+    <h3 class="catListTitle">最新评论</h3>
+    <div class="RecentCommentBlock">
+        <ul>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/my-love-is-python/p/10391923.html#4442522">1. Re:机器学习进阶-阈值与平滑-图像平滑操作(去噪操作) 1. cv2.blur(均值滤波)  2.cv2.boxfilter(方框滤波)  3. cv2.Guassiannblur(进行高斯滤波)  4. cv2.medianBlur(进行中值滤波)</a></li>
+                    <li class="recent_comment_body">请教下： 貌似中值滤波用的矩阵是方阵，而对高斯滤波、均值滤波等，可以用长方形矩阵？？ 因为我尝试了下python的OpenCV方法，发现除了中值滤波的ksize可以用一个数字表示，其余的滤波器均需要用...</li>
+                    <li class="recent_comment_author">--老笨啊</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/my-love-is-python/p/10817205.html#4439232">2. Re:RGB-D显著性突出物体(学习)</a></li>
+                    <li class="recent_comment_body">你好，作者给的github上的显著性检测的代码，没有训练过程，这部分代码是自己写的么？文章中的【read_data 读取一个batch_size的数据】read_data以什么后缀命名呢？</li>
+                    <li class="recent_comment_author">--独脚行</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/my-love-is-python/p/10541030.html#4408532">3. Re:深度学习原理与框架-猫狗图像识别-卷积神经网络(代码) 1.cv2.resize(图片压缩) 2..get_shape()[1:4].num_elements(获得最后三维度之和) 3.saver.save(训练参数的保存) 4.tf.train.import_meta_graph(加载模型结构) 5.saver.restore(训练参数载入)</a></li>
+                    <li class="recent_comment_body">哥你有数据集吗，可以发一份吗。万分感谢！QQ邮箱1120304227@qq.com</li>
+                    <li class="recent_comment_author">--东隅已逝3959</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/my-love-is-python/p/10313246.html#4306938">4. Re:机器学习入门-随机森林温度预测-增加样本数据 1.sns.pairplot(画出两个关系的散点图) 2.MAE(平均绝对误差) 3.MAPE(准确率指标)</a></li>
+                    <li class="recent_comment_body">你好，有数据集提供下载吗？</li>
+                    <li class="recent_comment_author">--ziyuezhang</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/my-love-is-python/p/10414135.html#4294295">5. Re:机器学习进阶-图像特征sift-SIFT特征点  1.cv2.xfeatures2d.SIFT_create(实例化sift)  2. sift.detect(找出关键点) 3.cv2.drawKeypoints(画出关键点)  4.sift.compute(根据关键点计算sift向量)</a></li>
+                    <li class="recent_comment_body">你好，麻烦问一下，博主的视频是哪里的？想学习一下。望告知，谢谢！</li>
+                    <li class="recent_comment_author">--机智的小学生</li>
+        </ul>
+    </div>
+</div>
+</div>
+
+
+
+<!-- 阅读排行榜 -->
+<div id="sidebar_topviewedposts" class="sidebar-block">
+    
+<div id="topview_posts_wrap">
+    <h3 class="catListTitle">阅读排行榜</h3>
+    <div id="TopViewPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/my-love-is-python/p/10403203.html">
+                            1. 机器学习进阶-图像金字塔与轮廓检测-模板匹配（单目标匹配和多目标匹配）1.cv2.matchTemplate(进行模板匹配)  2.cv2.minMaxLoc(找出矩阵最大值和最小值的位置(x,y)) 3.cv2.rectangle(在图像上画矩形)(9391)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/my-love-is-python/p/10391923.html">
+                            2. 机器学习进阶-阈值与平滑-图像平滑操作(去噪操作) 1. cv2.blur(均值滤波)  2.cv2.boxfilter(方框滤波)  3. cv2.Guassiannblur(进行高斯滤波)  4. cv2.medianBlur(进行中值滤波)(5505)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/my-love-is-python/p/10402396.html">
+                            3. 机器学习进阶-图像金字塔与轮廓检测-轮廓检测  1.cv2.cvtColor(图像颜色转换)  2.cv2.findContours(找出图像的轮廓) 3.cv2.drawContours(画出图像轮廓) 4.cv2.contourArea(轮廓面积) 5.cv2.arcLength(轮廓周长) 6.cv2.aprroxPloyDP(获得轮廓近似) 7.cv2.boudingrect(外接圆)..(4855)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/my-love-is-python/p/10394908.html">
+                            4. 机器学习进阶-图像形态学操作-膨胀操作 1.cv2.dilate(进行膨胀操作)(4080)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/my-love-is-python/p/10959612.html">
+                            5. 图片旋转  1. cv2.getRotationMatrix2D(获得仿射变化矩阵)  2. cv2.warpAffine(进行仿射变化)(3261)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+</div>
+
+<!-- 评论排行榜 -->
+<div id="sidebar_topcommentedposts" class="sidebar-block">
+    
+<div id="topfeedback_posts_wrap">
+    <h3 class="catListTitle">评论排行榜</h3>
+    <div id="TopFeedbackPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/my-love-is-python/p/10514200.html">
+                            1. 深度学习原理与框架-卷积神经网络-cifar10分类(图片分类代码)  1.数据读入 2.模型构建  3.模型参数训练(4)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/my-love-is-python/p/10541030.html">
+                            2. 深度学习原理与框架-猫狗图像识别-卷积神经网络(代码) 1.cv2.resize(图片压缩) 2..get_shape()[1:4].num_elements(获得最后三维度之和) 3.saver.save(训练参数的保存) 4.tf.train.import_meta_graph(加载模型结构) 5.saver.restore(训练参数载入)(1)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/my-love-is-python/p/10817205.html">
+                            3. RGB-D显著性突出物体(学习)(1)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/my-love-is-python/p/10221374.html">
+                            4. np归纳总结(全)第一天(1)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/my-love-is-python/p/10313246.html">
+                            5. 机器学习入门-随机森林温度预测-增加样本数据 1.sns.pairplot(画出两个关系的散点图) 2.MAE(平均绝对误差) 3.MAPE(准确率指标)(1)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+</div>
+
+<!-- 推荐排行榜 -->
+<div id="sidebar_topdiggedposts" class="sidebar-block">
+    
+<div id="topdigg_posts_wrap">
+    <div class="catListView">
+        <h3 class="catListTitle">推荐排行榜</h3>
+        <div id="TopDiggPostsBlock">
+            <ul style="word-break: break-all">
+                        <li>
+                            <a href="https://www.cnblogs.com/my-love-is-python/p/10414135.html">
+                                1. 机器学习进阶-图像特征sift-SIFT特征点  1.cv2.xfeatures2d.SIFT_create(实例化sift)  2. sift.detect(找出关键点) 3.cv2.drawKeypoints(画出关键点)  4.sift.compute(根据关键点计算sift向量)(2)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/my-love-is-python/p/10514200.html">
+                                2. 深度学习原理与框架-卷积神经网络-cifar10分类(图片分类代码)  1.数据读入 2.模型构建  3.模型参数训练(1)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/my-love-is-python/p/11971525.html">
+                                3. tkinter入门-布局方式pack(), grid(), place() (1)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/my-love-is-python/p/10390279.html">
+                                4. 机器学习进阶-图像基本处理-视频的读取与处理  1.cv2.VideoCapture(视频的载入)  2.vc.isOpened(载入的视频是否可以打开) 3.vc.read(视频中一张图片的读取) 4.cv2.cvtColor(将图片转换为灰度图)(1)
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div></div>
+                    <script>loadBlogSideColumn();</script></div>		
+	
+</div>
+<div id="centercontent">
+	<!--done-->
+<div id="post_detail">
+    <div class="post">
+        <div class="postTitle">
+            <h1>
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/my-love-is-python/p/10221374.html">np归纳总结(全)第一天</a>
+</h1>
+        </div>
+        
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p><span style="font-size: 14pt;">1.概述</span></p>
+<p>1.np.array()&nbsp; # 将列表转换为数组</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> numpy as np
+
+array </span>= [1, 2, 3, 4, 5<span style="color: #000000;">]
+array </span>= np.array(array)</pre>
+</div>
+<p>2..shape&nbsp; # 打印矩阵的维度, 也可以使用np.shape</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> numpy as np
+
+array </span>= [1, 2, 3, 4, 5<span style="color: #000000;">]
+array </span>=<span style="color: #000000;"> np.array(array)
+</span><span style="color: #0000ff;">print</span>(array.shape)</pre>
+</div>
+<p><span style="font-size: 14pt;">2.array 结构</span></p>
+<p>3.dtype 打印数组的数据类型</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> numpy as np 
+tang_array </span>= [1, 2, 3, 4<span style="color: #000000;">]
+tang_array </span>=<span style="color: #000000;"> np.array(tang_array)
+
+</span><span style="color: #0000ff;">print</span>(tang_array.dtype)</pre>
+</div>
+<p>4. .itemsize # 判断数组中每一个数字所占的字节数</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.itemsize)</pre>
+</div>
+<p>5. .size # 打印出数组中的元素个数, 不关心矩阵的维度</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.size)</pre>
+</div>
+<p>6. .ndim # 打印数组中的维度信息</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.ndim)</pre>
+</div>
+<p>7. .fill(0)&nbsp; # 表示对当前数据进行填充，0表示填充的值</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> .fill 对当前数据进行填充</span>
+tang_array = np.array([1, 2<span style="color: #000000;">])
+tang_array.fill(0)
+</span><span style="color: #0000ff;">print</span>(tang_array)</pre>
+</div>
+<p>8. numpy索引与切片</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.array([1, 2, 3, 4<span style="color: #000000;">])
+</span><span style="color: #0000ff;">print</span><span style="color: #000000;">(tang_array[0])
+</span><span style="color: #0000ff;">print</span>(tang_array[-2:])</pre>
+</div>
+<p>9 .copy # 进行浅拷贝</p>
+<div class="cnblogs_code">
+<pre>tang_array2 = tang_array.copy()</pre>
+</div>
+<p>10 .dtype设置数组类型 将列表转换为bool值根据bool值进行取值操作</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.arange(0, 100, 10<span style="color: #000000;">)
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> 将列表转换为Bool值</span>
+bool_array = np.array([1, 0, 0, 1, 1, 1, 1, 0, 0, 0], dtype=<span style="color: #000000;">bool)
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> 根据bool值进行取值</span>
+<span style="color: #0000ff;">print</span>(tang_array[bool_array])</pre>
+</div>
+<p>11.根据大于或者小于获得bool值根据bool值进行取值操作</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.random.rand(10<span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span><span style="color: #000000;">(tang_array)
+bool_array </span>= tang_array &gt; 0.5
+<span style="color: #0000ff;">print</span>(bool_array)</pre>
+</div>
+<p>12. np.where 对bool值进行操作，获得True的索引值</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.random.rand(10<span style="color: #000000;">)
+bool_array </span>= tang_array &gt; 0.5<span style="color: #000000;">
+index </span>=<span style="color: #000000;"> np.where(bool_array)
+</span><span style="color: #0000ff;">print</span><span style="color: #000000;">(index)
+</span><span style="color: #0000ff;">print</span>(tang_array[index])</pre>
+</div>
+<p>13 .ndtype # 输出字节数</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.nbytes)</pre>
+</div>
+<p>14. .astype # 进行数据类型的转换，但是实际数据不发生改变</p>
+<div class="cnblogs_code">
+<pre>tang_array2 =<span style="color: #000000;"> tang_array.astype(np.float32)
+</span><span style="color: #0000ff;">print</span>(tang_array2.dtype)</pre>
+</div>
+<p>15. np.object格式，保存了<span>数据的原来格式</span></p>
+<div class="cnblogs_code">
+<pre>array = np.array([1, 10, 3.5, <span style="color: #800000;">'</span><span style="color: #800000;">str</span><span style="color: #800000;">'</span>], dtype=np.object)</pre>
+</div>
+<p><span style="font-size: 14pt;">3.数值计算</span></p>
+<p>16. .sum(axis=0) # 进行数组的加和操作</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> numpy as np
+
+tang_array </span>= np.array([[1, 2, 3<span style="color: #000000;">],
+                       [</span>4, 5, 6<span style="color: #000000;">]])
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> 对axis=0,进行行与行进行加和</span>
+<span style="color: #0000ff;">print</span>(tang_array.sum(axis=<span style="color: #000000;">0))
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> 进行所有数据的加和</span></pre>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.min(axis=0))</pre>
+</div>
+<pre></pre>
+<p>&nbsp;</p>
+<pre><span style="color: #0000ff;">print</span><span style="color: #000000;">(tang_array.sum())
+</span><span style="color: #0000ff;">print</span>(tang_array.sum(axis=-1))</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>17. .prod(axis=0) # 进行数组之间的乘积操作,axis=0表示行与行之间进行乘积</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.prod(<span style="color: #000000;">))  # 所有元素进行相乘操作</span></pre>
+<pre><span style="color: #0000ff;">print</span>(tang_array.prod(axis=1))</pre>
+</div>
+<p>18. .min(axis=0) 找出数组中数据最小的值，axis=0表示找出每一列的最小值,从上到下的操作</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.min(axis=0))</pre>
+</div>
+<p>19 .max(axis=0) # 找出数组中数据最大值的操作</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.max(axis=0))</pre>
+</div>
+<p>20&nbsp; .argmax(axis=1) # 找出数组中每一行的最大值的位置</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.argmax(axis=1))</pre>
+</div>
+<p>21 .mean(axis=1)&nbsp; # 找出数组中每一行均值的大小</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.mean(axis=1))</pre>
+</div>
+<p>22. std(axis=1) # 求出数组中每一行的标准差</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.std(axis=1))</pre>
+</div>
+<p>23. .var(axis=1) # 求出数组中每一行的方差</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.var(axis=1))</pre>
+</div>
+<p>24. .clip(2, 4)进行数据的范围限制, 小于2的用2表示，大于4的用4表示</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.clip(2, 4))</pre>
+</div>
+<p>25. .round(decimals=1) # 进行四舍五入，decimals表示保留小数点的后几位数</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.array([1.12, 2.12, 3.12, 4.6<span style="color: #000000;">])
+</span><span style="color: #0000ff;">print</span>(tang_array.round(decimals=1))</pre>
+</div>
+<p><span style="font-size: 14pt;">4.排序</span></p>
+<p>26. np.sort(value, axis=0)# 对数据进行排序操作</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> numpy as np
+tang_array </span>= np.array([[1.5, 1.3, 7.5<span style="color: #000000;">],
+                       [</span>5.6, 7.8, 1.2<span style="color: #000000;">]])
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> 对每一列进行排序</span>
+<span style="color: #0000ff;">print</span>(np.sort(tang_array, axis=0))</pre>
+</div>
+<p>27.&nbsp; .argsort(axis=0) # 打印排序后的索引位置</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.argsort(axis=0))</pre>
+</div>
+<p>28. np.linspace(0, 10, 11) # 进行范围的数据拆分</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.linspace(0, 10, 11)</pre>
+</div>
+<p>29. np.searchsorted(tang, value) #&nbsp;将value插入tang_array 返回的是插入后的索引值</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.searchsorted(tang_array, value))</pre>
+</div>
+<p>30. np.lexsort&nbsp; # 指定列队数组进行排序操作</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>tang_array = np.array([[1, 0, 6<span style="color: #000000;">],
+                       [</span>2, 7<span style="color: #000000;">, 0],
+                       [</span>3, 3, 1<span style="color: #000000;">],
+                       [</span>2, 4<span style="color: #000000;">, 0]])
+
+index </span>= np.lexsort([tang_array[:, 2]])</pre>
+<pre>print(tang_array[index])</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-size: 14pt;">&nbsp;5-数组形状</span></p>
+<p>31. np.reshape(value, (2, 5)) # 进行矩阵的维度变化</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.arange(10<span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span><span style="color: #000000;">(tang_array.shape)
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> 通过.shape改变数据的维度</span>
+tang_array.shape = 2, 5
+<span style="color: #0000ff;">print</span>(np.reshape(tang_array, (2, 5<span style="color: #000000;">)))
+</span><span style="color: #0000ff;">print</span>(tang_array)</pre>
+</div>
+<p>32. np.newaxis # 表示增加一个矩阵维度</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> 新增加一个维度 np.newaxis</span>
+tang_array = np.array([[1, 2<span style="color: #000000;">],
+                       [</span>3, 4<span style="color: #000000;">]])
+tang_array </span>=<span style="color: #000000;"> tang_array[:, :, np.newaxis]
+</span><span style="color: #0000ff;">print</span>(tang_array.shape)</pre>
+</div>
+<p>33 .squeeze(axis=3)&nbsp; # 表示指定一个维度进行去除</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(tang_array.squeeze(axis=3).shape)</pre>
+</div>
+<p>34 .transpose() 表示进行转置操作</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.arange(0, 10, 1<span style="color: #000000;">)
+tang_array.shape </span>= 2, 5
+<span style="color: #0000ff;">print</span>(tang_array.transpose())</pre>
+</div>
+<p>&nbsp;35. np.concatenate((a, b), axis=0)&nbsp; # 进行矩阵的串接操作,(a, b)表示需要串接的tuple,axis=0进行上下的串接</p>
+<div class="cnblogs_code">
+<pre>a = np.array([[123, 456, 789], [3234, 456, 134<span style="color: #000000;">]])
+b </span>= np.array([[123, 456, 789], [123, 546, 134<span style="color: #000000;">]])
+c </span>= np.concatenate((a, b), axis=<span style="color: #000000;">0)
+</span><span style="color: #0000ff;">print</span>(c)</pre>
+</div>
+<p>36. np.vstack((a, b)) # 进行矩阵的上下位置上的串接</p>
+<div class="cnblogs_code">
+<pre>c =<span style="color: #000000;"> np.vstack((a, b))
+</span><span style="color: #0000ff;">print</span>(c)</pre>
+</div>
+<p>37. np.hstack((a, b)) # 进行矩阵左右位置上的串接</p>
+<div class="cnblogs_code">
+<pre>c =<span style="color: #000000;"> np.hstack((a, b))
+</span><span style="color: #0000ff;">print</span>(c)</pre>
+</div>
+<p>38. .flatten() # 进行拉平操作,拉成一个维度</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(c.flatten())</pre>
+</div>
+<p>39. .ravel()&nbsp; # 进行拉平操作,也是拉成一个维度</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(c.ravel())</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 14pt;">6-数组生成</span></p>
+<p>40. np.arange(0, 10, 1)&nbsp; &nbsp;# 0表示开始，10表示结束，1表示中间间隔</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> numpy as np
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> 根据np.arange进行数组1表示开始位置，10表示末位置, 2表示间隔</span>
+<span style="color: #0000ff;">print</span>(np.arange(1, 10, 2, dtype=np.float32))</pre>
+</div>
+<p>41. np.linspace(0, 9, 10)&nbsp; # 0表示起始位置,9表示结束，10表示拆分成10份</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.linspace(0, 9, 10))</pre>
+</div>
+<p>42. np.logspace(0, 1, 11)&nbsp; # 0表示起始位置, 1表示终止位置，11表示拆成11分，然后在输入</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.logspace(0, 1, 11))  #等价于10**0.1</pre>
+</div>
+<p>43. np.meshgrid(x, y)&nbsp; &nbsp;# 生成一个网格矩阵</p>
+<div class="cnblogs_code">
+<pre>x = np.linspace(0, 10, 11<span style="color: #000000;">)
+y </span>= np.linspace(10, 20, 11<span style="color: #000000;">)
+x, y </span>=<span style="color: #000000;"> np.meshgrid(x, y)
+</span><span style="color: #0000ff;">print</span><span style="color: #000000;">(x)
+</span><span style="color: #0000ff;">print</span>(y)</pre>
+</div>
+<p>44. np.r_[0:10:1] 构造一个行向量</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.r_[0:10:1])</pre>
+</div>
+<p>45. np.c_[0:10:1] # 构造一个列向量</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.c_[0:10:1])</pre>
+</div>
+<p>46. np.zeros(3)</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> numpy as np
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> np.zeros 构造一个零矩阵</span>
+<span style="color: #0000ff;">print</span>(np.zeros(3<span style="color: #000000;">))
+</span><span style="color: #0000ff;">print</span>(np.zeros((2, 3)))</pre>
+</div>
+<p>47. np.ones((3, 3))&nbsp; # np.ones((3, 3))&nbsp; 表示3*3的维度</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.ones((3, 3)))</pre>
+</div>
+<p>48. np.empty(size)&nbsp; 生成一个空矩阵</p>
+<div class="cnblogs_code">
+<pre>a = np.empty(6<span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span>(a)</pre>
+</div>
+<p>49 np.zeros_like() 生成一个维度相同的零矩阵</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.array([1, 2, 3, 4, 5<span style="color: #000000;">])
+tang_array2 </span>=<span style="color: #000000;"> np.zeros_like(tang_array)
+</span><span style="color: #0000ff;">print</span>(tang_array2)</pre>
+</div>
+<p>50&nbsp; np.ones_like() 生成一个维度相同的1矩阵</p>
+<div class="cnblogs_code">
+<pre>tang_array3 =<span style="color: #000000;"> np.ones_like(tang_array)
+</span><span style="color: #0000ff;">print</span>(tang_array3)</pre>
+</div>
+<p>51 np.identity(5)&nbsp; # 生成一个形状是5的单位矩阵</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.identity(5))</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 14pt;">7-运算</span></p>
+<p>52. np.multiply(x, y) #将x和y进行对应位置相乘操作</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> numpy as np 
+
+x </span>= np.array([5, 5<span style="color: #000000;">])
+y </span>= np.array([2, 2<span style="color: #000000;">])
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> np.multiply(x, y) 将x和y进行对应位置相乘操作</span>
+<span style="color: #0000ff;">print</span>(np.multiply(x, y))</pre>
+</div>
+<p>53. np.dot(x, y) #将x和y进行点乘操作，即矩阵运算(2, 1) * (1, 2) = (2, 2)</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.dot(x.reshape(2, 1), y.reshape(1, 2)))</pre>
+</div>
+<p>54 # ndarray会进行数据的自动补全操作</p>
+<div class="cnblogs_code">
+<pre>x = np.array([1, 1, 1<span style="color: #000000;">])
+y </span>= np.array([[1, 2, 3], [3, 4, 5<span style="color: #000000;">]])
+</span><span style="color: #0000ff;">print</span>(x + y)</pre>
+</div>
+<p>55 np.logical_and # 如果两个都是真的就是真</p>
+<div class="cnblogs_code">
+<pre>x = np.array([1, 0, 1<span style="color: #000000;">])
+y </span>= np.array([1, 1<span style="color: #000000;">, 0])
+</span><span style="color: #0000ff;">print</span>(x==<span style="color: #000000;">y)
+</span><span style="color: #0000ff;">print</span>(np.logical_and(x, y))</pre>
+</div>
+<p>56. np.logical_or # 如果两个中有一个为真就是真</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.logical_or(x, y))</pre>
+</div>
+<p>57. np.logical_not # 如果第二个数为1就是1，否者两个数都为0，等于1</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.logical_not(x, y))</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 14pt;">8-随机矩阵</span></p>
+<p>58. np.random.rand(3, 2)&nbsp; # 构造一个(3, 2)的随机矩阵</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> numpy as np
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> 构造一个0，1之间的随机矩阵</span>
+<span style="color: #0000ff;">print</span>(np.random.rand(3, 2))</pre>
+</div>
+<p>59. np.random.randint(0, 3, size=(2, 5))&nbsp; # 构造一个0到2的随机整数矩阵，矩阵的维度是2，5</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.random.randint(0, 3, size=(5, 4)))</pre>
+</div>
+<p>60 np.random.sample() # 返回一个0到1的随机数</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.random.sample())</pre>
+</div>
+<p>61. np,random.uniform(0, 3, size=(2, 5)) # 从一个均匀的分布中随机取值</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.random.uniform(0, 1, size=(1, 1)))</pre>
+</div>
+<p>62. np.random.normal(mu, sigma, size)&nbsp; # 根据均值和标准差进行随机生成高斯矩阵</p>
+<div class="cnblogs_code">
+<pre>m =<span style="color: #000000;"> 0
+sigma </span>= 0.1 <span style="color: #008000;">#</span><span style="color: #008000;">标准差</span>
+<span style="color: #0000ff;">print</span>(np.random.normal(m, sigma, size=(10, 1)))</pre>
+</div>
+<p>63. np.set_printoptions(precision=3) # 进行输出的精度设置，3表示的小数点的个数</p>
+<div class="cnblogs_code">
+<pre>np.set_printoptions(precision=3<span style="color: #000000;">)
+mu, sigma </span>= 0, 0.1<span style="color: #000000;">
+n </span>= np.random.normal(mu, sigma, 10<span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span>(n)</pre>
+</div>
+<p>64 np.random.shuffle()&nbsp; #对样本进行洗牌操作</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.arange(0, 10, 1<span style="color: #000000;">)
+np.random.shuffle(tang_array)
+</span><span style="color: #0000ff;">print</span>(tang_array)</pre>
+</div>
+<p>65 np.random.seed(100)&nbsp; # 设置随机种子，让每次随机获的参数的结果相同，为了更好的进行对比</p>
+<div class="cnblogs_code">
+<pre>np.random.seed(100<span style="color: #000000;">)
+
+x </span>= np.random.normal(0, 0.1, size=(1, 10<span style="color: #000000;">))
+</span><span style="color: #0000ff;">print</span>(x)</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 14pt;">9-读写</span></p>
+<p>66. np.loadtxt('tang.txt', delimiter=",", skiprows=1), delimiter 表示分割符， skiprows表示去除第一行, usecols指定使用那几列数据</p>
+<div class="cnblogs_code">
+<pre>y = np.loadtxt(<span style="color: #800000;">'</span><span style="color: #800000;">tang.txt</span><span style="color: #800000;">'</span>, delimiter=<span style="color: #800000;">'</span><span style="color: #800000;">,</span><span style="color: #800000;">'</span>, skiprows=1<span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span>(y)</pre>
+</div>
+<p>67. np.savetxt('tang2.txt', tang_array, fmt='%.2f', delimiter=',')</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.array([[1, 2, 3], [4, 5, 6]], dtype=<span style="color: #000000;">np.float32)
+np.savetxt(</span><span style="color: #800000;">'</span><span style="color: #800000;">tang2.txt</span><span style="color: #800000;">'</span>, tang_array, fmt=<span style="color: #800000;">'</span><span style="color: #800000;">%.2f</span><span style="color: #800000;">'</span>, delimiter=<span style="color: #800000;">'</span><span style="color: #800000;">,</span><span style="color: #800000;">'</span>)</pre>
+</div>
+<p>68. 进行单个array参数的载入和读取，保存的格式是npy</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.array([1, 2, 3, 4], dtype=<span style="color: #000000;">np.float32)
+
+np.save(</span><span style="color: #800000;">'</span><span style="color: #800000;">tang3.npy</span><span style="color: #800000;">'</span><span style="color: #000000;">, tang_array)  # 写入文件
+
+tang_array </span>= np.load(<span style="color: #800000;">'</span><span style="color: #800000;">tang3.npy</span><span style="color: #800000;">'</span><span style="color: #000000;">)  # 读取文件
+</span><span style="color: #0000ff;">print</span>(tang_array)</pre>
+</div>
+<p>69. 进行多个array参数的载入和读取，使用的是np.savez，保存的格式是.npz,读取时使用key</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>tang_array = np.array([1, 2, 3, 4], dtype=<span style="color: #000000;">np.float32)
+tang_array2 </span>= np.array([4, 5, 6, 7], dtype=<span style="color: #000000;">np.float32)
+
+np.savez(</span><span style="color: #800000;">'</span><span style="color: #800000;">tang.npz</span><span style="color: #800000;">'</span>, a=tang_array, b=<span style="color: #000000;">tang_array2)
+
+data </span>= np.load(<span style="color: #800000;">'</span><span style="color: #800000;">tang.npz</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span>(data[<span style="color: #800000;">'</span><span style="color: #800000;">a</span><span style="color: #800000;">'</span><span style="color: #000000;">])
+</span><span style="color: #0000ff;">print</span>(data[<span style="color: #800000;">'</span><span style="color: #800000;">b</span><span style="color: #800000;">'</span>])</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><span style="font-size: 14pt;">练习题-1&nbsp;</span></p>
+<p>70. np.__version__&nbsp; # 打印numpy当前的版本</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> numpy as np
+</span><span style="color: #0000ff;">print</span>(np.<span style="color: #800080;">__version__</span>)</pre>
+</div>
+<p>71 # 构造一个全零矩阵，并打印其所占内存数</p>
+<div class="cnblogs_code">
+<pre>z = np.zeros((5, 5<span style="color: #000000;">))
+</span><span style="color: #0000ff;">print</span>(z.size *<span style="color: #000000;"> z.itemsize)
+</span><span style="color: #0000ff;">print</span>(z.nbytes)</pre>
+</div>
+<p>72 # 打印一个函数的帮助文档 help(np.info(np,add))&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(help(np.info(np.add)))</pre>
+</div>
+<p>73. # 创建一个10-49的数组，并将其倒序排列</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.arange(10, 50, 1<span style="color: #000000;">)
+tang </span>= tang_array[::-1<span style="color: #000000;">]
+</span><span style="color: #0000ff;">print</span>(tang)</pre>
+</div>
+<p>74&nbsp; np.nonzero(tang_array) # 找出一个数组中不为0的索引值</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.nonzero([1, 2, 3, 4, 5, 0, 0, 3]))</pre>
+</div>
+<p>75 # 随机构造一个3*3矩阵， 打印其最大值和最小值</p>
+<div class="cnblogs_code">
+<pre>np.random.seed(9<span style="color: #000000;">)
+tang_array </span>= np.random.randint(0, 10, size=(5, 6<span style="color: #000000;">))
+</span><span style="color: #0000ff;">print</span><span style="color: #000000;">(tang_array.min())
+</span><span style="color: #0000ff;">print</span>(tang_array.max())</pre>
+</div>
+<p>76 np.pad(tang_array, add_size, 'constant',&nbsp;constant_values=0)&nbsp;构造一个5*5的矩阵，令其值为1，在最外层加上一圈0</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.ones((5, 5<span style="color: #000000;">))
+tang_array2 </span>= np.pad(tang_array, 1, <span style="color: #800000;">'</span><span style="color: #800000;">constant</span><span style="color: #800000;">'</span>, constant_values=<span style="color: #000000;">0)
+</span><span style="color: #0000ff;">print</span>(tang_array2)</pre>
+</div>
+<p>77.&nbsp; np.unravel_index(100, (6, 7, 8))&nbsp; &nbsp;#&nbsp;构建一个shape为(6, 7, 8)的矩阵，并找出第100个元素的索引值</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.unravel_index(100, (6, 7, 8)))</pre>
+</div>
+<p>78.&nbsp;# 对一个5*5矩阵做0到1归一化操作</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.random.random((5, 5<span style="color: #000000;">))
+tang_array </span>= (tang_array - tang_array.min()) / (tang_array.max() - tang_array.min())</pre>
+</div>
+<p>79. np.intersect1d(z1, z2)&nbsp; # 找出两个数组相同的数</p>
+<div class="cnblogs_code">
+<pre> np.random.randint(0, 11, 10<span style="color: #000000;">)
+z2 </span>= np.random.randint(0, 11, 10<span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span>(np.intersect1d(z1, z2))</pre>
+</div>
+<p>80. np.datetime64('today', 'D')&nbsp; np.timedelta64(1, 'D') # 得到昨天今天明天</p>
+<div class="cnblogs_code">
+<pre>yesterday = np.datetime64(<span style="color: #800000;">'</span><span style="color: #800000;">today</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">D</span><span style="color: #800000;">'</span>) - np.timedelta64(1, <span style="color: #800000;">'</span><span style="color: #800000;">D</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+today </span>= np.datetime64(<span style="color: #800000;">'</span><span style="color: #800000;">today</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">D</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+tomorrow </span>= np.datetime64(<span style="color: #800000;">'</span><span style="color: #800000;">today</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">D</span><span style="color: #800000;">'</span>) + np.timedelta64(1, <span style="color: #800000;">'</span><span style="color: #800000;">D</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span>(yesterday)</pre>
+</div>
+<p>81. 得到一个月中所有的天数</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">print</span>(np.arange(<span style="color: #800000;">'</span><span style="color: #800000;">2017-10</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">2017-11</span><span style="color: #800000;">'</span>, dtype=<span style="color: #800000;">'</span><span style="color: #800000;">datetime64[D]</span><span style="color: #800000;">'</span>))</pre>
+</div>
+<p>82. np.floor(value) # 取出一个数的整数部分</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.random.uniform(0, 10, 10<span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span>(np.floor(tang_array))</pre>
+</div>
+<p>83 z.flags.writeable # 使得这个数组不能被改变</p>
+<div class="cnblogs_code">
+<pre>z = np.zeros(5<span style="color: #000000;">)
+z.flags.writeable </span>=<span style="color: #000000;"> False
+z[0] </span>= 1</pre>
+</div>
+<p>84. np.set_printoptin(threshold=np.nan)&nbsp; # 使得数组全部打印出来</p>
+<div class="cnblogs_code">
+<pre>np.set_printoptions(threshold=<span style="color: #000000;">np.nan)
+z </span>= np.zeros((5, 5<span style="color: #000000;">))
+</span><span style="color: #0000ff;">print</span>(z)</pre>
+</div>
+<p>85.# 在一个数组中，找出最接近一个数的索引</p>
+<div class="cnblogs_code">
+<pre>z = np.arange(100<span style="color: #000000;">)
+v </span>= np.random.uniform(0, 100<span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span><span style="color: #000000;">(v)
+index </span>= np.abs(z -<span style="color: #000000;"> v).argmin()
+</span><span style="color: #0000ff;">print</span>(index)</pre>
+</div>
+<p>86 # 进行float32与int32的类型转换</p>
+<div class="cnblogs_code">
+<pre>z = np.arange(10, dtype=<span style="color: #000000;">np.float32)
+l </span>=<span style="color: #000000;"> z.astype(np.int32)
+</span><span style="color: #0000ff;">print</span>(l.dtype)</pre>
+</div>
+<p>87. # 打印数组的元素坐标与值</p>
+<div class="cnblogs_code">
+<pre>z = np.arange(9).reshape(3, 3<span style="color: #000000;">)
+</span><span style="color: #0000ff;">for</span> index, value <span style="color: #0000ff;">in</span><span style="color: #000000;"> np.ndenumerate(z):
+    </span><span style="color: #0000ff;">print</span>(index, value)</pre>
+</div>
+<p>88. 按照数组的某一列进行排序</p>
+<div class="cnblogs_code">
+<pre>z = np.random.randint(0, 10, (4, 3<span style="color: #000000;">))
+</span><span style="color: #0000ff;">print</span>(z[z[:, 1].argsort()])</pre>
+</div>
+<p>89. np.bincount(tang_array) # 统计数组中元素的个数</p>
+<div class="cnblogs_code">
+<pre>z = np.array([1, 1, 1, 2, 2, 3, 4, 5<span style="color: #000000;">])
+</span><span style="color: #0000ff;">print</span>(np.bincount(z))</pre>
+</div>
+<p>90. 对最后两个维度进行加和操作</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.random.randint(0, 10, (4, 4, 4, 4<span style="color: #000000;">))
+</span><span style="color: #0000ff;">print</span>(tang_array.sum(axis=(-2, -1)))</pre>
+</div>
+<p>91 # 交换矩阵的两行</p>
+<div class="cnblogs_code">
+<pre>tang_array = np.random.randint(0, 10, (3, 4<span style="color: #000000;">))
+tang_array[[</span>1, 2]] = tang_array[[2, 1<span style="color: #000000;">]]
+</span><span style="color: #0000ff;">print</span>(tang_array)</pre>
+</div>
+<p>92 #找出数组中最常出现的数字</p>
+<div class="cnblogs_code">
+<pre>z = np.random.randint(0, 10, 10<span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span>(np.bincount(z).argmax())</pre>
+</div>
+<p>93 np.argpartition(-z, n)[:n]&nbsp; &nbsp; #找出K个最大值的索引和值</p>
+<div class="cnblogs_code">
+<pre>z = np.arange(10000<span style="color: #000000;">)
+np.random.shuffle(z)
+n </span>= 5
+<span style="color: #0000ff;">print</span>(np.argpartition(-z, n)[:n])</pre>
+</div>
+<p>94. np.all(x==y, aixs=1) #找出一行中都相同的数，打印True</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> 找出所有元素都相同的数据</span>
+x = np.array([[1, 1<span style="color: #000000;">]])
+p </span>= np.array([[1, 1<span style="color: #000000;">]])
+</span><span style="color: #0000ff;">print</span>(np.all(x == p, axis=1<span style="color: #000000;">))
+
+z </span>= np.random.randint(0, 5, (10, 3<span style="color: #000000;">))
+</span><span style="color: #0000ff;">print</span>(np.all(z[:, 1:]==z[:, :-1]))</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block"><div id="BlogPostCategory">
+    分类: 
+            <a href="https://www.cnblogs.com/my-love-is-python/category/1279072.html" target="_blank">python基础</a></div>
+
+
+    <div id="blog_post_info">
+<div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(10221374,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow(&#39;ced4e04c-8b31-4360-6be5-08d5b4cfbe1d&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/my-love-is-python/">python我的最爱</a><br>
+            <a href="https://home.cnblogs.com/u/my-love-is-python/followees/">关注 - 1</a><br>
+            <a href="https://home.cnblogs.com/u/my-love-is-python/followers/">粉丝 - 51</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;ced4e04c-8b31-4360-6be5-08d5b4cfbe1d&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(10221374,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(10221374,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+    <div class="clear"></div>
+    <div id="post_next_prev">
+
+    <a href="https://www.cnblogs.com/my-love-is-python/p/10183370.html" class="p_n_p_prefix">« </a> 上一篇：    <a href="https://www.cnblogs.com/my-love-is-python/p/10183370.html" title="发布于 2018-12-27 10:04">np的归纳总结</a>
+    <br>
+    <a href="https://www.cnblogs.com/my-love-is-python/p/10235880.html" class="p_n_p_prefix">» </a> 下一篇：    <a href="https://www.cnblogs.com/my-love-is-python/p/10235880.html" title="发布于 2019-01-07 21:47">可视化库-Matplotlib基础设置(第三天)</a>
+
+</div>
+</div>
+        <div class="postDesc">posted on 
+<span id="post-date">2019-01-04 19:12</span>&nbsp;
+<a href="https://www.cnblogs.com/my-love-is-python/">python我的最爱</a>&nbsp;
+阅读(<span id="post_view_count">1747</span>)&nbsp;
+评论(<span id="post_comment_count">1</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10221374" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(10221374);return false;">收藏</a></div>
+    </div>
+</div>
+
+<script src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/highlight.min.js.下载"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 431639, cb_blogApp = 'my-love-is-python', cb_blogUserGuid = 'ced4e04c-8b31-4360-6be5-08d5b4cfbe1d';
+    var cb_entryId = 10221374, cb_entryCreatedDate = '2019-01-04 19:12', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder">
+
+<div id="comment_pager_top">
+    
+</div>
+
+<!--done-->
+<br>
+<b>FeedBack:</b>
+<div class="feedbackNoItems">
+    <div class="feedbackNoItems"></div>
+</div>
+
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbacktitle">
+<a href="https://www.cnblogs.com/my-love-is-python/p/10221374.html#4252291" class="layer">#1楼</a>
+<a name="4252291" id="comment_anchor_4252291"></a>
+
+        <span id="comment-maxId" style="display:none">4252291</span>
+        <span id="comment-maxDate" style="display:none">2019/5/10 上午9:56:24</span>
+&nbsp;
+<span class="comment_date">2019-05-10 09:56</span>
+
+&nbsp;
+
+            <a id="a_comment_author_4252291" href="https://home.cnblogs.com/u/899074/" target="_blank">sherri-du</a>
+</div>
+                <div align="left">
+<div id="comment_body_4252291" class="blog_comment_body">
+    请问可以分享这个这个课程数据集么？非常感谢，本人邮箱1071522912@qq.com
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4252291, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4252291, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        
+&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+</div>
+            </div>
+        </div>
+
+<div id="comment_pager_bottom">
+    
+</div>
+</div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/my-love-is-python/p/10221374.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/my-love-is-python/p/10221374.html#top">返回顶部</a></div>
+    <div id="comment_form_container"><div class="login_tips">
+    注册用户登录后才能发表评论，请 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a>
+     或 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，
+    <a href="https://www.cnblogs.com/">访问</a> 网站首页。
+</div></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-ucancode&#39;)">【推荐】超50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://cloud.tencent.com/act/developer?fromSource=gwzcw.3196333.3196333.3196333&amp;utm_medium=cpc&amp;utm_id=gwzcw.3196333.3196333.3196333" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-腾讯云&#39;)">【推荐】开发者上云福利，腾讯云1核4G云服务器11元/月起</a><br><a href="https://cloud.baidu.com/campaign/Annualceremony-2020/index.html?track=cp:dsp|pf:pc|pp:chui-bokeyuan-huodong-20niandushengdian-BCC-cpaxingshi-20200107|pu:cpa-xingshi|ci:2020ndsd|kw:2185443" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-百度云&#39;)">【推荐】开年盛典，百度智能云1核1G云服务器84元/年</a><br><a href="https://developer.aliyun.com/topic/feiyan2020?utm_content=g_1000102348" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-阿里云-疫情公益专题&#39;)">【推荐】像阿里巴巴一样远程办公，这些资源+工具+方案都好用</a><br><a href="https://developer.aliyun.com/topic/feiyan2020?utm_content=g_1000102348" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-阿里云-疫情公益专题&#39;)">【推荐】疫情期间如何高效工作？阿里巴巴为你提供办公工具和资源</a><br></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/gpt.js.下载"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;" data-google-query-id="CPOtzpW9yecCFQEKvQod9xkDkw"><div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C1_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/saved_resource.html"></iframe></div></div>
+    </div>
+    <div id="under_post_news"><div class="recomm-block"><b>相关博文：</b><br>·  <a title="numpy基本用法" href="https://www.cnblogs.com/jiahenhe2/p/7822355.html" target="_blank" onclick="clickRecomItmem(7822355)">numpy基本用法</a><br>·  <a title="pythonnumpy模块使用笔记（更新）" href="https://www.cnblogs.com/cenariusxz/p/8859687.html" target="_blank" onclick="clickRecomItmem(8859687)">pythonnumpy模块使用笔记（更新）</a><br>·  <a title="Python之numpy基本指令" href="https://www.cnblogs.com/fengff/p/9772394.html" target="_blank" onclick="clickRecomItmem(9772394)">Python之numpy基本指令</a><br>·  <a title="python中的矩阵、多维数组----numpy" href="https://www.cnblogs.com/xzcfightingup/p/7598293.html" target="_blank" onclick="clickRecomItmem(7598293)">python中的矩阵、多维数组----numpy</a><br>·  <a title="np基本函数大全" href="https://www.cnblogs.com/blogwangwang/p/9608141.html" target="_blank" onclick="clickRecomItmem(9608141)">np基本函数大全</a><br>»  <a target="_blank" href="https://recomm.cnblogs.com/blogpost/10221374">更多推荐...</a><div id="cnblogs_t5"><a href="https://developer.aliyun.com/topic/feiyan2020?utm_content=g_1000102348" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T5-阿里云-疫情公益专题&#39;)">疫情期间如何高效工作？阿里巴巴为你提供办公工具和资源！</a></div></div></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CPStzpW9yecCFQEKvQod9xkDkw">
+            
+        <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="2" data-load-complete="true" src="./np归纳总结(全)第一天 - python我的最爱 - 博客园_files/saved_resource(1).html"></iframe></div></div>
+    </div>
+    <div id="under_post_kb">
+<div class="itnews c_ad_block">
+    <b>最新 IT 新闻</b>:
+    <br>
+ ·              <a href="https://news.cnblogs.com/n/655673/" target="_blank">暴风集团与风行在线签署多项合作 暴风影音变相卖身</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/655672/" target="_blank">2019年四季度印度手机市场：中国手机厂商份额增至73.6%</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/655671/" target="_blank">OPPO宣布将如期参展2020世界移动通信大会</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/655670/" target="_blank">Facebook悄悄收购了一家AI初创公司，致力于论文和代码的免费开放</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/655669/" target="_blank">天文学家拍摄迄今为止最清晰的“高尔夫球小行星”-智神星的图像</a>
+            <br>
+    » <a href="https://news.cnblogs.com/" title="IT 新闻" target="_blank">更多新闻...</a>
+</div></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	<!--done-->
+<div class="footer">
+	Copyright © 2020 python我的最爱
+<br><span id="poweredby">Powered by .NET Core 3.1.1 on Linux</span>
+ Powered by: <a href="http://www.cnblogs.com/" class="footerlink">博客园</a> 模板提供：<a href="http://blog.hjenglish.com/" class="footerlink">沪江博客</a><br>
+</div>
+
+
+</div>
+
+
+
+
+    
+
+</body></html>

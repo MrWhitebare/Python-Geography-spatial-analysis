@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.cnblogs.com/zeke-python-road/p/8986318.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin">
+    <meta property="og:description" content="1、&amp;#160;安装 pip install openpyxl 想要在文件中插入图片文件，需要安装pillow，安装文件：PIL-fork-1.1.7.win-amd64-py2.7.exe &amp;#18">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>python操作Excel模块openpyxl - 关关雎鸠` - 博客园</title>
+    
+    <link rel="stylesheet" href="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/blog-common.min.css">
+    <link id="MainCss" rel="stylesheet" href="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/bundle-coffee.min.css">
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/bundle-coffee-mobile.min.css">
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/zeke-python-road/rss">
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/zeke-python-road/rsd.xml">
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/zeke-python-road/wlwmanifest.xml">
+    <script src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/amp4ads-host-v0.js.下载"></script><script src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/pubads_impl_rendering_2020020602.js.下载"></script><script async="" src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/encoder.js.下载"></script><script src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+    <script src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/blog-common.min.js.下载"></script>
+    <script>
+        var currentBlogId = 342722;
+        var currentBlogApp = 'zeke-python-road';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+    </script>
+    
+    
+    
+<link rel="preload" href="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/f.txt" as="script"><script type="text/javascript" src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/f.txt"></script><script src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/pubads_impl_2020020602.js.下载" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-37/html/container.html"></head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a href="https://www.cnblogs.com/zeke-python-road/"><img id="blogLogo" src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/zeke-python-road/">`关关雎鸠</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="navigator">
+			
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+	<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/zeke-python-road/">
+首页</a>
+</li>
+	<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+	<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E5%85%B3%E5%85%B3%E9%9B%8E%E9%B8%A0%60">
+联系</a></li>
+	<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+	<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/zeke-python-road/rss/">
+订阅</a>
+	
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/zeke-python-road/rss/">
+    <img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/xml.gif" alt="订阅">
+</a></li>
+</ul>
+
+
+
+			<div class="blogStats">
+				
+				<!--done-->
+随笔- 
+35&nbsp;
+文章- 
+0&nbsp;
+评论- 
+6&nbsp;
+
+
+
+				
+			</div><!--end: blogStats -->
+		</div><!--end: navigator 博客导航栏 -->
+		<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/zeke-python-road/p/8986318.html">python操作Excel模块openpyxl</a>
+
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <h2 style="text-align: left;" align="center">1、&nbsp;<strong><span style="font-family: 宋体;">安装</span></strong></h2>
+<p>pip install openpyxl</p>
+<p><span style="font-family: 宋体;">想要</span><span style="font-family: 宋体;">在文件中插入图片文件，需要安装</span>pillow<span style="font-family: 宋体;">，</span><span style="font-family: 宋体;">安装</span><span style="font-family: 宋体;">文件</span><span style="font-family: 宋体;">：</span>PIL-fork-1.1.7.win-amd64-py2.7.exe</p>
+<p>&nbsp;</p>
+<p>·&nbsp;font(字体类)：字号、字体颜色、下划线等</p>
+<p>·&nbsp;fill(填充类)：颜色等</p>
+<p>·&nbsp;border(边框类)：设置单元格边框</p>
+<p>·&nbsp;alignment(位置类)：对齐方式</p>
+<p>·&nbsp;number_format(格式类)：数据格式</p>
+<p>·&nbsp;protection(保护类)：写保护</p>
+<p>&nbsp;</p>
+<h2>2、&nbsp;<strong><span style="font-family: 宋体;">创建</span></strong><strong><span style="font-family: 宋体;">一个</span></strong><strong>excel <span style="font-family: 宋体;">文件</span></strong><strong><span style="font-family: 宋体;">，并</span></strong><strong><span style="font-family: 宋体;">写入</span></strong><strong><span style="font-family: 宋体;">不同类的内容</span></strong></h2>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+wb </span>= Workbook()    <span style="color: #008000;">#</span><span style="color: #008000;">创建文件对象</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;"> grab the active worksheet</span>
+ws = wb.active     <span style="color: #008000;">#</span><span style="color: #008000;">获取第一个sheet</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;"> Data can be assigned directly to cells</span>
+ws[<span style="color: #800000;">'</span><span style="color: #800000;">A1</span><span style="color: #800000;">'</span>] = 42      <span style="color: #008000;">#</span><span style="color: #008000;">写入数字</span>
+ws[<span style="color: #800000;">'</span><span style="color: #800000;">B1</span><span style="color: #800000;">'</span>] = <span style="color: #800000;">"</span><span style="color: #800000;">你好</span><span style="color: #800000;">"</span>+<span style="color: #800000;">"</span><span style="color: #800000;">automation test</span><span style="color: #800000;">"</span> <span style="color: #008000;">#</span><span style="color: #008000;">写入中文（unicode中文也可）</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;"> Rows can also be appended</span>
+ws.append([1, 2, 3])    <span style="color: #008000;">#</span><span style="color: #008000;">写入多个单元格</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;"> Python types will automatically be converted</span>
+<span style="color: #0000ff;">import</span><span style="color: #000000;"> datetime
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> time
+ws[</span><span style="color: #800000;">'</span><span style="color: #800000;">A2</span><span style="color: #800000;">'</span>] = datetime.datetime.now()    <span style="color: #008000;">#</span><span style="color: #008000;">写入一个当前时间</span><span style="color: #008000;">
+#</span><span style="color: #008000;">写入一个自定义的时间格式</span>
+ws[<span style="color: #800000;">'</span><span style="color: #800000;">A3</span><span style="color: #800000;">'</span>] =time.strftime(<span style="color: #800000;">"</span><span style="color: #800000;">%Y年%m月%d日 %H时%M分%S秒</span><span style="color: #800000;">"</span><span style="color: #000000;">,time.localtime())
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2>3、&nbsp;<strong><span style="font-family: 宋体;">创建</span>sheet</strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+wb </span>=<span style="color: #000000;"> Workbook()
+
+ws1 </span>= wb.create_sheet(<span style="color: #800000;">"</span><span style="color: #800000;">Mysheet</span><span style="color: #800000;">"</span>)           <span style="color: #008000;">#</span><span style="color: #008000;">创建一个sheet</span>
+ws1.title = <span style="color: #800000;">"</span><span style="color: #800000;">New Title</span><span style="color: #800000;">"</span>                    <span style="color: #008000;">#</span><span style="color: #008000;">设定一个sheet的名字</span>
+ws2 = wb.create_sheet(<span style="color: #800000;">"</span><span style="color: #800000;">Mysheet</span><span style="color: #800000;">"</span>, 0)      <span style="color: #008000;">#</span><span style="color: #008000;">设定sheet的插入位置 默认插在后面</span>
+ws2.title = u<span style="color: #800000;">"</span><span style="color: #800000;">你好</span><span style="color: #800000;">"</span>    <span style="color: #008000;">#</span><span style="color: #008000;">设定一个sheet的名字 必须是Unicode</span>
+<span style="color: #000000;">
+ws1.sheet_properties.tabColor </span>= <span style="color: #800000;">"</span><span style="color: #800000;">1072BA</span><span style="color: #800000;">"</span>   <span style="color: #008000;">#</span><span style="color: #008000;">设定sheet的标签的背景颜色</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;">获取某个sheet对象</span>
+<span style="color: #0000ff;">print</span> wb.get_sheet_by_name(u<span style="color: #800000;">"</span><span style="color: #800000;">你好</span><span style="color: #800000;">"</span><span style="color: #000000;">  )
+</span><span style="color: #0000ff;">print</span> wb[<span style="color: #800000;">"</span><span style="color: #800000;">New Title</span><span style="color: #800000;">"</span><span style="color: #000000;"> ]
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">获取全部sheet 的名字，遍历sheet名字</span>
+<span style="color: #0000ff;">print</span><span style="color: #000000;"> wb.sheetnames
+</span><span style="color: #0000ff;">for</span> sheet_name <span style="color: #0000ff;">in</span><span style="color: #000000;"> wb.sheetnames:
+    </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> sheet_name
+
+</span><span style="color: #0000ff;">print</span> <span style="color: #800000;">"</span><span style="color: #800000;">*</span><span style="color: #800000;">"</span>*50
+
+<span style="color: #0000ff;">for</span> sheet <span style="color: #0000ff;">in</span><span style="color: #000000;"> wb:
+    </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> sheet.title
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">复制一个sheet</span>
+wb[<span style="color: #800000;">"</span><span style="color: #800000;">New Title</span><span style="color: #800000;">"</span> ][<span style="color: #800000;">"</span><span style="color: #800000;">A1</span><span style="color: #800000;">"</span>]=<span style="color: #800000;">"</span><span style="color: #800000;">zeke</span><span style="color: #800000;">"</span><span style="color: #000000;">
+source </span>= wb[<span style="color: #800000;">"</span><span style="color: #800000;">New Title</span><span style="color: #800000;">"</span><span style="color: #000000;"> ]
+target </span>=<span style="color: #000000;"> wb.copy_worksheet(source)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> w3 = wb.copy_worksheet(wb['new title'])</span><span style="color: #008000;">
+#</span><span style="color: #008000;"> ws3.title = 'new2'</span><span style="color: #008000;">
+#</span><span style="color: #008000;"> wb.copy_worksheet(wb['new title']).title = 'hello'</span><span style="color: #008000;">
+#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2>4、&nbsp;<strong><span style="font-family: 宋体;">操作单元格</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+wb </span>=<span style="color: #000000;"> Workbook()
+ws1 </span>= wb.create_sheet(<span style="color: #800000;">"</span><span style="color: #800000;">Mysheet</span><span style="color: #800000;">"</span>)           <span style="color: #008000;">#</span><span style="color: #008000;">创建一个sheet</span>
+<span style="color: #000000;">
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">A1</span><span style="color: #800000;">"</span>]=123.11<span style="color: #000000;">
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">B2</span><span style="color: #800000;">"</span>]=<span style="color: #800000;">"</span><span style="color: #800000;">你好</span><span style="color: #800000;">"</span><span style="color: #000000;">
+d </span>= ws1.cell(row=4, column=2, value=10<span style="color: #000000;">)
+
+</span><span style="color: #0000ff;">print</span> ws1[<span style="color: #800000;">"</span><span style="color: #800000;">A1</span><span style="color: #800000;">"</span><span style="color: #000000;">].value
+</span><span style="color: #0000ff;">print</span> ws1[<span style="color: #800000;">"</span><span style="color: #800000;">B2</span><span style="color: #800000;">"</span><span style="color: #000000;">].value
+</span><span style="color: #0000ff;">print</span><span style="color: #000000;"> d.value
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2>5、&nbsp;<strong><span style="font-family: 宋体;">操作批量的单元格</span></strong></h2>
+<p><span style="font-family: 宋体;">无论</span>ws.rows<span style="font-family: 宋体;">还是</span><span style="font-family: Calibri;">ws.iter_rows</span><span style="font-family: 宋体;">都是一个对象</span></p>
+<p><span style="font-family: 宋体;">除上述两个对象外</span> <span style="font-family: 宋体;">单行，单列都是一个元祖，多行多列是二维元祖</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+wb </span>=<span style="color: #000000;"> Workbook()
+
+ws1 </span>= wb.create_sheet(<span style="color: #800000;">"</span><span style="color: #800000;">Mysheet</span><span style="color: #800000;">"</span>)           <span style="color: #008000;">#</span><span style="color: #008000;">创建一个sheet</span>
+<span style="color: #000000;">
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">A1</span><span style="color: #800000;">"</span>]=1<span style="color: #000000;">
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">A2</span><span style="color: #800000;">"</span>]=2<span style="color: #000000;">
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">A3</span><span style="color: #800000;">"</span>]=3<span style="color: #000000;">
+
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">B1</span><span style="color: #800000;">"</span>]=4<span style="color: #000000;">
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">B2</span><span style="color: #800000;">"</span>]=5<span style="color: #000000;">
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">B3</span><span style="color: #800000;">"</span>]=6<span style="color: #000000;">
+
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">C1</span><span style="color: #800000;">"</span>]=7<span style="color: #000000;">
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">C2</span><span style="color: #800000;">"</span>]=8<span style="color: #000000;">
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">C3</span><span style="color: #800000;">"</span>]=9
+
+<span style="color: #008000;">#</span><span style="color: #008000;">操作单列</span>
+<span style="color: #0000ff;">print</span> ws1[<span style="color: #800000;">"</span><span style="color: #800000;">A</span><span style="color: #800000;">"</span><span style="color: #000000;">]
+</span><span style="color: #0000ff;">for</span> cell <span style="color: #0000ff;">in</span> ws1[<span style="color: #800000;">"</span><span style="color: #800000;">A</span><span style="color: #800000;">"</span><span style="color: #000000;">]:
+    </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> cell.value
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">操作多列,获取每一个值</span>
+<span style="color: #0000ff;">print</span> ws1[<span style="color: #800000;">"</span><span style="color: #800000;">A:C</span><span style="color: #800000;">"</span><span style="color: #000000;">]
+</span><span style="color: #0000ff;">for</span> column <span style="color: #0000ff;">in</span> ws1[<span style="color: #800000;">"</span><span style="color: #800000;">A:C</span><span style="color: #800000;">"</span><span style="color: #000000;">]:
+    </span><span style="color: #0000ff;">for</span> cell <span style="color: #0000ff;">in</span><span style="color: #000000;"> column:
+        </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> cell.value
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">操作多行</span>
+row_range = ws1[1:3<span style="color: #000000;">]
+</span><span style="color: #0000ff;">print</span><span style="color: #000000;"> row_range
+</span><span style="color: #0000ff;">for</span> row <span style="color: #0000ff;">in</span><span style="color: #000000;"> row_range:
+    </span><span style="color: #0000ff;">for</span> cell <span style="color: #0000ff;">in</span><span style="color: #000000;"> row:
+        </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> cell.value
+
+</span><span style="color: #0000ff;">print</span> <span style="color: #800000;">"</span><span style="color: #800000;">*</span><span style="color: #800000;">"</span>*50
+<span style="color: #0000ff;">for</span> row <span style="color: #0000ff;">in</span> ws1.iter_rows(min_row=1, min_col=1, max_col=3, max_row=3<span style="color: #000000;">):
+    </span><span style="color: #0000ff;">for</span> cell <span style="color: #0000ff;">in</span><span style="color: #000000;"> row:
+        </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> cell.value
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">获取所有行</span>
+<span style="color: #0000ff;">print</span><span style="color: #000000;"> ws1.rows
+</span><span style="color: #0000ff;">for</span> row <span style="color: #0000ff;">in</span><span style="color: #000000;"> ws1.rows:
+    </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> row
+
+</span><span style="color: #0000ff;">print</span> <span style="color: #800000;">"</span><span style="color: #800000;">*</span><span style="color: #800000;">"</span>*50
+<span style="color: #008000;">#</span><span style="color: #008000;">获取所有列</span>
+<span style="color: #0000ff;">print</span><span style="color: #000000;"> ws1.columns
+</span><span style="color: #0000ff;">for</span> col <span style="color: #0000ff;">in</span><span style="color: #000000;"> ws1.columns:
+    </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> col
+
+wb.save(</span><span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><span style="font-family: 宋体;">使用</span><span style="font-family: 宋体;">百分数</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+wb </span>= load_workbook(<span style="color: #800000;">'</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+wb.guess_types </span>=<span style="color: #000000;"> True
+ws</span>=<span style="color: #000000;">wb.active
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">D1</span><span style="color: #800000;">"</span>]=<span style="color: #800000;">"</span><span style="color: #800000;">12%</span><span style="color: #800000;">"</span>
+<span style="color: #0000ff;">print</span> ws[<span style="color: #800000;">"</span><span style="color: #800000;">D1</span><span style="color: #800000;">"</span><span style="color: #000000;">].value
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+</span><span style="color: #008000;">#</span><span style="color: #008000;">结果会打印小数</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+wb </span>= load_workbook(<span style="color: #800000;">'</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+wb.guess_types </span>=<span style="color: #000000;"> False
+ws</span>=<span style="color: #000000;">wb.active
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">D1</span><span style="color: #800000;">"</span>]=<span style="color: #800000;">"</span><span style="color: #800000;">12%</span><span style="color: #800000;">"</span>
+<span style="color: #0000ff;">print</span> ws[<span style="color: #800000;">"</span><span style="color: #800000;">D1</span><span style="color: #800000;">"</span><span style="color: #000000;">].value
+wb.save(</span><span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+</span><span style="color: #008000;">#</span><span style="color: #008000;">结果会打印百分数</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2><strong><span style="font-family: 宋体;">获取所有的行对象：</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;">coding=utf-8</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+wb </span>= load_workbook(<span style="color: #800000;">'</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+ws</span>=<span style="color: #000000;">wb.active
+rows</span>=<span style="color: #000000;">[]
+</span><span style="color: #0000ff;">for</span> row <span style="color: #0000ff;">in</span><span style="color: #000000;"> ws.iter_rows():
+            rows.append(row)
+</span><span style="color: #0000ff;">print</span> rows   <span style="color: #008000;">#</span><span style="color: #008000;">所有行</span>
+<span style="color: #0000ff;">print</span> rows[0] <span style="color: #008000;">#</span><span style="color: #008000;">获取第一行</span>
+<span style="color: #0000ff;">print</span> rows[0][0] <span style="color: #008000;">#</span><span style="color: #008000;">获取第一行第一列的单元格对象</span>
+<span style="color: #0000ff;">print</span> rows[0][0].value <span style="color: #008000;">#</span><span style="color: #008000;">获取第一行第一列的单元格对象的值</span>
+ 
+<span style="color: #0000ff;">print</span> rows[len(rows)-1] <span style="color: #008000;">#</span><span style="color: #008000;">获取最后行 print rows[-1]</span>
+<span style="color: #0000ff;">print</span> rows[len(rows)-1][len(rows[0])-1] <span style="color: #008000;">#</span><span style="color: #008000;">获取第后一行和最后一列的单元格对象</span>
+<span style="color: #0000ff;">print</span> rows[len(rows)-1][len(rows[0])-1].value <span style="color: #008000;">#</span><span style="color: #008000;">获取第后一行和最后一列的单元格对象的值</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2><strong><span style="font-family: 宋体;">获取所有的列对象：</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;">coding=utf-8</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+wb </span>= load_workbook(<span style="color: #800000;">'</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+ws</span>=<span style="color: #000000;">wb.active
+cols</span>=<span style="color: #000000;">[]
+cols </span>=<span style="color: #000000;"> []
+</span><span style="color: #0000ff;">for</span> col <span style="color: #0000ff;">in</span><span style="color: #000000;"> ws.iter_cols():
+    cols.append(col)
+ 
+</span><span style="color: #0000ff;">print</span> cols   <span style="color: #008000;">#</span><span style="color: #008000;">所有列</span>
+<span style="color: #0000ff;">print</span> cols[0]   <span style="color: #008000;">#</span><span style="color: #008000;">获取第一列</span>
+<span style="color: #0000ff;">print</span> cols[0][0]   <span style="color: #008000;">#</span><span style="color: #008000;">获取第一列的第一行的单元格对象</span>
+<span style="color: #0000ff;">print</span> cols[0][0].value   <span style="color: #008000;">#</span><span style="color: #008000;">获取第一列的第一行的值</span>
+ 
+<span style="color: #0000ff;">print</span> <span style="color: #800000;">"</span><span style="color: #800000;">*</span><span style="color: #800000;">"</span>*30
+<span style="color: #0000ff;">print</span> cols[len(cols)-1]   <span style="color: #008000;">#</span><span style="color: #008000;">获取最后一列</span>
+<span style="color: #0000ff;">print</span> cols[len(cols)-1][len(cols[0])-1]   <span style="color: #008000;">#</span><span style="color: #008000;">获取最后一列的最后一行的单元格对象</span>
+<span style="color: #0000ff;">print</span> cols[len(cols)-1][len(cols[0])-1].value   <span style="color: #008000;">#</span><span style="color: #008000;">获取最后一列的最后一行的单元格对象的值</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2>6、&nbsp;<strong><span style="font-family: 宋体;">操作</span></strong><strong><span style="font-family: 宋体;">已经存在</span></strong><strong><span style="font-family: 宋体;">的</span></strong><strong><span style="font-family: 宋体;">文件</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+wb </span>= load_workbook(<span style="color: #800000;">'</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+wb.guess_types </span>= True   <span style="color: #008000;">#</span><span style="color: #008000;">猜测格式类型</span>
+ws=<span style="color: #000000;">wb.active
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">D1</span><span style="color: #800000;">"</span>]=<span style="color: #800000;">"</span><span style="color: #800000;">12%</span><span style="color: #800000;">"</span>
+<span style="color: #0000ff;">print</span> ws[<span style="color: #800000;">"</span><span style="color: #800000;">D1</span><span style="color: #800000;">"</span><span style="color: #000000;">].value
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+</span><span style="color: #008000;">#</span><span style="color: #008000;">注意如果原文件有一些图片或者图标，则保存的时候可能会导致图片丢失</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2>7、&nbsp;<strong><span style="font-family: 宋体;">单元格类型</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> <span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> datetime
+wb </span>= load_workbook(<span style="color: #800000;">'</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+
+ws</span>=<span style="color: #000000;">wb.active
+wb.guess_types </span>=<span style="color: #000000;"> True
+
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">A1</span><span style="color: #800000;">"</span>]=datetime.datetime(2010, 7, 21<span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span> ws[<span style="color: #800000;">"</span><span style="color: #800000;">A1</span><span style="color: #800000;">"</span><span style="color: #000000;">].number_format
+
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">A2</span><span style="color: #800000;">"</span>]=<span style="color: #800000;">"</span><span style="color: #800000;">12%</span><span style="color: #800000;">"</span>
+<span style="color: #0000ff;">print</span> ws[<span style="color: #800000;">"</span><span style="color: #800000;">A2</span><span style="color: #800000;">"</span><span style="color: #000000;">].number_format
+
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">A3</span><span style="color: #800000;">"</span>]= 1.1
+<span style="color: #0000ff;">print</span> ws[<span style="color: #800000;">"</span><span style="color: #800000;">A4</span><span style="color: #800000;">"</span><span style="color: #000000;">].number_format
+
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">A4</span><span style="color: #800000;">"</span>]= <span style="color: #800000;">"</span><span style="color: #800000;">中国</span><span style="color: #800000;">"</span>
+<span style="color: #0000ff;">print</span> ws[<span style="color: #800000;">"</span><span style="color: #800000;">A5</span><span style="color: #800000;">"</span><span style="color: #000000;">].number_format
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+执行结果：
+yyyy</span>-mm-<span style="color: #000000;">dd h:mm:ss
+0</span>%<span style="color: #000000;">
+General
+General
+</span><span style="color: #008000;">#</span><span style="color: #008000;">如果是常规，显示general,如果是数字，显示'0.00_ '，如果是百分数显示0%</span>
+数字需要在Excel中设置数字类型，直接写入的数字是常规类型</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2>8、&nbsp;<strong><span style="font-family: 宋体;">使用</span></strong><strong><span style="font-family: 宋体;">公式</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+
+wb </span>= load_workbook(<span style="color: #800000;">'</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+ws1</span>=<span style="color: #000000;">wb.active
+
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">A1</span><span style="color: #800000;">"</span>]=1<span style="color: #000000;">
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">A2</span><span style="color: #800000;">"</span>]=2<span style="color: #000000;">
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">A3</span><span style="color: #800000;">"</span>]=3<span style="color: #000000;">
+
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">A4</span><span style="color: #800000;">"</span>] = <span style="color: #800000;">"</span><span style="color: #800000;">=SUM(1, 1)</span><span style="color: #800000;">"</span><span style="color: #000000;">
+ws1[</span><span style="color: #800000;">"</span><span style="color: #800000;">A5</span><span style="color: #800000;">"</span>] = <span style="color: #800000;">"</span><span style="color: #800000;">=SUM(A1:A3)</span><span style="color: #800000;">"</span>
+
+<span style="color: #0000ff;">print</span> ws1[<span style="color: #800000;">"</span><span style="color: #800000;">A4</span><span style="color: #800000;">"</span>].value  <span style="color: #008000;">#</span><span style="color: #008000;">打印的是公式内容，不是公式计算后的值,程序无法取到计算后的值</span>
+<span style="color: #0000ff;">print</span> ws1[<span style="color: #800000;">"</span><span style="color: #800000;">A5</span><span style="color: #800000;">"</span>].value  <span style="color: #008000;">#</span><span style="color: #008000;">打印的是公式内容，不是公式计算后的值,程序无法取到计算后的值</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2>9、&nbsp;<strong><span style="font-family: 宋体;">合并</span></strong><strong><span style="font-family: 宋体;">单元格</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+
+wb </span>= load_workbook(<span style="color: #800000;">'</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+ws1</span>=<span style="color: #000000;">wb.active
+
+ws.merge_cells(</span><span style="color: #800000;">'</span><span style="color: #800000;">A2:D2</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+ws.unmerge_cells(</span><span style="color: #800000;">'</span><span style="color: #800000;">A2:D2</span><span style="color: #800000;">'</span>)  <span style="color: #008000;">#</span><span style="color: #008000;">合并后的单元格，脚本单独执行拆分操作会报错，需要重新执行合并操作再拆分</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;"> or equivalently</span>
+ws.merge_cells(start_row=2,start_column=1,end_row=2,end_column=4<span style="color: #000000;">)
+ws.unmerge_cells(start_row</span>=2,start_column=1,end_row=2,end_column=4<span style="color: #000000;">)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2><strong>1</strong><strong>0<span style="font-family: 宋体;">、</span></strong><strong><span style="font-family: 宋体;">插入</span></strong><strong><span style="font-family: 宋体;">一个图片</span></strong></h2>
+<p><span style="font-family: 宋体;">需要先</span><span style="font-family: 宋体;">安装</span>Pilow,<span style="font-family: 宋体;">安全</span><span style="font-family: 宋体;">文件</span><span style="font-family: 宋体;">是</span><span style="font-family: 宋体;">：</span>PIL-fork-1.1.7.win-amd64-py2.7.exe</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+</span><span style="color: #0000ff;">from</span> openpyxl.drawing.image <span style="color: #0000ff;">import</span><span style="color: #000000;"> Image
+
+wb </span>= load_workbook(<span style="color: #800000;">'</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+ws1</span>=<span style="color: #000000;">wb.active
+
+img </span>= Image(<span style="color: #800000;">'</span><span style="color: #800000;">e:\\1.png</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+ws1.add_image(img, </span><span style="color: #800000;">'</span><span style="color: #800000;">A1</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2>11、&nbsp;<strong><span style="font-family: 宋体;">隐藏单元格</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+</span><span style="color: #0000ff;">from</span> openpyxl.drawing.image <span style="color: #0000ff;">import</span><span style="color: #000000;"> Image
+
+wb </span>= load_workbook(<span style="color: #800000;">'</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+ws1</span>=<span style="color: #000000;">wb.active
+
+ws1.column_dimensions.group(</span><span style="color: #800000;">'</span><span style="color: #800000;">A</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">D</span><span style="color: #800000;">'</span>, hidden=True)   <span style="color: #008000;">#</span><span style="color: #008000;">隐藏a到d列范围内的列</span><span style="color: #008000;">
+#</span><span style="color: #008000;">ws1.row_dimensions 无group方法</span><span style="color: #008000;">
+#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>12<span style="color: #000000;">、 画一个柱状图
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+</span><span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl.chart <span style="color: #0000ff;">import</span><span style="color: #000000;"> BarChart, Reference, Series
+
+wb </span>= load_workbook(<span style="color: #800000;">'</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+ws1</span>=<span style="color: #000000;">wb.active
+
+wb </span>=<span style="color: #000000;"> Workbook()
+ws </span>=<span style="color: #000000;"> wb.active
+</span><span style="color: #0000ff;">for</span> i <span style="color: #0000ff;">in</span> range(10<span style="color: #000000;">):
+    ws.append([i])
+
+values </span>= Reference(ws, min_col=1, min_row=1, max_col=1, max_row=10<span style="color: #000000;">)
+chart </span>=<span style="color: #000000;"> BarChart()
+chart.add_data(values)
+ws.add_chart(chart, </span><span style="color: #800000;">"</span><span style="color: #800000;">E15</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2>13、&nbsp;<strong><span style="font-family: 宋体;">画一个饼图</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+</span><span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl.chart <span style="color: #0000ff;">import</span><span style="color: #000000;"> (PieChart , ProjectedPieChart, Reference)
+</span><span style="color: #0000ff;">from</span> openpyxl.chart.series <span style="color: #0000ff;">import</span><span style="color: #000000;"> DataPoint
+
+data </span>=<span style="color: #000000;"> [
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Pie</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">Sold</span><span style="color: #800000;">'</span><span style="color: #000000;">],
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Apple</span><span style="color: #800000;">'</span>, 50<span style="color: #000000;">],
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Cherry</span><span style="color: #800000;">'</span>, 30<span style="color: #000000;">],
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Pumpkin</span><span style="color: #800000;">'</span>, 10<span style="color: #000000;">],
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Chocolate</span><span style="color: #800000;">'</span>, 40<span style="color: #000000;">],
+]
+
+wb </span>=<span style="color: #000000;"> Workbook()
+ws </span>=<span style="color: #000000;"> wb.active
+
+</span><span style="color: #0000ff;">for</span> row <span style="color: #0000ff;">in</span><span style="color: #000000;"> data:
+    ws.append(row)
+
+pie </span>=<span style="color: #000000;"> PieChart()
+labels </span>= Reference(ws, min_col=1, min_row=2, max_row=5<span style="color: #000000;">)
+data </span>= Reference(ws, min_col=2, min_row=1, max_row=5<span style="color: #000000;">)
+pie.add_data(data, titles_from_data</span>=<span style="color: #000000;">True)
+pie.set_categories(labels)
+pie.title </span>= <span style="color: #800000;">"</span><span style="color: #800000;">Pies sold by category</span><span style="color: #800000;">"</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;"> Cut the first slice out of the pie</span>
+slice = DataPoint(idx=0, explosion=20<span style="color: #000000;">)
+pie.series[0].data_points </span>=<span style="color: #000000;"> [slice]
+
+ws.add_chart(pie, </span><span style="color: #800000;">"</span><span style="color: #800000;">D1</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+
+ws </span>= wb.create_sheet(title=<span style="color: #800000;">"</span><span style="color: #800000;">Projection</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+
+data </span>=<span style="color: #000000;"> [
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Page</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">Views</span><span style="color: #800000;">'</span><span style="color: #000000;">],
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Search</span><span style="color: #800000;">'</span>, 95<span style="color: #000000;">],
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Products</span><span style="color: #800000;">'</span>, 4<span style="color: #000000;">],
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Offers</span><span style="color: #800000;">'</span>, 0.5<span style="color: #000000;">],
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Sales</span><span style="color: #800000;">'</span>, 0.5<span style="color: #000000;">],
+]
+
+</span><span style="color: #0000ff;">for</span> row <span style="color: #0000ff;">in</span><span style="color: #000000;"> data:
+    ws.append(row)
+
+projected_pie </span>=<span style="color: #000000;"> ProjectedPieChart()
+projected_pie.type </span>= <span style="color: #800000;">"</span><span style="color: #800000;">pie</span><span style="color: #800000;">"</span><span style="color: #000000;">
+projected_pie.splitType </span>= <span style="color: #800000;">"</span><span style="color: #800000;">val</span><span style="color: #800000;">"</span> <span style="color: #008000;">#</span><span style="color: #008000;"> split by value</span>
+labels = Reference(ws, min_col=1, min_row=2, max_row=5<span style="color: #000000;">)
+data </span>= Reference(ws, min_col=2, min_row=1, max_row=5<span style="color: #000000;">)
+projected_pie.add_data(data, titles_from_data</span>=<span style="color: #000000;">True)
+projected_pie.set_categories(labels)
+
+ws.add_chart(projected_pie, </span><span style="color: #800000;">"</span><span style="color: #800000;">A10</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+
+</span><span style="color: #0000ff;">from</span> copy <span style="color: #0000ff;">import</span><span style="color: #000000;"> deepcopy
+projected_bar </span>=<span style="color: #000000;"> deepcopy(projected_pie)
+projected_bar.type </span>= <span style="color: #800000;">"</span><span style="color: #800000;">bar</span><span style="color: #800000;">"</span><span style="color: #000000;">
+projected_bar.splitType </span>= <span style="color: #800000;">'</span><span style="color: #800000;">pos</span><span style="color: #800000;">'</span> <span style="color: #008000;">#</span><span style="color: #008000;"> split by position</span>
+<span style="color: #000000;">
+ws.add_chart(projected_bar, </span><span style="color: #800000;">"</span><span style="color: #800000;">A27</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2>14、&nbsp;<strong><span style="font-family: 宋体;">设定一个表格区域，并设定</span></strong><strong><span style="font-family: 宋体;">表格</span></strong><strong><span style="font-family: 宋体;">的格式</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> load_workbook
+</span><span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl.worksheet.table <span style="color: #0000ff;">import</span><span style="color: #000000;"> Table, TableStyleInfo
+
+wb </span>=<span style="color: #000000;"> Workbook()
+ws </span>=<span style="color: #000000;"> wb.active
+
+data </span>=<span style="color: #000000;"> [
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Apples</span><span style="color: #800000;">'</span>, 10000, 5000, 8000, 6000<span style="color: #000000;">],
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Pears</span><span style="color: #800000;">'</span>,   2000, 3000, 4000, 5000<span style="color: #000000;">],
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Bananas</span><span style="color: #800000;">'</span>, 6000, 6000, 6500, 6000<span style="color: #000000;">],
+    [</span><span style="color: #800000;">'</span><span style="color: #800000;">Oranges</span><span style="color: #800000;">'</span>,  500,  300,  200,  700<span style="color: #000000;">],
+]
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> add column headings. NB. these must be strings</span>
+ws.append([<span style="color: #800000;">"</span><span style="color: #800000;">Fruit</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">2011</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">2012</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">2013</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">2014</span><span style="color: #800000;">"</span><span style="color: #000000;">])
+</span><span style="color: #0000ff;">for</span> row <span style="color: #0000ff;">in</span><span style="color: #000000;"> data:
+    ws.append(row)
+
+tab </span>= Table(displayName=<span style="color: #800000;">"</span><span style="color: #800000;">Table1</span><span style="color: #800000;">"</span>, ref=<span style="color: #800000;">"</span><span style="color: #800000;">A1:E5</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Add a default style with striped rows and banded columns</span>
+style = TableStyleInfo(name=<span style="color: #800000;">"</span><span style="color: #800000;">TableStyleMedium9</span><span style="color: #800000;">"</span>, showFirstColumn=<span style="color: #000000;">True,
+                       showLastColumn</span>=True, showRowStripes=True, showColumnStripes=<span style="color: #000000;">True)
+</span><span style="color: #008000;">#</span><span style="color: #008000;">第一列是否和样式第一行颜色一行，第二列是否···</span><span style="color: #008000;">
+#</span><span style="color: #008000;">是否隔行换色，是否隔列换色</span>
+tab.tableStyleInfo =<span style="color: #000000;"> style
+ws.add_table(tab)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2><strong>15<span style="font-family: 宋体;">、给</span></strong><strong><span style="font-family: 宋体;">单元格</span></strong><strong><span style="font-family: 宋体;">设定</span></strong><strong><span style="font-family: 宋体;">字体颜色</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl.styles <span style="color: #0000ff;">import</span><span style="color: #000000;"> colors
+</span><span style="color: #0000ff;">from</span> openpyxl.styles <span style="color: #0000ff;">import</span><span style="color: #000000;"> Font
+
+wb </span>=<span style="color: #000000;"> Workbook()
+ws </span>=<span style="color: #000000;"> wb.active
+
+a1 </span>= ws[<span style="color: #800000;">'</span><span style="color: #800000;">A1</span><span style="color: #800000;">'</span><span style="color: #000000;">]
+d4 </span>= ws[<span style="color: #800000;">'</span><span style="color: #800000;">D4</span><span style="color: #800000;">'</span><span style="color: #000000;">]
+ft </span>= Font(color=colors.RED)  <span style="color: #008000;">#</span><span style="color: #008000;"> color="FFBB00"，颜色编码也可以设定颜色</span>
+a1.font =<span style="color: #000000;"> ft
+d4.font </span>=<span style="color: #000000;"> ft
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> If you want to change the color of a Font, you need to reassign it::</span><span style="color: #008000;">
+#</span><span style="color: #008000;">italic 倾斜字体</span>
+a1.font = Font(color=colors.RED, italic=True) <span style="color: #008000;">#</span><span style="color: #008000;"> the change only affects A1</span>
+a1.value = <span style="color: #800000;">"</span><span style="color: #800000;">abc</span><span style="color: #800000;">"</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2><strong>16<span style="font-family: 宋体;">、设定</span></strong><strong><span style="font-family: 宋体;">字体和大小</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl.styles <span style="color: #0000ff;">import</span><span style="color: #000000;"> colors
+</span><span style="color: #0000ff;">from</span> openpyxl.styles <span style="color: #0000ff;">import</span><span style="color: #000000;"> Font
+
+wb </span>=<span style="color: #000000;"> Workbook()
+ws </span>=<span style="color: #000000;"> wb.active
+
+a1 </span>= ws[<span style="color: #800000;">'</span><span style="color: #800000;">A1</span><span style="color: #800000;">'</span><span style="color: #000000;">]
+d4 </span>= ws[<span style="color: #800000;">'</span><span style="color: #800000;">D4</span><span style="color: #800000;">'</span><span style="color: #000000;">]
+a1.value </span>= <span style="color: #800000;">"</span><span style="color: #800000;">abc</span><span style="color: #800000;">"</span>
+
+<span style="color: #0000ff;">from</span> openpyxl.styles <span style="color: #0000ff;">import</span><span style="color: #000000;"> Font
+</span><span style="color: #0000ff;">from</span> copy <span style="color: #0000ff;">import</span><span style="color: #000000;"> copy
+
+ft1 </span>= Font(name=u<span style="color: #800000;">'</span><span style="color: #800000;">宋体</span><span style="color: #800000;">'</span>, size=14<span style="color: #000000;">)
+ft2 </span>= copy(ft1)   <span style="color: #008000;">#</span><span style="color: #008000;">复制字体对象</span>
+ft2.name = <span style="color: #800000;">"</span><span style="color: #800000;">Tahoma</span><span style="color: #800000;">"</span>
+
+<span style="color: #0000ff;">print</span><span style="color: #000000;"> ft1.name
+</span><span style="color: #0000ff;">print</span><span style="color: #000000;"> ft2.name
+</span><span style="color: #0000ff;">print</span> ft2.size <span style="color: #008000;">#</span><span style="color: #008000;"> copied from the</span>
+<span style="color: #000000;">
+a1.font </span>=<span style="color: #000000;"> ft1
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2><strong>17<span style="font-family: 宋体;">、设定</span></strong><strong><span style="font-family: 宋体;">行和列的字体</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl.styles <span style="color: #0000ff;">import</span><span style="color: #000000;"> Font
+wb </span>=<span style="color: #000000;"> Workbook()
+ws </span>=<span style="color: #000000;"> wb.active
+
+col </span>= ws.column_dimensions[<span style="color: #800000;">'</span><span style="color: #800000;">A</span><span style="color: #800000;">'</span><span style="color: #000000;">]
+col.font </span>= Font(bold=True)   <span style="color: #008000;">#</span><span style="color: #008000;">将A列设定为粗体</span>
+row = ws.row_dimensions[1<span style="color: #000000;">]
+row.font </span>= Font(underline=<span style="color: #800000;">"</span><span style="color: #800000;">single</span><span style="color: #800000;">"</span>)  <span style="color: #008000;">#</span><span style="color: #008000;">将第一行设定为下划线格式</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2><strong>18<span style="font-family: 宋体;">、设定单元格</span></strong><strong><span style="font-family: 宋体;">的边框、字体、颜色</span></strong><strong><span style="font-family: 宋体;">、</span></strong><strong><span style="font-family: 宋体;">大小</span></strong><strong><span style="font-family: 宋体;">和</span></strong><strong><span style="font-family: 宋体;">边框</span></strong><strong><span style="font-family: 宋体;">背景</span></strong><strong><span style="font-family: 宋体;">色</span></strong></h2>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl.styles <span style="color: #0000ff;">import</span><span style="color: #000000;"> Font
+</span><span style="color: #0000ff;">from</span> openpyxl.styles <span style="color: #0000ff;">import</span><span style="color: #000000;"> NamedStyle, Font, Border, Side,PatternFill
+
+wb </span>=<span style="color: #000000;"> Workbook()
+ws </span>=<span style="color: #000000;"> wb.active
+
+highlight </span>= NamedStyle(name=<span style="color: #800000;">"</span><span style="color: #800000;">highlight</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+highlight.font </span>= Font(bold=True, size=20,color= <span style="color: #800000;">"</span><span style="color: #800000;">ff0100</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+highlight.fill </span>= PatternFill(<span style="color: #800000;">"</span><span style="color: #800000;">solid</span><span style="color: #800000;">"</span>, fgColor=<span style="color: #800000;">"</span><span style="color: #800000;">DDDDDD</span><span style="color: #800000;">"</span>)<span style="color: #008000;">#</span><span style="color: #008000;">背景填充</span>
+bd = Side(style=<span style="color: #800000;">'</span><span style="color: #800000;">thick</span><span style="color: #800000;">'</span>, color=<span style="color: #800000;">"</span><span style="color: #800000;">000000</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+highlight.border </span>= Border(left=bd, top=bd, right=bd, bottom=<span style="color: #000000;">bd)
+
+</span><span style="color: #0000ff;">print</span> dir(ws[<span style="color: #800000;">"</span><span style="color: #800000;">A1</span><span style="color: #800000;">"</span><span style="color: #000000;">])
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">A1</span><span style="color: #800000;">"</span>].style =<span style="color: #000000;">highlight
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<h2><strong>19<span style="font-family: 宋体;">、常用</span></strong><strong><span style="font-family: 宋体;">的样式</span></strong><strong><span style="font-family: 宋体;">和</span></strong><strong><span style="font-family: 宋体;">属性设置</span></strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> -*- coding: utf-8 -*-</span>
+<span style="color: #0000ff;">from</span> openpyxl <span style="color: #0000ff;">import</span><span style="color: #000000;"> Workbook
+</span><span style="color: #0000ff;">from</span> openpyxl.styles <span style="color: #0000ff;">import</span><span style="color: #000000;"> Font
+</span><span style="color: #0000ff;">from</span> openpyxl.styles <span style="color: #0000ff;">import</span><span style="color: #000000;"> NamedStyle, Font, Border, Side,PatternFill
+</span><span style="color: #0000ff;">from</span> openpyxl.styles <span style="color: #0000ff;">import</span><span style="color: #000000;"> PatternFill, Border, Side, Alignment, Protection, Font
+
+wb </span>=<span style="color: #000000;"> Workbook()
+ws </span>=<span style="color: #000000;"> wb.active
+
+ft </span>= Font(name=u<span style="color: #800000;">'</span><span style="color: #800000;">微软雅黑</span><span style="color: #800000;">'</span><span style="color: #000000;">,
+    size</span>=11<span style="color: #000000;">,
+    bold</span>=<span style="color: #000000;">False,
+    italic</span>=<span style="color: #000000;">False,
+    vertAlign</span>=<span style="color: #000000;">None,
+    underline</span>=<span style="color: #800000;">'</span><span style="color: #800000;">none</span><span style="color: #800000;">'</span><span style="color: #000000;">,
+    strike</span>=<span style="color: #000000;">False,
+    color</span>=<span style="color: #800000;">'</span><span style="color: #800000;">FF000000</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+
+fill </span>= PatternFill(fill_type=<span style="color: #800000;">"</span><span style="color: #800000;">solid</span><span style="color: #800000;">"</span><span style="color: #000000;">,
+    start_color</span>=<span style="color: #800000;">'</span><span style="color: #800000;">FFEEFFFF</span><span style="color: #800000;">'</span><span style="color: #000000;">,
+    end_color</span>=<span style="color: #800000;">'</span><span style="color: #800000;">FF001100</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">边框可以选择的值为：'hair', 'medium', 'dashDot', 'dotted', 'mediumDashDot', 'dashed', 'mediumDashed', 'mediumDashDotDot', 'dashDotDot', 'slantDashDot', 'double', 'thick', 'thin']</span><span style="color: #008000;">
+#</span><span style="color: #008000;">diagonal 表示对角线</span>
+bd = Border(left=Side(border_style=<span style="color: #800000;">"</span><span style="color: #800000;">thin</span><span style="color: #800000;">"</span><span style="color: #000000;">,
+              color</span>=<span style="color: #800000;">'</span><span style="color: #800000;">FF001000</span><span style="color: #800000;">'</span><span style="color: #000000;">),
+    right</span>=Side(border_style=<span style="color: #800000;">"</span><span style="color: #800000;">thin</span><span style="color: #800000;">"</span><span style="color: #000000;">,
+               color</span>=<span style="color: #800000;">'</span><span style="color: #800000;">FF110000</span><span style="color: #800000;">'</span><span style="color: #000000;">),
+    top</span>=Side(border_style=<span style="color: #800000;">"</span><span style="color: #800000;">thin</span><span style="color: #800000;">"</span><span style="color: #000000;">,
+             color</span>=<span style="color: #800000;">'</span><span style="color: #800000;">FF110000</span><span style="color: #800000;">'</span><span style="color: #000000;">),
+    bottom</span>=Side(border_style=<span style="color: #800000;">"</span><span style="color: #800000;">thin</span><span style="color: #800000;">"</span><span style="color: #000000;">,
+                color</span>=<span style="color: #800000;">'</span><span style="color: #800000;">FF110000</span><span style="color: #800000;">'</span><span style="color: #000000;">),
+    diagonal</span>=Side(border_style=<span style="color: #000000;">None,
+                  color</span>=<span style="color: #800000;">'</span><span style="color: #800000;">FF000000</span><span style="color: #800000;">'</span><span style="color: #000000;">),
+    diagonal_direction</span>=<span style="color: #000000;">0,
+    outline</span>=Side(border_style=<span style="color: #000000;">None,
+                 color</span>=<span style="color: #800000;">'</span><span style="color: #800000;">FF000000</span><span style="color: #800000;">'</span><span style="color: #000000;">),
+    vertical</span>=Side(border_style=<span style="color: #000000;">None,
+                  color</span>=<span style="color: #800000;">'</span><span style="color: #800000;">FF000000</span><span style="color: #800000;">'</span><span style="color: #000000;">),
+    horizontal</span>=Side(border_style=<span style="color: #000000;">None,
+                   color</span>=<span style="color: #800000;">'</span><span style="color: #800000;">FF110000</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+                )
+
+alignment</span>=Alignment(horizontal=<span style="color: #800000;">'</span><span style="color: #800000;">general</span><span style="color: #800000;">'</span><span style="color: #000000;">,
+        vertical</span>=<span style="color: #800000;">'</span><span style="color: #800000;">bottom</span><span style="color: #800000;">'</span><span style="color: #000000;">,
+        text_rotation</span>=<span style="color: #000000;">0,
+        wrap_text</span>=<span style="color: #000000;">False,
+        shrink_to_fit</span>=<span style="color: #000000;">False,
+        indent</span>=<span style="color: #000000;">0)
+
+number_format </span>= <span style="color: #800000;">'</span><span style="color: #800000;">General</span><span style="color: #800000;">'</span><span style="color: #000000;">
+
+protection </span>= Protection(locked=<span style="color: #000000;">True,
+            hidden</span>=<span style="color: #000000;">False)
+
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">B5</span><span style="color: #800000;">"</span>].font =<span style="color: #000000;"> ft
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">B5</span><span style="color: #800000;">"</span>].fill =<span style="color: #000000;">fill
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">B5</span><span style="color: #800000;">"</span>].border =<span style="color: #000000;"> bd
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">B5</span><span style="color: #800000;">"</span>].alignment =<span style="color: #000000;"> alignment
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">B5</span><span style="color: #800000;">"</span>].number_format =<span style="color: #000000;"> number_format
+
+ws[</span><span style="color: #800000;">"</span><span style="color: #800000;">B5</span><span style="color: #800000;">"</span>].value =<span style="color: #800000;">"</span><span style="color: #800000;">zeke</span><span style="color: #800000;">"</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;"> Save the file</span>
+wb.save(<span style="color: #800000;">"</span><span style="color: #800000;">e:\\sample.xlsx</span><span style="color: #800000;">"</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="EntryTag">
+    标签: 
+            <a href="https://www.cnblogs.com/zeke-python-road/tag/python/">python</a></div>
+
+    <div id="blog_post_info">
+<div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(8986318,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow(&#39;6596b382-330e-e711-845c-ac853d9f53ac&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/zeke-python-road/">关关雎鸠`</a><br>
+            <a href="https://home.cnblogs.com/u/zeke-python-road/followees/">关注 - 1</a><br>
+            <a href="https://home.cnblogs.com/u/zeke-python-road/followers/">粉丝 - 23</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;6596b382-330e-e711-845c-ac853d9f53ac&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(8986318,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">7</span>
+    </div>
+    <div class="buryit" onclick="votePost(8986318,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">1</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+    <div class="clear"></div>
+    <div id="post_next_prev">
+
+    <a href="https://www.cnblogs.com/zeke-python-road/p/8120272.html" class="p_n_p_prefix">« </a> 上一篇：    <a href="https://www.cnblogs.com/zeke-python-road/p/8120272.html" title="发布于 2017-12-26 22:11">python使用二分法实现在一个有序列表中查找指定的元素</a>
+    <br>
+    <a href="https://www.cnblogs.com/zeke-python-road/p/8999996.html" class="p_n_p_prefix">» </a> 下一篇：    <a href="https://www.cnblogs.com/zeke-python-road/p/8999996.html" title="发布于 2018-05-06 22:11">抓包工具Charles的使用</a>
+
+</div>
+</div>
+		</div>
+		<div class="postDesc">posted @ 
+<span id="post-date">2018-05-03 17:00</span>&nbsp;
+<a href="https://www.cnblogs.com/zeke-python-road/">关关雎鸠`</a>&nbsp;
+阅读(<span id="post_view_count">61878</span>)&nbsp;
+评论(<span id="post_comment_count">4</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8986318" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(8986318);return false;">收藏</a></div>
+	</div>
+	
+	
+</div><!--end: topics 文章、评论容器-->
+<script src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/highlight.min.js.下载"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 342722, cb_blogApp = 'zeke-python-road', cb_blogUserGuid = '6596b382-330e-e711-845c-ac853d9f53ac';
+    var cb_entryId = 8986318, cb_entryCreatedDate = '2018-05-03 17:00', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder">
+
+<div id="comment_pager_top">
+    
+</div>
+
+<!--done-->
+<br>
+<div class="feedback_area_title">评论</div>
+<div class="feedbackNoItems"><div class="feedbackNoItems"></div></div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html#4062095" class="layer">#1楼</a>
+<a name="4062095" id="comment_anchor_4062095"></a>
+
+
+<span class="comment_date">2018-09-09 19:59</span>
+
+ | 
+
+            <a id="a_comment_author_4062095" href="https://home.cnblogs.com/u/1482007/" target="_blank">走之走之</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4062095" class="blog_comment_body">
+    棒棒哒
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4062095, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4062095, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html#4353405" class="layer">#2楼</a>
+<a name="4353405" id="comment_anchor_4353405"></a>
+
+
+<span class="comment_date">2019-09-12 15:27</span>
+
+ | 
+
+            <a id="a_comment_author_4353405" href="https://home.cnblogs.com/u/1471251/" target="_blank">bwcheng</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4353405" class="blog_comment_body">
+    老哥，转载了哈
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4353405, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4353405, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html#4384363" class="layer">#3楼</a>
+<a name="4384363" id="comment_anchor_4384363"></a>
+
+
+<span class="comment_date">2019-10-10 09:03</span>
+
+ | 
+
+            <a id="a_comment_author_4384363" href="https://www.cnblogs.com/liming19680104/" target="_blank">天子骄龙</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4384363" class="blog_comment_body">
+    请教：某单元格如果是公式，我如何计算它的值呢(用python计算)  ？？
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4384363, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4384363, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html#4392711" class="layer">#4楼</a>
+<a name="4392711" id="comment_anchor_4392711"></a>
+
+        <span id="comment-maxId" style="display:none">4392711</span>
+        <span id="comment-maxDate" style="display:none">2019/10/16 下午4:15:52</span>
+
+<span class="comment_date">2019-10-16 16:15</span>
+
+ | 
+
+            <a id="a_comment_author_4392711" href="https://www.cnblogs.com/Restaurant/" target="_blank">学习python~~~</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4392711" class="blog_comment_body">
+    赞，很棒！
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4392711, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4392711, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4392711_avatar" style="display:none">
+            https://pic.cnblogs.com/face/1675774/20190429173556.png
+        </span>
+
+			</div>
+		</div>
+
+<div id="comment_pager_bottom">
+    
+</div>
+
+
+</div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html#top">返回顶部</a></div>
+    <div id="comment_form_container"><div class="login_tips">
+    注册用户登录后才能发表评论，请 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a>
+     或 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，
+    <a href="https://www.cnblogs.com/">访问</a> 网站首页。
+</div></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-ucancode&#39;)">【推荐】超50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://cloud.tencent.com/act/developer?fromSource=gwzcw.3196333.3196333.3196333&amp;utm_medium=cpc&amp;utm_id=gwzcw.3196333.3196333.3196333" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-腾讯云&#39;)">【推荐】开发者上云福利，腾讯云1核4G云服务器11元/月起</a><br><a href="https://cloud.baidu.com/campaign/Annualceremony-2020/index.html?track=cp:dsp|pf:pc|pp:chui-bokeyuan-huodong-20niandushengdian-BCC-cpaxingshi-20200107|pu:cpa-xingshi|ci:2020ndsd|kw:2185443" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-百度云&#39;)">【推荐】开年盛典，百度智能云1核1G云服务器84元/年</a><br><a href="https://developer.aliyun.com/topic/feiyan2020?utm_content=g_1000102348" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-阿里云-疫情公益专题&#39;)">【推荐】像阿里巴巴一样远程办公，这些资源+工具+方案都好用</a><br><a href="https://developer.aliyun.com/topic/feiyan2020?utm_content=g_1000102348" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-阿里云-疫情公益专题&#39;)">【推荐】疫情期间如何高效工作？阿里巴巴为你提供办公工具和资源</a><br></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/gpt.js.下载"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;" data-google-query-id="CJeayY6Dx-cCFci6lgodFF8E0A"><div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C1_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/saved_resource.html"></iframe></div></div>
+    </div>
+    <div id="under_post_news"><div class="recomm-block"><b>相关博文：</b><br>·  <a title="Pythonopenpyxl之Excel文档简单操作" href="https://www.cnblogs.com/Unikfox/p/9124767.html" target="_blank" onclick="clickRecomItmem(9124767)">Pythonopenpyxl之Excel文档简单操作</a><br>·  <a title="python openpyxl 操作 excel" href="https://www.cnblogs.com/guanfuchang/p/5970435.html" target="_blank" onclick="clickRecomItmem(5970435)">python openpyxl 操作 excel</a><br>·  <a title="python-写入excel(xlswriter)" href="https://www.cnblogs.com/puresoul/p/7520204.html" target="_blank" onclick="clickRecomItmem(7520204)">python-写入excel(xlswriter)</a><br>·  <a title="python之openpyxl模块" href="https://www.cnblogs.com/wuxunyan/p/9494945.html" target="_blank" onclick="clickRecomItmem(9494945)">python之openpyxl模块</a><br>·  <a title="Pythonopenpyxl、pandas操作Excel方法简介与具体实例" href="https://www.cnblogs.com/new-june/p/9279701.html" target="_blank" onclick="clickRecomItmem(9279701)">Pythonopenpyxl、pandas操作Excel方法简介与具体实例</a><br>»  <a target="_blank" href="https://recomm.cnblogs.com/blogpost/8986318">更多推荐...</a><div id="cnblogs_t5"><a href="https://developer.aliyun.com/topic/feiyan2020?utm_content=g_1000102348" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T5-阿里云-疫情公益专题&#39;)">疫情期间如何高效工作？阿里巴巴为你提供办公工具和资源！</a></div></div></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CJiayY6Dx-cCFci6lgodFF8E0A">
+            
+        <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="2" data-load-complete="true" src="./python操作Excel模块openpyxl - 关关雎鸠` - 博客园_files/saved_resource(1).html"></iframe></div></div>
+    </div>
+    <div id="under_post_kb">
+<div class="itnews c_ad_block">
+    <b>最新 IT 新闻</b>:
+    <br>
+ ·              <a href="https://news.cnblogs.com/n/655616/" target="_blank">陈明永致信OPPO员工：疫情有影响，但对未来有底气</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/655615/" target="_blank">在家远程办公一周后，你还觉得巴适和安逸吗？</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/655614/" target="_blank">独家：快手2019年完成广告收入130亿，今年定下400亿元目标</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/655613/" target="_blank">今天，我被裁了：账上还有10亿元，新潮宣布减员500人</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/655612/" target="_blank">高分辨率 “透视” 系统问世！斯坦福团队用普通器件解决复杂光学难题</a>
+            <br>
+    » <a href="https://news.cnblogs.com/" title="IT 新闻" target="_blank">更多新闻...</a>
+</div></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div></div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem"><!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	
+<div id="blog-news">
+    
+    <div id="profile_block">
+        昵称：
+        <a href="https://home.cnblogs.com/u/zeke-python-road/">
+            关关雎鸠`
+        </a>
+        <br>
+        园龄：
+        <a href="https://home.cnblogs.com/u/zeke-python-road/" title="入园时间：2017-03-21">
+            2年10个月
+        </a>
+        <br>
+        粉丝：
+        <a href="https://home.cnblogs.com/u/zeke-python-road/followers/">
+            23
+        </a>
+        <br>
+        关注：
+        <a href="https://home.cnblogs.com/u/zeke-python-road/followees/">
+            1
+        </a>
+        <div id="p_b_follow">
+<a href="javascript:void(0)" onclick="follow(&#39;6596b382-330e-e711-845c-ac853d9f53ac&#39;)">+加关注</a></div>
+        <script>getFollowStatus('6596b382-330e-e711-845c-ac853d9f53ac');</script>
+    </div>
+</div>
+</div>
+
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="">
+
+<table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar" border="0">
+    <tbody>
+        <tr>
+            <td colspan="7">
+                <table class="CalTitle" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2020/01/10&#39;); return false;">&lt;</a>
+                            </td>
+                            <td align="center">2020年2月</td>
+                            <td align="right" class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2020/03/10&#39;); return false;">&gt;</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+                    <th class="CalDayHeader" align="center" abbr="日" scope="col">日</th>
+                    <th class="CalDayHeader" align="center" abbr="一" scope="col">一</th>
+                    <th class="CalDayHeader" align="center" abbr="二" scope="col">二</th>
+                    <th class="CalDayHeader" align="center" abbr="三" scope="col">三</th>
+                    <th class="CalDayHeader" align="center" abbr="四" scope="col">四</th>
+                    <th class="CalDayHeader" align="center" abbr="五" scope="col">五</th>
+                    <th class="CalDayHeader" align="center" abbr="六" scope="col">六</th>
+        </tr>
+            <tr>
+                            <td class="CalOtherMonthDay" align="center">26</td>
+                            <td class="CalOtherMonthDay" align="center">27</td>
+                            <td class="CalOtherMonthDay" align="center">28</td>
+                            <td class="CalOtherMonthDay" align="center">29</td>
+                            <td class="CalOtherMonthDay" align="center">30</td>
+                            <td class="CalOtherMonthDay" align="center">31</td>
+                    <td class="CalWeekendDay" align="center">
+                        1
+                    </td>
+            </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            2
+                        </td>
+                            <td class="" align="center">
+                                3
+                            </td>
+                            <td class="" align="center">
+                                4
+                            </td>
+                            <td class="" align="center">
+                                5
+                            </td>
+                            <td class="" align="center">
+                                6
+                            </td>
+                            <td class="" align="center">
+                                7
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            8
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            9
+                        </td>
+                            <td class="CalTodayDay" align="center">
+                                10
+                            </td>
+                            <td class="" align="center">
+                                11
+                            </td>
+                            <td class="" align="center">
+                                12
+                            </td>
+                            <td class="" align="center">
+                                13
+                            </td>
+                            <td class="" align="center">
+                                14
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            15
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            16
+                        </td>
+                            <td class="" align="center">
+                                17
+                            </td>
+                            <td class="" align="center">
+                                18
+                            </td>
+                            <td class="" align="center">
+                                19
+                            </td>
+                            <td class="" align="center">
+                                20
+                            </td>
+                            <td class="" align="center">
+                                21
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            22
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            23
+                        </td>
+                            <td class="" align="center">
+                                24
+                            </td>
+                            <td class="" align="center">
+                                25
+                            </td>
+                            <td class="" align="center">
+                                26
+                            </td>
+                            <td class="" align="center">
+                                27
+                            </td>
+                            <td class="" align="center">
+                                28
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            29
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalOtherMonthDay" align="center">
+                            1
+                        </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                2
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                3
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                4
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                5
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                6
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            7
+                        </td>
+                </tr>
+    </tbody>
+</table></div><script>loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn">
+<!-- 搜索 -->
+<div id="sidebar_search" class="sidebar-block">
+    <div id="sidebar_search" class="mySearch">
+        <h3 class="catListTitle">搜索</h3>
+        <div id="sidebar_search_box">
+            <div id="widget_my_zzk" class="div_my_zzk">
+                <input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk">
+            </div>
+            <div id="widget_my_google" class="div_my_zzk">
+                <input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 常用链接 -->
+<div id="sidebar_shortcut" class="sidebar-block">
+    <div class="catListLink">
+<h3 class="catListTitle">
+常用链接
+</h3>
+<ul>
+		<li>
+
+<a href="https://www.cnblogs.com/zeke-python-road/p/" title="我的博客的随笔列表">我的随笔</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/zeke-python-road/MyComments.html" title="我的发表过的评论列表">我的评论</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/zeke-python-road/OtherPosts.html" title="我评论过的随笔列表">我的参与</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/zeke-python-road/RecentComments.html" title="我的博客的评论列表">最新评论</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/zeke-python-road/tag/" title="我的博客的标签列表">我的标签</a>
+</li>
+
+<li><a id="itemListLink" onclick="this.blur();WarpClass(&#39;itemListLink&#39;, &#39;itemListLin_con&#39;);return false;" href="https://www.cnblogs.com/zeke-python-road/p/8986318.html#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div>
+
+
+</div>
+
+<!-- 最新随笔 -->
+
+
+
+<!-- 我的标签 -->
+<div id="sidebar_toptags" class="sidebar-block">
+    <div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+
+        <li>
+            <a href="https://www.cnblogs.com/zeke-python-road/tag/python/">python</a>(28)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/zeke-python-road/tag/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>(10)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/zeke-python-road/tag/selenium/">selenium</a>(8)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/zeke-python-road/tag/Linux/">Linux</a>(4)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/zeke-python-road/tag/mysql/">mysql</a>(3)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/zeke-python-road/tag/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E5%AE%89%E8%A3%85/">第三方库安装</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/zeke-python-road/tag/%E8%AF%BB%E4%B9%A6%E6%9C%89%E6%84%9F/">读书有感</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/zeke-python-road/tag/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/zeke-python-road/tag/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/">日常问题</a>(1)
+        </li>
+
+</ul>
+</div>
+
+
+</div>
+
+<!-- 积分与排名 -->
+
+
+<!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
+<div id="sidebar_categories">
+    
+<div class="catListPostArchive">
+<h3 class="catListTitle">
+
+随笔档案
+
+
+</h3>
+
+
+<ul>
+
+<li>
+<a href="https://www.cnblogs.com/zeke-python-road/archive/2019/08.html" rel="" target="">
+    2019年8月(1)
+</a>
+ 
+</li>
+<li>
+<a href="https://www.cnblogs.com/zeke-python-road/archive/2019/03.html" rel="" target="">
+    2019年3月(1)
+</a>
+ 
+</li>
+<li>
+<a href="https://www.cnblogs.com/zeke-python-road/archive/2018/09.html" rel="" target="">
+    2018年9月(5)
+</a>
+ 
+</li>
+<li>
+<a href="https://www.cnblogs.com/zeke-python-road/archive/2018/08.html" rel="" target="">
+    2018年8月(9)
+</a>
+ 
+</li>
+<li>
+<a href="https://www.cnblogs.com/zeke-python-road/archive/2018/07.html" rel="" target="">
+    2018年7月(10)
+</a>
+ 
+</li>
+<li>
+<a href="https://www.cnblogs.com/zeke-python-road/archive/2018/06.html" rel="" target="">
+    2018年6月(6)
+</a>
+ 
+</li>
+<li>
+<a href="https://www.cnblogs.com/zeke-python-road/archive/2018/05.html" rel="" target="">
+    2018年5月(2)
+</a>
+ 
+</li>
+<li>
+<a href="https://www.cnblogs.com/zeke-python-road/archive/2017/12.html" rel="" target="">
+    2017年12月(1)
+</a>
+ 
+</li>
+
+</ul>
+
+
+</div>
+
+
+</div>
+
+<!-- 最新评论 -->
+<div id="sidebar_recentcomments" class="sidebar-block">
+    <div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div class="RecentCommentBlock">
+        <ul>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html#4392711">1. Re:python操作Excel模块openpyxl</a></li>
+                    <li class="recent_comment_body">赞，很棒！</li>
+                    <li class="recent_comment_author">--学习python~~~</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html#4384363">2. Re:python操作Excel模块openpyxl</a></li>
+                    <li class="recent_comment_body">请教：某单元格如果是公式，我如何计算它的值呢(用python计算)  ？？</li>
+                    <li class="recent_comment_author">--天子骄龙</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html#4353405">3. Re:python操作Excel模块openpyxl</a></li>
+                    <li class="recent_comment_body">老哥，转载了哈</li>
+                    <li class="recent_comment_author">--bwcheng</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/zeke-python-road/p/10456491.html#4322514">4. Re:离线安装python的ibm_db模块</a></li>
+                    <li class="recent_comment_body">大佬，你这个还要加一步，不然会报错</li>
+                    <li class="recent_comment_author">--杭盖古田呢</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html#4062095">5. Re:python操作Excel模块openpyxl</a></li>
+                    <li class="recent_comment_body">棒棒哒</li>
+                    <li class="recent_comment_author">--走之走之</li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+
+
+<!-- 阅读排行榜 -->
+<div id="sidebar_topviewedposts" class="sidebar-block">
+    <div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html">
+                            1. python操作Excel模块openpyxl(61877)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/zeke-python-road/p/9455048.html">
+                            2. Linux查看文件指定行数内容(22041)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/zeke-python-road/p/9442152.html">
+                            3. python mysqldb批量执行语句executemany(12591)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/zeke-python-road/p/9610715.html">
+                            4. Linux的sz和rz命令(6300)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/zeke-python-road/p/9561974.html">
+                            5. python正则表达式(3)--match方法(4496)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+<!-- 评论排行榜 -->
+<div id="sidebar_topcommentedposts" class="sidebar-block">
+    <div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html">
+                            1. python操作Excel模块openpyxl(4)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/zeke-python-road/p/9591445.html">
+                            2. python正则表达式(7)--flag修饰符、match对象属性(1)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/zeke-python-road/p/10456491.html">
+                            3. 离线安装python的ibm_db模块(1)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+<!-- 推荐排行榜 -->
+<div id="sidebar_topdiggedposts" class="sidebar-block">
+    <div id="topdigg_posts_wrap">
+    <div class="catListView">
+        <h3 class="catListTitle">推荐排行榜</h3>
+        <div id="TopDiggPostsBlock">
+            <ul style="word-break: break-all">
+                        <li>
+                            <a href="https://www.cnblogs.com/zeke-python-road/p/8986318.html">
+                                1. python操作Excel模块openpyxl(7)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/zeke-python-road/p/9565419.html">
+                                2. python正则表达式(4)--search方法(2)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/zeke-python-road/p/9577808.html">
+                                3. python正则表达式(5)--findall、finditer方法(1)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/zeke-python-road/p/9583814.html">
+                                4. python正则表达式(6)--split、sub、escape方法(1)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/zeke-python-road/p/9591445.html">
+                                5. python正则表达式(7)--flag修饰符、match对象属性(1)
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright © 2020 关关雎鸠`
+<br><span id="poweredby">Powered by .NET Core 3.1.1 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+</body></html>

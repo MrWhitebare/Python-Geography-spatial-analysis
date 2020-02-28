@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://www.movable-type.co.uk/scripts/latlong.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Calculate distance and bearing between two Latitude/Longitude points using haversine formula in JavaScript</title>
+    
+    <meta name="author" content="Chris Veness, www.movable-type.co.uk">
+    <meta name="keywords" content="latitude longitude distance bearing points earth haversine great circle rhumb">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/normalize.min.css">
+    <link rel="stylesheet" href="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/prettify.css">
+    <link rel="stylesheet" href="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/base.css">
+    <link rel="stylesheet" href="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/stylesheet.css">
+    <link rel="stylesheet" href="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/mtl.css">
+    <style>
+        input               { text-align: right; width: 6em; }
+        input[type="radio"] { width: auto; vertical-align: baseline; }
+        output              { color: #000099; font-weight: bold; }
+        a                   { cursor: pointer; } /* for 'show map' */
+        figcaption          { font-size: 0.8em; font-style: italic; text-align: center; }
+        form ul.list        { list-style: inherit; } /* an actual list to appear within a form! */
+        fieldset            { padding: 0 2em; }
+        .inputs             { float: left; margin: 1em 2em 0 0; }
+        .outputs            { margin: 1em 2em 0 0; }
+        .map                { height: 480px; width: 480px; }
+        .radicand           { border-top: solid 1px #cccccc; }
+        .label              { color: #666666; font-style: italic; }
+        td.formula          { line-height: 1; padding: 0.4em 0.1em; }
+        aside               { width: 21em; }
+        .gm-style .gm-style-mtc div {
+            font-size: 14px !important; /* shrink over-large map type control */
+        }
+        code.prettyprint {
+            display: block;
+            font-size: 0.8em;
+            line-height: 1;;
+            margin-left: 2.5em;
+            padding-bottom: 0.4em;
+            text-indent: -2.5em;
+        }
+
+        @media screen and (max-width: 800px) {
+            .formula { font-size: 0.9em; /* Times a bit strange on Android? */ }
+            figure img { width: 120px; }
+        }
+    </style>
+    <script nomodule=""> window.location.replace('latlong-nomodule.html'); </script>
+    <script defer="" src="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/es6-promise.min.js.下载">/* promise polyfill */</script>
+    <script defer="" src="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/fetch.min.js.下载">/* fetch polyfill */</script>
+    <script defer="" src="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/prettify.js.下载">/* r224/r298 don't work! */</script>
+    <script defer="" src="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/qs.min.js.下载">/* github.com/ljharb/qs */</script>
+    <script defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbKDDln0bJkfX4tO4fywUHiGFZaNzKSpc"></script>
+    <script src="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/js.cookie.min.js.下载">/* github.com/js-cookie/js-cookie */</script>
+    <!--[if lt IE 9]> <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+    <script defer="" src="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/mtl.js.下载">/* MTL utils */</script>
+    <script type="module" src="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/latlong.js.下载"></script>
+</head>
+
+<body>
+
+<header> <a href="https://www.movable-type.co.uk/"><img src="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/mtl.gif" alt="MTL logo"></a>
+  <h1>Movable Type Scripts</h1>
+  <hr>
+  <h2>Calculate distance, bearing and more between Latitude/Longitude points</h2>
+</header>
+
+
+<!--[if lte IE 9]><p class="alert align-left">This page no longer works on Internet Explorer 9 and earlier, which are <em><a href="https://www.microsoft.com/en-gb/WindowsForBusiness/End-of-IE-support">no longer supported</a></em></p><![endif]-->
+<p class="error"></p>
+
+<main>
+    <p>This page presents a variety of calculations for lati­tude/longi­tude points, with the formulas and
+        code fragments for implementing them.</p>
+    <p>All these formulas are for calculations on the basis of a spherical earth  (ignoring ellipsoidal
+        effects) – which is accurate enough<sup><a href="https://www.movable-type.co.uk/scripts/latlong.html#ellipsoid" title="see notes">*</a></sup> for
+        most purposes… [In fact, the earth is very slightly ellipsoidal; using a spherical model gives
+        errors typically up to 0.3%<sup><a href="http://gis.stackexchange.com/questions/25494#25580">1</a></sup>
+        – see notes for further details].</p>
+
+    <form name="ortho-dist" id="ortho-dist">
+        <fieldset><legend>Great-circle distance between two points</legend>
+            <p>Enter the co-ordinates into the text boxes to try out the calculations. A variety of
+                formats are accepted, principally:</p>
+            <ul class="list">
+                <li>deg-min-sec suffixed with N/S/E/W (e.g. 40°44′55″N, 73 59 11W), or</li>
+                <li>signed decimal degrees without compass direction, where negative indicates
+                    west/south (e.g. 40.7486, -73.9864):
+                </li>
+            </ul>
+            <table class="inputs">
+                <tbody><tr>
+                    <td>Point 1:</td>
+                    <td>
+                        <input type="text" name="lat1" class="lat1" value="50 03 59N" placeholder="Lat 1 (°N/S)" title="Lat 1 (°N/S)" required=""> ,
+                        <input type="text" name="lon1" class="lon1" value="005 42 53W" placeholder="Lon 1 (°E/W)" title="Lon 1 (°E/W)" required="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Point 2:</td>
+                    <td>
+                        <input type="text" name="lat2" class="lat2" value="58 38 38N" placeholder="Lat 2 (°N/S)" title="Lat 2 (°N/S)" required=""> ,
+                        <input type="text" name="lon2" class="lon2" value="003 04 12W" placeholder="Lon 2 (°E/W)" title="Lon 2 (°E/W)" required="">
+                    </td>
+                </tr>
+            </tbody></table>
+            <table class="outputs">
+                <tbody><tr>
+                    <td>Distance:</td>
+                    <td>
+                        <output class="result-dist" title="Distance (in km)"></output> km
+                        <span title="rounding to 4 significant figures reflects the approx. 0.3% accuracy of the spherical model" class="small grey">(to 4 SF<sup>*</sup>)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initial bearing:</td>
+                    <td><output class="result-brng1" title="Initial bearing (azimuth) between points"></output></td>
+                </tr>
+                <tr>
+                    <td>Final bearing:</td>
+                    <td><output class="result-brng2" title="Final bearing (azimuth) between points"></output></td>
+                </tr>
+                <tr>
+                    <td>Midpoint:</td>
+                    <td><output class="result-midpt" title="Midpoint between points"></output></td>
+                </tr>
+            </tbody></table>
+            <p class="toggle-map">And you can <a>see it on a map</a></p>
+            <p class="toggle-map hide"><a>... hide map</a></p>
+            <div id="map-ortho-dist-canvas" class="map hide"></div>
+        </fieldset>
+    </form>
+
+
+    <h3>Distance</h3>
+
+    <p>This uses the ‘<b>haversine</b>’ formula to calculate the great-circle distance between two
+        points – that is, the shortest distance over the earth’s surface – giving an ‘as-the-crow-flies’
+        distance between the  points (ignoring any hills they fly over, of course!).</p>
+    <table>
+        <tbody><tr id="haversine">
+            <td class="label" rowspan="3">Haversine<br>formula:</td>
+            <td class="formula">a = sin²(Δφ/2) + cos φ<sub>1</sub> ⋅ cos φ<sub>2</sub> ⋅ sin²(Δλ/2)</td>
+        </tr>
+        <tr>
+            <td class="formula">c = 2 ⋅ atan2( √<span class="radicand">a</span>, √<span class="radicand">(1−a)</span> )</td>
+        </tr>
+        <tr>
+            <td class="formula">d = R ⋅ c</td>
+        </tr>
+        <tr>
+            <td class="label align-right">where</td>
+            <td><i></i>φ<i> is latitude, </i>λ<i> is longitude, </i>R<i> is earth’s radius (mean radius = 6,371km);<br>
+                note that angles need to be in radians to pass to trig functions!</i></td>
+        </tr>
+        <tr>
+            <td class="label">JavaScript:</td>
+            <td><pre class="code prettyprint&gt;">var R = 6371e3; // metres
+var φ1 = lat1.toRadians();
+var φ2 = lat2.toRadians();
+var Δφ = (lat2-lat1).toRadians();
+var Δλ = (lon2-lon1).toRadians();
+
+var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+        Math.cos(φ1) * Math.cos(φ2) *
+        Math.sin(Δλ/2) * Math.sin(Δλ/2);
+var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+var d = R * c;</pre>
+            </td>
+        </tr>
+    </tbody></table>
+
+    <p><i>Note in these scripts, I generally use lat/lon for lati­tude/longi­tude in degrees, and φ/λ for
+        lati­tude/longi­tude in radians – having found that mixing degrees &amp; radians is often the
+        easiest route to head-scratching bugs...</i></p>
+
+    <aside><p><i>Historical aside</i>:
+        The height of tech­nology for navigator’s calculations used to be log tables. As there is no
+        (real) log of a negative number, the ‘versine’ enabled them to keep trig func­tions in
+        positive numbers. Also, the sin²(θ/2) form of the haversine avoided addition (which en­tailed
+        an anti-log lookup, the addi­tion, and a log lookup).
+        Printed <a href="http://haversine.files.wordpress.com/2012/08/haversines.jpg">tables</a> for the
+        haver­sine/in­verse-haver­sine (and its log­arithm, to aid
+        multip­lica­tions) saved navi­gators from squaring sines, com­puting square roots,
+        etc – arduous and error-prone activ­ities.</p>
+    </aside>
+
+    <p>The <a href="http://en.wikipedia.org/wiki/Haversine_formula">haversine</a>
+        formula<sup><a href="http://mathforum.org/library/drmath/view/51879.html">1</a></sup> ‘remains
+        particularly well-conditioned for numerical computa­tion even at small distances’ – unlike
+        calcula­tions based on the <span title="cos c = cos a cos b + sin a sin b cos C"><i>spherical law
+        of cosines</i></span>. The ‘(re)versed sine’ is <span class="formula">1−cosθ</span>, and the
+        ‘half-versed-sine’ is <span class="formula">(1−cosθ)/2</span> or <span class="formula">sin²(θ/2)</span> as used above.
+        Once widely used by navigators, it was described by Roger Sinnott in
+        <a href="https://www.shopatsky.com/product/sky-and-telescope-august-1984-digital-issue/sky-and-telescope-digital-issues-1980-1989"><i>Sky &amp; Telescope</i></a>
+        magazine in 1984 (“Virtues of the Haversine”): Sinnott explained that the angular separa­tion
+        between Mizar and Alcor in Ursa Major – 0°11′49.69″ – could be accurately calculated on a
+        <a href="http://en.wikipedia.org/wiki/TRS-80#modeliii">TRS-80</a> using the haversine.</p>
+    <p>For the curious, <i>c</i> is the angular distance in radians, and <i>a</i> is the square of half
+        the chord length between the points.</p>
+    <p>If <code>atan2</code> is not available, <i>c</i> could be calculated
+        from <span class="formula">2 ⋅ asin( min(1, √<span class="radicand">a</span>) )</span>
+        (including protec­tion against rounding errors).</p>
+    <p>Using Chrome on a middling Core i5 PC, a distance calcula­tion takes around
+        <a href="https://www.movable-type.co.uk/scripts/performance/latlong-spherical.html">2 – 5 micro­seconds</a> (hence around 200,000 – 500,000 per second).
+        Little to no benefit is obtained by factoring out common terms; probably the JIT compiler
+        optimises them out.</p>
+
+    <h4 id="cosine-law">Spherical Law of Cosines</h4>
+
+    <p>In fact, JavaScript (and most modern computers &amp; languages) use ‘IEEE 754’ 64-bit floating-point
+        numbers, which provide 15 significant figures of precision. By my estimate, with this precision,
+        the simple <a href="http://mathworld.wolfram.com/SphericalTrigonometry.html">spherical law of
+        cosines</a> formula (cos <i>c</i> = cos <i>a</i> cos <i>b</i> + sin <i>a</i> sin <i>b</i> cos <i>C</i>)
+        gives well-condi­tioned results down to distances as small as a few metres on the earth’s surface.
+        <span class="note">(<i>Note that the geodetic form of the law of cosines is rearranged from the
+        canonical one so that the latitude can be used directly, rather than the
+        <a href="http://mathworld.wolfram.com/Colatitude.html">colatitude</a></i>).</span></p>
+    <p>This makes the simpler law of cosines a reasonable 1-line alternative to the haversine formula for
+        many geodesy purposes (if not for astronomy). The choice may be driven by programming language, processor,
+        coding context, available trig func­tions (in different languages), etc – and, for very small distances an
+        equirectangular approxima­tion may be more suitable.</p>
+
+    <table>
+        <tbody><tr>
+            <td class="label">Law of cosines:</td>
+            <td class="formula">d = acos( sin φ<sub>1</sub> ⋅ sin φ<sub>2</sub> + cos φ<sub>1</sub> ⋅ cos φ<sub>2</sub> ⋅ cos Δλ ) ⋅ R</td>
+        </tr>
+        <tr>
+            <td class="label">JavaScript:</td>
+            <td><pre class="code prettyprint&gt;">var φ1 = lat1.toRadians(), φ2 = lat2.toRadians(), Δλ = (lon2-lon1).toRadians(), R = 6371e3; // gives d in metres
+var d = Math.acos( Math.sin(φ1)*Math.sin(φ2) + Math.cos(φ1)*Math.cos(φ2) * Math.cos(Δλ) ) * R;</pre>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">Excel:</td>
+            <td class="code">=ACOS( SIN(lat1)*SIN(lat2) + COS(lat1)*COS(lat2)*COS(lon2-lon1) ) * 6371000</td>
+        </tr>
+        <tr>
+            <td class="label">(or with lat/lon in degrees):</td>
+            <td class="code">=ACOS( SIN(lat1*PI()/180)*SIN(lat2*PI()/180) + COS(lat1*PI()/180)*COS(lat2*PI()/180)*COS(lon2*PI()/180-lon1*PI()/180) ) * 6371000</td>
+        </tr>
+    </tbody></table>
+    <p>While simpler, the law of cosines is slightly slower than the haversine, in my tests.</p>
+
+    <h4 id="equirectangular">Equirectangular approximation</h4>
+
+    <p>If performance is an issue and accuracy less important, for small distances
+        <a href="http://en.wikipedia.org/wiki/Pythagorean_theorem">Pythagoras’
+        theorem</a> can be used on an <a href="http://en.wikipedia.org/wiki/Equirectangular_projection">equi­rectangular
+        projec­tion</a>:<sup title="merci à Laurent Grégoire">*</sup></p>
+    <table>
+        <tbody><tr>
+            <td class="label">Formula</td>
+            <td class="formula">x = Δλ ⋅ cos φ<sub>m</sub></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">y = Δφ</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">d = R ⋅ √<span class="radicand">x² + y²</span></td>
+        </tr>
+        <tr>
+        <td class="label">JavaScript:</td>
+        <td><pre class="code prettyprint&gt;">var x = (λ2-λ1) * Math.cos((φ1+φ2)/2);
+var y = (φ2-φ1);
+var d = Math.sqrt(x*x + y*y) * R;</pre></td>
+        </tr>
+    </tbody></table>
+
+    <p>This uses just one trig and one sqrt function – as against half-a-dozen trig func­tions for cos
+        law, and 7 trigs + 2 sqrts for haversine. Accuracy is somewhat complex: along meridians there
+        are no errors, otherwise they depend on distance, bearing, and latitude, but are small enough
+        for many purposes<sup title="anyone care to quantify them?">*</sup> (and often trivial compared
+        with the spherical approxima­tion itself).</p>
+
+    <p>Alternatively, the <i>polar coordinate flat-earth formula</i> can be used:
+        using the co-latitudes θ<sub>1</sub> = π/2−φ<sub>1</sub> and θ<sub>2</sub> = π/2−φ<sub>2</sub>,
+        then <span class="formula nowrap">d = R ⋅ √<span class="radicand">θ<sub>1</sub>² + θ<sub>2</sub>² − 2 ⋅ θ<sub>1</sub> ⋅ θ<sub>2</sub> ⋅ cos Δλ</span></span>.
+        I’ve not compared accuracy.</p>
+
+    <figure class="float-right"><img src="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/baghdad-to-osaka.jpg" alt="Baghdad to Osaka">
+        <figcaption>Baghdad to Osaka – <br>
+        not a constant bearing!</figcaption>
+    </figure>
+
+    <h3 id="bearing">Bearing</h3>
+
+    <p>In general, your current heading will vary as you  follow a great circle path (orthodrome); the
+        final heading will differ from the initial heading by varying degrees according to distance and
+        latitude (if you were to go from say 35°N,45°E (≈&nbsp;Baghdad) to 35°N,135°E (≈&nbsp;Osaka), you
+        would start on a heading of 60° and end up on a heading of 120°!).</p>
+    <p>This formula is for the initial bearing (sometimes referred to as forward azimuth) which if
+        followed in a straight line along a great-circle arc will take you from the start point to the
+        end point:<sup><a href="http://mathforum.org/library/drmath/view/55417.html">1</a></sup></p>
+    <table>
+        <tbody><tr>
+            <td class="label">Formula:</td>
+            <td class="formula">θ = atan2( sin Δλ ⋅ cos φ<sub>2</sub> , cos φ<sub>1</sub> ⋅ sin φ<sub>2</sub>  − sin φ<sub>1</sub> ⋅ cos φ<sub>2</sub> ⋅ cos Δλ )</td>
+        </tr>
+        <tr>
+            <td class="label align-right">where</td>
+            <td><i></i>φ<sub>1</sub><i>,</i>λ<sub>1</sub><i> is the start point,
+                </i>φ<sub>2</sub><i>,</i>λ<sub>2</sub><i> the end point (</i>Δλ<i> is the difference in longitude)</i></td>
+        </tr>
+        <tr>
+            <td class="label">JavaScript:<div class="small grey">(all angles <br>in radians)</div></td>
+            <td><pre class="code prettyprint&gt;">var y = Math.sin(λ2-λ1) * Math.cos(φ2);
+var x = Math.cos(φ1)*Math.sin(φ2) -
+        Math.sin(φ1)*Math.cos(φ2)*Math.cos(λ2-λ1);
+var brng = Math.atan2(y, x).toDegrees();</pre></td>
+        </tr>
+        <tr>
+            <td class="label">Excel:<div class="small grey">(all angles <br>in radians)</div></td>
+            <td class="code nowrap">=ATAN2(COS(lat1)*SIN(lat2)-SIN(lat1)*COS(lat2)*COS(lon2-lon1), <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SIN(lon2-lon1)*COS(lat2))
+                <br><span class="note">*note that Excel reverses the arguments to ATAN2 – see notes below</span>
+            </td>
+        </tr>
+    </tbody></table>
+    <p class="note">Since atan2 returns values in the range -π ... +π (that is, -180° ... +180°), to
+        normalise the result to a compass bearing (in the range 0° ... 360°, with −ve values transformed
+        into the range 180° ... 360°), convert to degrees and then use (θ+360)&nbsp;%&nbsp;360, where %
+        is (floating point) modulo.</p>
+    <p class="note">For final bearing, simply take the <i>initial</i> bearing from the <i>end</i> point
+        to the <i>start</i> point and reverse it (using θ = (θ+180) % 360).</p>
+
+    <h3 id="midpoint">Midpoint</h3>
+
+    <p>This is the half-way point along a great circle path between the two
+        points.<sup><a href="http://mathforum.org/library/drmath/view/51822.html" title="Mathforum derivation">1</a></sup></p>
+    <table>
+        <tbody><tr>
+            <td class="label">Formula:</td>
+            <td class="formula">B<sub>x</sub> = cos φ<sub>2</sub> ⋅ cos Δλ</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">B<sub>y</sub> = cos φ<sub>2</sub> ⋅ sin Δλ</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">φ<sub>m</sub> = atan2( sin φ<sub>1</sub> + sin φ<sub>2</sub>,
+                √<span class="radicand">(cos φ<sub>1</sub> + B<sub>x</sub>)² + B<sub>y</sub>²</span> )</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">λ<sub>m</sub> = λ<sub>1</sub> + atan2(B<sub>y</sub>, cos(φ<sub>1</sub>)+B<sub>x</sub>)</td>
+        </tr>
+        <tr>
+            <td class="label">JavaScript:<div class="small grey">(all angles <br>in radians)</div></td>
+            <td><pre class="code prettyprint&gt;">var Bx = Math.cos(φ2) * Math.cos(λ2-λ1);
+var By = Math.cos(φ2) * Math.sin(λ2-λ1);
+var φ3 = Math.atan2(Math.sin(φ1) + Math.sin(φ2),
+                    Math.sqrt( (Math.cos(φ1)+Bx)*(Math.cos(φ1)+Bx) + By*By ) );
+var λ3 = λ1 + Math.atan2(By, Math.cos(φ1) + Bx);</pre></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="note">The longitude can be normalised to −180…+180 using <code>(lon+540)%360-180</code></td>
+        </tr>
+    </tbody></table>
+
+    <p class="note">Just as the initial bearing may vary from the final bearing, the midpoint may
+        not be located half-way between latitudes/longitudes; the midpoint between 35°N,45°E
+        and 35°N,135°E is around 45°N,90°E.</p>
+
+    <h4 id="intermediate-point">Intermediate point</h4>
+
+    <p>An intermediate point at any fraction along the great circle path between two points can also be
+        calculated.<sup><a href="http://www.edwilliams.org/avform.htm#Intermediate" title="from Ed William’s aviation formulary">1</a></sup></p>
+
+    <table>
+        <tbody><tr>
+            <td class="label">Formula:</td>
+            <td class="formula">a = sin((1−f)⋅δ) / sin δ</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">b = sin(f⋅δ) / sin δ</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">x = a ⋅ cos φ<sub>1</sub> ⋅ cos λ<sub>1</sub> + b ⋅ cos φ<sub>2</sub> ⋅ cos λ<sub>2</sub></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">y = a ⋅ cos φ<sub>1</sub> ⋅ sin λ<sub>1</sub> + b ⋅ cos φ<sub>2</sub> ⋅ sin λ<sub>2</sub></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">z = a ⋅ sin φ<sub>1</sub> + b ⋅ sin φ<sub>2</sub></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">φ<sub>i</sub> = atan2(z, √<span class="radicand">x² + y²)</span></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">λ<sub>i</sub> = atan2(y, x)</td>
+        </tr>
+        <tr>
+            <td class="label align-right">where</td>
+            <td><i></i>f<i> is fraction along great circle route (f=0 is point 1, f=1 is point 2), </i>δ<i> is the angular
+                distance </i>d/R<i> between the two points.</i></td>
+        </tr>
+    </tbody></table>
+    <p>&nbsp;</p>
+
+    <hr>
+
+    <h3 id="dest-point"><b>Destination point given distance and bearing from start point</b></h3>
+
+    <p id="destPoint">Given a start point, initial bearing, and distance, this will calculate the destina­tion point and
+        final bearing travelling along a (shortest distance) great circle arc.</p>
+
+    <form name="ortho-dest" id="ortho-dest">
+        <fieldset><legend>Destination point along great-circle given distance and bearing from start point</legend>
+            <table class="inputs">
+                <tbody><tr>
+                    <td>Start point:</td>
+                    <td>
+                        <input name="lat1" class="lat1" type="text" value="53°19′14″N">,
+                        <input name="lon1" class="lon1" type="text" value="001°43′47″W">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bearing:</td>
+                    <td><input type="text" name="brng" class="brng" value="096°01′18″"></td>
+                </tr>
+                <tr>
+                    <td>Distance:</td>
+                    <td><input name="dist" class="dist" type="number" step="any" value="124.8"> km</td>
+                </tr>
+            </tbody></table>
+            <table class="outputs">
+                <tbody><tr>
+                    <td>Destination point:</td>
+                    <td><output class="result-point" title="Destination point"></output></td>
+                </tr>
+                <tr>
+                    <td>Final bearing:</td>
+                    <td><output class="result-brng" title="Final bearing (azimuth) arriving at point 2"></output></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="toggle-map"><a>view map</a></p>
+                        <p class="toggle-map hide"><a>hide map</a></p>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody></table>
+            <div id="map-ortho-dest-canvas" class="map hide"></div>
+        </fieldset>
+    </form>
+
+    <table>
+        <tbody><tr>
+            <td class="label">Formula: </td>
+            <td class="formula">φ<sub>2</sub> = asin( sin φ<sub>1</sub> ⋅ cos δ + cos φ<sub>1</sub> ⋅ sin δ ⋅ cos θ )</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">λ<sub>2</sub> = λ<sub>1</sub> + atan2( sin θ ⋅ sin δ ⋅ cos φ<sub>1</sub>, cos δ − sin φ<sub>1</sub> ⋅ sin φ<sub>2</sub> )</td>
+        </tr>
+        <tr>
+            <td class="label align-right">where</td>
+            <td><i></i>φ<i> is latitude, </i>λ<i> is longitude, </i>θ<i> is the bearing (clockwise from north),
+                δ is the angular distance </i>d/R<i>; </i>d<i> being the distance travelled, </i>R<i> the earth’s radius</i></td>
+        </tr>
+        <tr>
+            <td class="label">JavaScript:<div class="small grey">(all angles <br>in radians)</div></td>
+            <td><pre class="code prettyprint&gt;">var φ2 = Math.asin( Math.sin(φ1)*Math.cos(d/R) +
+                    Math.cos(φ1)*Math.sin(d/R)*Math.cos(brng) );
+var λ2 = λ1 + Math.atan2(Math.sin(brng)*Math.sin(d/R)*Math.cos(φ1),
+                         Math.cos(d/R)-Math.sin(φ1)*Math.sin(φ2));</pre></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="note">The longitude can be normalised to −180…+180 using <code>(lon+540)%360-180</code></td>
+        </tr>
+        <tr>
+            <td class="label">Excel:<div class="small grey">(all angles <br>in radians)</div></td>
+            <td class="code">lat2: =ASIN(SIN(lat1)*COS(d/R) + COS(lat1)*SIN(d/R)*COS(brng))<br>
+                lon2: =lon1 + ATAN2(COS(d/R)-SIN(lat1)*SIN(lat2), SIN(brng)*SIN(d/R)*COS(lat1))
+                <br><span class="note">* Remember that Excel reverses the arguments to ATAN2 – see notes below</span></td>
+        </tr>
+    </tbody></table>
+
+    <p class="note">For final bearing, simply take the <i>initial</i> bearing from the <i>end</i> point to the <i>start</i>
+        point and reverse it with <code>(brng+180)%360</code>.</p>
+    <p>&nbsp;</p>
+
+    <hr>
+
+    <h3 id="intersection">Intersection of two paths given start points and bearings</h3>
+
+    <p>This is a rather more complex calculation than most others on this page, but I've been asked for it a number of times.
+        This comes from Ed William’s <a href="http://www.edwilliams.org/avform.htm#Intersection">aviation formulary</a>.
+        See below for the JavaScript.</p>
+
+    <form name="intersect" id="intersect">
+        <fieldset><legend>Intersection of two great-circle paths</legend>
+            <table class="inputs">
+                <tbody><tr>
+                    <td>Point 1:</td>
+                    <td>
+                    <input name="lat1" class="lat1" type="text" value="51.8853 N" title="Latitude 1">,
+                    <input name="lon1" class="lon1" type="text" value="0.2545 E" title="Longitude 1">
+                    Brng 1:
+                    <input name="brng1" class="brng1" type="text" value="108.55°" title="Bearing 1">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Point 2:</td>
+                    <td>
+                    <input name="lat2" class="lat2" type="text" value="49.0034 N" title="Latitude 2">,
+                    <input name="lon2" class="lon2" type="text" value="2.5735 E" title="Longitude 2">
+                    Brng 2:
+                    <input name="brng1" class="brng2" type="text" value="32.44°" title="Bearing 2">
+                    </td>
+                </tr>
+            </tbody></table>
+            <table class="outputs">
+                <tbody><tr>
+                    <td>Intersection point:</td>
+                    <td><output class="result-point" title="Intersection point"></output></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p>&nbsp;</p></td>
+                </tr>
+            </tbody></table>
+        </fieldset>
+    </form>
+
+    <table class="clear-floats">
+        <tbody><tr>
+            <td class="label">Formula:</td>
+            <td class="formula">δ<sub>12</sub> = 2⋅asin( √<span class="radicand">(sin²(Δφ/2) + cos φ<sub>1</sub> ⋅ cos φ<sub>2</sub> ⋅ sin²(Δλ/2))</span> )</td>
+            <td class="small grey align-right">angular dist. p1–p2</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">θ<sub>a</sub> = acos( ( sin φ<sub>2</sub>  − sin φ<sub>1</sub> ⋅ cos δ<sub>12</sub> ) / ( sin δ<sub>12</sub> ⋅ cos φ<sub>1</sub> ) )<br>
+                                θ<sub>b</sub> = acos( ( sin φ<sub>1</sub>  − sin φ<sub>2</sub> ⋅ cos δ<sub>12</sub> ) / ( sin δ<sub>12</sub> ⋅ cos φ<sub>2</sub> ) )</td>
+            <td class="small grey align-right">initial / final bearings<br>between points 1 &amp; 2</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">if sin(λ<sub>2</sub>−λ<sub>1</sub>) &gt; 0<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;θ<sub>12</sub> = θ<sub>a</sub><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;θ<sub>21</sub> = 2π − θ<sub>b</sub><br>
+                else<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;θ<sub>12</sub> = 2π − θ<sub>a</sub><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;θ<sub>21</sub> = θ<sub>b</sub></td>
+            <td class="small grey align-right"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">α<sub>1</sub> = θ<sub>13</sub> − θ<sub>12</sub><br>
+                                α<sub>2</sub> = θ<sub>21</sub> − θ<sub>23</sub></td>
+            <td class="small grey align-right">angle p2–p1–p3<br>angle p1–p2–p3</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">α<sub>3</sub> = acos( −cos α<sub>1</sub> ⋅ cos α<sub>2</sub> + sin α<sub>1</sub> ⋅ sin α<sub>2</sub> ⋅ cos δ<sub>12</sub> )</td>
+            <td class="small grey align-right">angle p1–p2–p3</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">δ<sub>13</sub> = atan2( sin δ<sub>12</sub> ⋅ sin α<sub>1</sub> ⋅ sin α<sub>2</sub> , cos α<sub>2</sub> + cos α<sub>1</sub> ⋅ cos α<sub>3</sub> )</td>
+            <td class="small grey align-right">angular dist. p1–p3</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">φ<sub>3</sub> = asin( sin φ<sub>1</sub> ⋅ cos δ<sub>13</sub> + cos φ<sub>1</sub> ⋅ sin δ<sub>13</sub> ⋅ cos θ<sub>13</sub> )</td>
+            <td class="small grey align-right">p3 lat</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">Δλ<sub>13</sub> = atan2( sin θ<sub>13</sub> ⋅ sin δ<sub>13</sub> ⋅ cos φ<sub>1</sub> , cos δ<sub>13</sub> − sin φ<sub>1</sub> ⋅ sin φ<sub>3</sub> )</td>
+            <td class="small grey align-right">long p1–p3</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formula">λ<sub>3</sub> = λ<sub>1</sub> + Δλ<sub>13</sub></td>
+            <td class="small grey align-right">p3 long</td>
+        </tr>
+      <tr>
+        <td class="label align-right"><i>where</i></td>
+        <td><p><i>φ<sub>1</sub>, λ<sub>1</sub>, θ<sub>13</sub> : 1st start point &amp; (initial) bearing from 1st point towards intersection point<br>
+          φ<sub>2</sub>, λ<sub>2</sub>, θ<sub>23</sub> : 2nd start point &amp; (initial) bearing from 2nd point towards intersection point<br>
+          φ<sub>3</sub>, λ<sub>3</sub> : intersection point</i></p>
+            <p><i>% = (floating point) modulo<!--, | | = abs--></i></p></td>
+      </tr>
+      <tr>
+        <td class="label align-right">note –</td>
+        <td>if sin α<sub>1</sub> = 0 and sin α<sub>2</sub> = 0: infinite solutions<br>
+          if sin α<sub>1</sub> ⋅ sin α<sub>2</sub>  &lt; 0: ambiguous solution<br>
+          this formulation is not always well-conditioned for meridional or equatorial lines</td>
+      </tr>
+    </tbody></table>
+<p>This is a lot simpler using vectors rather than spherical trigonometry:
+    see <a href="https://www.movable-type.co.uk/scripts/latlong-vectors.html#intersection">latlong-vectors.html</a>.</p>
+<hr>
+
+<h3 id="cross-track">Cross-track distance</h3>
+
+<p>Here’s a new one:  I’ve sometimes been asked about distance of a point from a great-circle path
+    (sometimes called cross track error).</p>
+
+<table>
+    <tbody><tr>
+        <td class="label">Formula: </td>
+        <td class="formula">d<sub>xt</sub> = asin( sin(δ<sub>13</sub>) ⋅ sin(θ<sub>13</sub>−θ<sub>12</sub>) ) ⋅ R</td>
+    </tr>
+    <tr>
+        <td class="label align-right"><i>where</i></td>
+        <td><i>
+            δ<sub>13</sub> is (angular) distance from start point to third point<br>
+            θ<sub>13</sub> is (initial) bearing from start point to third point<br>
+            θ<sub>12</sub> is (initial) bearing from start point to end point<br>
+            R is the earth’s radius<br>
+            </i>
+        </td>
+    </tr>
+    <tr>
+        <td class="label">JavaScript:</td>
+        <td><pre class="code prettyprint&gt;">var δ13 = d13 / R;
+var dXt = Math.asin(Math.sin(δ13)*Math.sin(θ13-θ12)) * R;</pre></td>
+    </tr>
+</tbody></table>
+
+<p>Here, the great-circle path is identified by a start point and an end point – depending on what initial data you’re working from,
+    you can use the formulas above to obtain the relevant distance and bearings.
+    The sign of d<sub>xt</sub> tells you which side of the path the third point is on.</p>
+<p>The along-track distance, from the start point to the closest point on the path to the third point, is</p>
+<table>
+    <tbody><tr>
+        <td class="label">Formula: </td>
+        <td class="formula">d<sub>at</sub> = acos( cos(δ<sub>13</sub>) / cos(δ<sub>xt</sub>) ) ⋅ R</td>
+    </tr>
+    <tr>
+        <td class="label align-right"><i>where</i></td>
+        <td><i>
+            δ<sub>13</sub> is (angular) distance from start point to third point<br>
+            δ<sub>xt</sub> is (angular) cross-track distance<br>
+            R is the earth’s radius<br>
+            </i>
+        </td>
+    </tr>
+    <tr>
+        <td class="label">JavaScript:</td>
+        <td><pre class="code prettyprint&gt;">var δ13 = d13 / R;
+var dAt = Math.acos(Math.cos(δ13)/Math.cos(dXt/R)) * R;</pre></td>
+    </tr>
+</tbody></table>
+
+<h3 id="clairaut">Closest point to the poles</h3>
+
+<p>And: ‘Clairaut’s formula’ will give you the maximum latitude of a great circle path,
+  given a bearing θ and latitude φ on the great circle:
+</p><table>
+    <tbody><tr>
+        <td class="label">Formula: </td>
+        <td class="formula">φ<sub>max</sub> = acos( | sin θ ⋅ cos φ | )</td>
+    </tr>
+    <tr>
+        <td class="label">JavaScript:</td>
+        <td><pre class="code prettyprint&gt;">var φMax = Math.acos(Math.abs(Math.sin(θ)*Math.cos(φ)));</pre></td>
+    </tr>
+</tbody></table>
+<p>&nbsp;</p>
+
+<hr>
+
+<h3 id="rhumblines">Rhumb lines</h3>
+
+<p>A ‘rhumb line’ (or loxodrome) is a path of constant bearing, which crosses all meridians at the
+    same angle.</p>
+<p>Sailors used to (and sometimes still) navigate along rhumb lines since it is easier to follow
+    a constant compass  bearing than to be continually adjusting the bearing, as is needed to follow
+    a great circle. Rhumb lines are straight lines on a Mercator Projec­tion map (also helpful for
+    naviga­tion).</p>
+<p>Rhumb lines are generally longer than great-circle (orthodrome) routes. For instance, London to New
+    York is  4% longer along a rhumb line than along a great circle – important for avia­tion fuel,
+    but not particularly to sailing vessels. New York to Beijing – close to the most extreme example
+    possible (though not sailable!) – is 30% longer along a rhumb line.</p>
+
+<form name="rhumb-dist" id="rhumb-dist">
+    <fieldset><legend>Rhumb-line distance between two points</legend>
+        <table class="inputs">
+            <tbody><tr>
+                <td>Point 1:</td>
+                <td>
+                <input name="lat1" class="lat1" type="text" value="50 21 59N" title="Latitude 1">,
+                <input name="lon1" class="lon1" type="text" value="004 08 02W" title="Longitude 1">
+                </td>
+            </tr>
+            <tr>
+                <td>Point 2:</td>
+                <td>
+                <input name="lat2" class="lat2" type="text" value="42 21 04N" title="Latitude 2">,
+                <input name="lon2" class="lon2" type="text" value="071 02 27W" title="Longitude 2">
+                </td>
+            </tr>
+        </tbody></table>
+        <table class="outputs">
+            <tbody><tr>
+                <td>Distance:</td>
+                <td><output class="result-dist" title="Distance (in km)"></output> km</td>
+            </tr>
+            <tr>
+                <td>Bearing:</td>
+                <td><output class="result-brng" title="Bearing (azimuth) between points"></output></td>
+            </tr>
+            <tr>
+                <td>Midpoint:</td>
+                <td><output class="result-midpt" title="Midpoint between points"></output></td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="toggle-map"><a>view map</a></p>
+                    <p class="toggle-map hide"><a>hide map</a></p>
+                </td>
+                <td></td>
+            </tr>
+        </tbody></table>
+        <div id="map-rhumb-dist-canvas" class="map hide"></div>
+    </fieldset>
+</form>
+
+<form name="rhumb-dest" id="rhumb-dest" class="demo">
+    <fieldset><legend>Destination point along rhumb line given distance and bearing from start point</legend>
+        <table class="inputs">
+            <tbody><tr>
+                <td>Start point:</td>
+                <td>
+                    <input name="lat1" class="lat1" type="text" value="51 07 32N">,
+                    <input name="lon1" class="lon1" type="text" value="001 20 17E">
+                </td>
+            </tr>
+            <tr>
+                <td>Bearing:</td>
+                <td><input name="brng" class="brng" type="text" value="116°38′10"></td>
+            </tr>
+            <tr>
+                <td>Distance:</td>
+                <td><input name="dist" class="dist" type="number" step="any" value="40.23">
+                km</td>
+            </tr>
+        </tbody></table>
+        <table class="outputs">
+            <tbody><tr>
+                <td>Destination point:</td>
+                <td><output class="result-point" title="Destination points"></output></td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="toggle-map"><a>view map</a></p>
+                    <p class="toggle-map hide"><a>hide map</a></p>
+                </td>
+                <td></td>
+            </tr>
+        </tbody></table>
+        <div id="map-rhumb-dest-canvas" class="map hide"></div>
+        <p>&nbsp;</p>
+    </fieldset>
+</form>
+
+<p>Key to calculations of rhumb lines is the <i>inverse Gudermannian
+    func­tion</i><a href="http://mathworld.wolfram.com/InverseGudermannian.html">¹</a>, which gives
+    the height on a Mercator projec­tion map of a given latitude:
+    <span class="formula">ln(tanφ + secφ)</span> or <span class="formula">ln( tan(π/4+φ/2) )</span>.
+    This of course tends to infinity at the poles (in keeping with the Mercator projec­tion).
+    <span class="grey">For obsessives, there is even an ellipsoidal version, the ‘isometric latitude’:
+    <span class="formula">ψ = ln( tan(π/4+φ/2) / [ (1−e⋅sinφ) / (1+e⋅sinφ)&nbsp;]<sup>e/2</sup>)</span>,
+    or its better-conditioned equivalent <span class="formula">ψ = atanh(sinφ) − e⋅atanh(e⋅sinφ)</span>.</span>
+</p>
+<p>The formulas to derive Mercator projection easting and northing coordinates from spherical latitude
+    and longitude are then<a href="http://www.epsg.org/guides/docs/g7-2.pdf">¹</a></p>
+<table class="width-full">
+    <tbody><tr>
+        <td></td>
+        <td class="formula">E = R ⋅ λ</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">N = R ⋅ ln( tan(π/4 + φ/2) )</td>
+    </tr>
+</tbody></table>
+<p>The following formulas are from Ed Williams’ aviation formulary.<a href="http://www.edwilliams.org/avform.htm#Rhumb">¹</a></p>
+
+<h4 id="rhumb-distance">Distance</h4>
+
+<p>Since a rhumb line is a straight line on a Mercator projec­tion, the distance between two points
+    along a rhumb line is the length of that line (by Pythagoras); but the distor­tion of the
+    projec­tion needs to be compensated for.</p>
+<p>On a constant latitude course (travelling east-west), this compensa­tion is simply
+    <span class="formula">cosφ</span>; in the general case, it is <span class="formula">Δφ/Δψ</span>
+    where <span class="formula">Δψ = ln( tan(π/4 + φ<sub>2</sub>/2) / tan(π/4 + φ<sub>1</sub>/2) )</span>
+    (the ‘projected’ latitude difference)</p>
+<table class="width-full">
+    <tbody><tr>
+        <td class="label">Formula: </td>
+        <td class="formula">Δψ = ln( tan(π/4 + φ<sub>2</sub>/2) / tan(π/4 + φ<sub>1</sub>/2) )</td>
+        <td class="small grey align-right">(‘projected’ latitude difference)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">q = Δφ/Δψ (or cosφ for E-W line)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">d = √<span class="radicand">(Δφ² + q²⋅Δλ²)</span> ⋅ R</td>
+        <td class="small grey align-right">(Pythagoras)</td>
+    </tr>
+    <tr>
+        <td class="label align-right">where</td>
+        <td colspan="2">φ <i>is latitud</i>e, λ <i>is longitude</i>,
+            Δλ<i> is taking shortest route (&lt;180°),
+            </i>R<i> is the earth’s radius</i>, ln<i> is natural log</i></td>
+    </tr>
+    <tr>
+        <td class="label">JavaScript:<div class="small grey">(all angles <br>in radians)</div></td>
+        <td colspan="2"><pre class="code prettyprint&gt;">var Δψ = Math.log(Math.tan(Math.PI/4+φ2/2)/Math.tan(Math.PI/4+φ1/2));
+var q = Math.abs(Δψ) &gt; 10e-12 ? Δφ/Δψ : Math.cos(φ1); // E-W course becomes ill-conditioned with 0/0
+
+// if dLon over 180° take shorter rhumb line across the anti-meridian:
+if (Math.abs(Δλ) &gt; Math.PI) Δλ = Δλ&gt;0 ? -(2*Math.PI-Δλ) : (2*Math.PI+Δλ);
+
+var dist = Math.sqrt(Δφ*Δφ + q*q*Δλ*Δλ) * R;</pre>
+        </td>
+    </tr>
+</tbody></table>
+
+<h4 id="rhumb-bearing">Bearing</h4>
+
+<p>A rhumb line is a straight line on a Mercator projection, with an angle on the projec­tion equal
+    to the compass bearing.</p>
+
+<table class="width-full">
+    <tbody><tr>
+        <td class="label">Formula: </td>
+        <td class="formula">Δψ = ln( tan(π/4 + φ<sub>2</sub>/2) / tan(π/4 + φ<sub>1</sub>/2) )</td>
+        <td class="small grey align-right">(‘projected’ latitude difference)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">θ = atan2(Δλ, Δψ)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="label align-right">where</td>
+        <td colspan="2">φ <i>is latitud</i>e, λ <i>is longitude</i>,
+            Δλ<i> is taking shortest route (&lt;180°),
+            </i>R<i> is the earth’s radius</i>, ln<i> is natural log</i></td>
+    </tr>
+    <tr>
+        <td class="label">JavaScript:<div class="small grey">(all angles <br>in radians)</div></td>
+        <td colspan="2"><pre class="code prettyprint&gt;">var Δψ = Math.log(Math.tan(Math.PI/4+φ2/2)/Math.tan(Math.PI/4+φ1/2));
+
+// if dLon over 180° take shorter rhumb line across the anti-meridian:
+if (Math.abs(Δλ) &gt; Math.PI) Δλ = Δλ&gt;0 ? -(2*Math.PI-Δλ) : (2*Math.PI+Δλ);
+
+var brng = Math.atan2(Δλ, Δψ).toDegrees();</pre></td>
+    </tr>
+</tbody></table>
+
+<h4 id="rhumb-destination">Destination</h4>
+
+<p>Given a start point and a distance <i>d</i> along constant bearing <i>θ</i>, this will calculate
+    the destina­tion point. If you maintain a constant bearing along a rhumb line, you will gradually
+    spiral in towards one of the poles. </p>
+<table class="width-full">
+    <tbody><tr>
+        <td class="label">Formula: </td>
+        <td class="formula">δ = d/R</td>
+        <td class="small grey align-right">(angular distance)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">φ<sub>2</sub> = φ<sub>1</sub> + δ ⋅ cos θ</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">Δψ = ln( tan(π/4 + φ<sub>2</sub>/2) / tan(π/4 + φ<sub>1</sub>/2) )</td>
+        <td class="small grey align-right">(‘projected’ latitude difference)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">q = Δφ/Δψ (or cos φ for E-W line)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">Δλ = δ ⋅ sin θ / q</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">λ<sub>2</sub> = λ<sub>1</sub> + Δλ</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="label align-right">where</td>
+        <td colspan="2">φ <i>is latitude</i>, λ <i>is longitude</i>, Δλ <i>is taking shortest route
+            (&lt;180°), </i>ln<i> is natural log, </i>R<i> is the earth’s radius</i></td>
+    </tr>
+    <tr>
+        <td class="label">JavaScript:<div class="small grey">(all angles <br>in radians)</div></td>
+        <td colspan="2"><pre class="code prettyprint&gt;">var δ = d/R;
+var Δφ = δ * Math.cos(θ);
+var φ2 = φ1 + Δφ;
+
+var Δψ = Math.log(Math.tan(φ2/2+Math.PI/4)/Math.tan(φ1/2+Math.PI/4));
+var q = Math.abs(Δψ) &gt; 10e-12 ? Δφ / Δψ : Math.cos(φ1); // E-W course becomes ill-conditioned with 0/0
+
+var Δλ = δ*Math.sin(θ)/q;
+var λ2 = λ1 + Δλ;
+
+// check for some daft bugger going past the pole, normalise latitude if so
+if (Math.abs(φ2) &gt; Math.PI/2) φ2 = φ2&gt;0 ? Math.PI-φ2 : -Math.PI-φ2;</pre></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="2" class="note">The longitude can be normalised to −180…+180 using <code>(lon+540)%360-180</code></td>
+    </tr>
+</tbody></table>
+
+<h4>Mid-point</h4>
+
+<p>This formula for calculating the ‘loxodromic midpoint’, the point half-way along a rhumb line
+    between two points, is due to Robert Hill and Clive
+    Tooth<sup><a href="http://mathforum.org/kb/message.jspa?messageID=148837">1</a></sup> (thx
+    Axel!).</p>
+
+<table>
+    <tbody><tr>
+        <td class="label">Formula: </td>
+        <td class="formula">φ<sub>m</sub> = (φ<sub>1</sub>+φ<sub>2</sub>) / 2</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">f<sub>1</sub> = tan(π/4 + φ<sub>1</sub>/2)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">f<sub>2</sub> = tan(π/4 + φ<sub>2</sub>/2)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">f<sub>m</sub> = tan(π/4+φ<sub>m</sub>/2)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="formula">λ<sub>m</sub> = [ (λ<sub>2</sub>−λ<sub>1</sub>) ⋅ ln(f<sub>m</sub>) +
+            λ<sub>1</sub> ⋅ ln(f<sub>2</sub>) − λ<sub>2</sub> ⋅ ln(f<sub>1</sub>) ] /
+            ln(f<sub>2</sub>/f<sub>1</sub>)</td>
+    </tr>
+    <tr>
+        <td class="label align-right">where</td>
+        <td>φ <i>is latitude</i>, λ <i>is longitude</i>, ln <i>is natural log</i></td>
+    </tr>
+    <tr>
+        <td class="label">JavaScript:<div class="small grey">(all angles <br>in radians)</div></td>
+        <td>
+            <pre class="code prettyprint&gt;">if (Math.abs(λ2-λ1) &gt; Math.PI) λ1 += 2*Math.PI; // crossing anti-meridian
+
+var φ3 = (φ1+φ2)/2;
+var f1 = Math.tan(Math.PI/4 + φ1/2);
+var f2 = Math.tan(Math.PI/4 + φ2/2);
+var f3 = Math.tan(Math.PI/4 + φ3/2);
+var λ3 = ( (λ2-λ1)*Math.log(f3) + λ1*Math.log(f2) - λ2*Math.log(f1) ) / Math.log(f2/f1);
+
+if (!isFinite(λ3)) λ3 = (λ1+λ2)/2; // parallel of latitude</pre>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="note">The longitude can be normalised to −180…+180 using <code>(lon+540)%360-180</code></td>
+    </tr>
+</tbody></table>
+<hr>
+
+<h3 id="using">Using the scripts in web pages</h3>
+
+<p>Using these scripts in web pages would be something like the following:</p>
+<pre class="prettyprint margin-l-1cm">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Using the scripts in web pages&lt;/title&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;script type="module"&gt;
+        import LatLon from 'https://cdn.jsdelivr.net/npm/geodesy@2/latlon-spherical.min.js';
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('#calc-dist').onclick = function() {
+                calculateDistance();
+            }
+        });
+        function calculateDistance() {
+            const p1 = LatLon.parse(document.querySelector('#point1').value);
+            const p2 = LatLon.parse(document.querySelector('#point2').value);
+            const dist = parseFloat(p1.distanceTo(p2).toPrecision(4));
+            document.querySelector('#result-distance').textContent = dist + ' metres';
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form&gt;
+    Point 1: &lt;input type="text" name="point1" id="point1" placeholder="lat1,lon1"&gt;
+    Point 2: &lt;input type="text" name="point2" id="point2" placeholder="lat2,lon2"&gt;
+    &lt;button type="button" id="calc-dist"&gt;Calculate distance&lt;/button&gt;
+    &lt;output id="result-distance"&gt;&lt;/output&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<hr>
+
+<h3 id="convert-dec-dms">Convert between degrees-minutes-seconds &amp; decimal degrees</h3>
+
+<form name="convert" id="convert">
+    <table class="note">
+        <tbody><tr>
+            <td></td>
+            <td>Latitude</td>
+            <td>Longitude</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>d</td>
+            <td><input type="text" name="lat-d" id="lat-d" value="51.47788" class="convert-lat note w8"></td>
+            <td><input type="text" name="lon-d" id="lon-d" value="-0.00147" class="convert-lon note w8"></td>
+            <td colspan="2">1° ≈ 111 km <span class="grey">(110.57 eq’l — 111.70 polar)</span></td>
+        </tr>
+        <tr>
+            <td>dm</td>
+            <td><input type="text" name="lat-dm" id="lat-dm" class="convert-lat note w8"></td>
+            <td><input type="text" name="lon-dm" id="lon-dm" class="convert-lon note w8"></td>
+            <td>1′ ≈ 1.85 km <span class="grey">(= 1 nm)</span></td>
+            <td>0.01° ≈ 1.11 km</td>
+        </tr>
+        <tr>
+            <td>dms</td>
+            <td><input type="text" name="lat-dms" id="lat-dms" class="convert-lat note w8"></td>
+            <td><input type="text" name="lon-dms" id="lon-dms" class="convert-lon note w8"></td>
+            <td>1″ ≈ 30.9 m</td>
+            <td>0.0001° ≈ 11.1 m</td>
+        </tr>
+    </tbody></table>
+</form>
+
+<form>Display calculation results as:
+    <input type="radio" name="deg-format" id="deg-format-d" value="d"> <span title="decimal">degrees</span>
+    <input type="radio" name="deg-format" id="deg-format-dm" value="dm"> <span title="sow’s ear">deg/min</span>
+    <input type="radio" name="deg-format" id="deg-format-dms" value="dms"> <span title="sexagesimal">deg/min/sec</span>
+</form>
+
+<hr>
+
+<p id="notes"><i>Notes:</i></p>
+<ul class="note">
+    <li id="ellipsoid">Accuracy: since the earth is not quite a sphere, there are small errors in
+        using spherical geometry; the earth is actually roughly <b>ellipsoidal</b> (or more precisely,
+        oblate spheroidal) with a radius varying between about 6,378km (equatorial) and 6,357km (polar),
+        and local radius of curvature varying from 6,336km (equatorial meridian) to 6,399km (polar).
+        6,371 km is the generally accepted value for the earth’s
+        <a href="https://en.wikipedia.org/wiki/Earth_radius#Mean_radius">mean radius</a>. This means that errors
+        from assuming spherical geometry might be up to 0.55% crossing the equator, though generally
+        below 0.3%, depending on latitude and direction of travel (<i>whuber</i> explores this in excellent
+        detail on <a href="http://gis.stackexchange.com/questions/25494#25580">stackexchange</a>).
+        An accuracy of better than 3m in 1km is mostly good enough for me, but if you want greater
+        accuracy, you could use the <a href="https://www.movable-type.co.uk/scripts/latlong-vincenty.html">Vincenty</a> formula for
+        calculating geodesic distances on ellipsoids, which gives results accurate to within 1mm.
+        (Out of sheer perversity – I’ve never needed such accuracy – I looked up this formula and
+        discovered the JavaScript implementation was simpler than I expected).</li>
+    <li>Trig functions take arguments in <b>radians</b>, so latitude, longitude, and bearings in
+        <b>degrees</b> (either decimal or degrees/minutes/seconds) need to be converted to radians,
+        rad = π.deg/180. When converting radians back to degrees (deg = 180.rad/π), West is negative
+        if using signed decimal degrees. For bearings, values in the range -π to +π [-180° to +180°]
+        need to be converted to 0 to +2π [0°–360°]; this can  be done by (brng+2.π)%2.π [or
+        brng+360)%360] where % is the (floating point) modulo operator (note that different languages
+        implement the <a href="https://en.wikipedia.org/wiki/Modulo_operation">modulo operation</a>
+        in different ways).</li>
+    <li>All bearings are with respect to <b>true north</b>, 0°=N, 90°=E, etc; if you are working
+        from a compass, magnetic north varies from true north in a complex way around the earth,
+        and the difference has to be compensated for by variances indicated on local maps.</li>
+    <li>The <b>atan2</b>() function widely used here takes two arguments, atan2(y, x), and computes
+        the arc tangent of the ratio y/x. It is more flexible than atan(y/x), since it handles x=0,
+        and it also returns values in all 4 quadrants -π to +π (the atan function returns values
+        in the range -π/2 to +π/2).</li>
+    <li>If you implement any formula involving atan2 in a spreadsheet (Microsoft <b>Excel</b>,
+        LibreOffice Calc, Google Sheets, Apple Numbers), you will need to reverse  the arguments, as
+        <a href="http://office.microsoft.com/en-gb/excel/HP052089911033.aspx">Excel</a> etc have them
+        the opposite way around from <a href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Math/atan2">JavaScript</a>
+        – conventional order is atan2(y, x), but Excel uses atan2(x, y). To use atan2 in a (VBA) macro,
+        you can use WorksheetFunction.Atan2(). </li>
+    <li>If you are using <b>Google Maps</b>, several of these functions are now provided in the Google
+        Maps API V3 ‘spherical’ library (computeDistanceBetween(), computeHeading(), computeOffset(),
+        interpolate(), etc; note they use a default Earth radius of 6,378,137 meters).</li>
+    <li>If you use UK Ordnance Survey Grid References, I have implemented a script for
+        <a href="https://www.movable-type.co.uk/scripts/latlong-os-gridref.html">converting between Lat/Long &amp; OS Grid References</a>.</li>
+    <li>If you use UTM coordinates or MGRS grid references, I have implemented scripts for
+        <a href="https://www.movable-type.co.uk/scripts/latlong-utm-mgrs.html">converting between Lat/Long, UTM, &amp; MGRS</a>.</li>
+    <li>I learned a lot from the US Census Bureau <a href="https://www.movable-type.co.uk/scripts/gis-faq-5.1.html">GIS FAQ</a> which is no
+        longer available, so I’ve made a copy.</li>
+    <li>Thanks to Ed Williams’ <a href="http://www.edwilliams.org/avform.htm">Aviation Formulary</a>
+        for many of the formulas.</li>
+    <li>For <b>miles</b>, divide km by 1.609344</li>
+    <li>For <b>nautical miles</b>, divide km by 1.852</li>
+</ul>
+
+<hr class="fullwidth">
+
+<p id="postscript">See below for the JavaScript source code,
+    also available on <a href="https://github.com/chrisveness/geodesy">GitHub</a>. Full
+    <a href="https://www.movable-type.co.uk/scripts/geodesy-library.html">documentation</a> is available, as well as a
+    <a href="https://www.movable-type.co.uk/scripts/test/geodesy-test.html">test suite</a>.</p>
+<p>Note I use Greek letters in variables representing maths symbols conventionally presented as Greek letters:
+    I value the great benefit in legibility over the minor inconvenience in typing (if you
+    encounter any problems, ensure your <code>&lt;head&gt;</code> includes <code>&lt;meta charset="utf-8"&gt;</code>),
+    and use UTF-8 encoding when saving files).</p>
+<p>With its untyped C-style syntax, JavaScript reads remarkably close to pseudo-code: exposing the
+    algorithms with a minimum of syntactic distractions. These functions should be simple to
+    translate into other languages if required, though can also be used as-is in browsers and Node.js.</p>
+<p>I have extended the base JavaScript Number object with toRadians() and toDegrees() methods:
+    I don’t see great likelihood of conflicts, as these are ubiquitous operations.</p>
+<p>I also have a page illustrating the use of the spherical law of cosines for <a href="https://www.movable-type.co.uk/scripts/latlong-db.html">selecting
+    points from a database</a> within a specified bounding circle – the example is based on MySQL+PDO,
+    but should be extensible to other DBMS platforms.</p>
+<p id="spreadsheets">Several people have asked about example <b>Excel</b> spreadsheets, so I have implemented the
+    <a href="https://www.movable-type.co.uk/scripts/latlong-distance+bearing.xls">distance &amp; bearing</a> and the <a href="https://www.movable-type.co.uk/scripts/latlong-dest-point.xls">destination
+    point</a> formulas as spreadsheets, in a form which breaks down the all stages involved to illustrate
+    the operation.</p>
+<p><i>February 2019</i>: I have refactored the library to use ES modules, as well as extending it in
+    scope; see the <a href="https://github.com/chrisveness/geodesy">GitHub</a> README and CHANGELOG for details.</p>
+<p>Performance: as noted above, the haversine distance calculation takes around
+    <a href="https://www.movable-type.co.uk/scripts/performance/latlong-spherical.html">2 – 5 micro­seconds</a> (hence around 200,000 –
+    500,000 per second). I have yet to complete timing tests on other calculations.</p>
+<p id="other-languages"><b>Other languages</b>: I cannot support translations into other languages, but if you have ported
+    the code to another language, I am happy to provide links here.</p>
+<ul>
+    <li>Brian Lambert has made an <a href="https://github.com/softwarenerd/GreatCircle">Objective-C</a> version.</li>
+    <li>Jean Brouwers has made a <a href="https://github.com/mrJean1/PyGeodesy">Python</a> version.</li>
+    <li>Vahan Aghajanyan has made a <a href="https://github.com/vahancho/erkir">C++</a> version.</li>
+</ul>
+<p id="licence"><a href="http://opensource.org/licenses/MIT" class="float-right"><img src="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/license-osi-mit.png" alt="OSI MIT License"></a>
+    I offer these scripts for free use and adaptation to balance my debt to the open-source info-verse.
+    You are welcome to re-use these scripts [under an <a href="http://opensource.org/licenses/MIT">MIT</a> licence,
+    without any warranty express or implied] provided solely that you retain my copyright notice and a link to this page.</p>
+<p id="donate"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=3737803" class="float-right">
+        <img alt="Paypal donation" style="margin:4px" src="./Calculate distance and bearing between two Latitude_Longitude points using haversine formula in JavaScript_files/btn_donate_SM.gif"></a>
+    If you would like to show your appreciation and support continued development of these scripts,
+    I would most gratefully accept <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=3737803" title="Thank you!">donations</a>.</p>
+<p>If you need any advice or development work done, I am available for consultancy.</p>
+<p>If you have any queries or find any problems, contact me at <span class="rtl">ku.oc.epyt-elbavom@oeg-stpircs</span>.</p>
+<p class="note"><i>© 2002-2019 Chris Veness</i></p>
+
+</main>
+
+<hr class="fullwidth">
+<pre class="fullwidth code prettyprint" id="latlon-src"></pre>
+
+<hr class="fullwidth">
+<pre class="fullwidth code prettyprint" id="dms-src"></pre>
+
+
+
+</body></html>
